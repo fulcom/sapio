@@ -1,0 +1,16 @@
+class SubscriptionsController < ApplicationController
+  before_action :set_subscription, only: [:show]
+
+  def index
+    @subscriptions = Subscription.all
+  end
+
+  def show
+  end
+
+  private
+
+  def set_subscription
+    @subscription = Subscription.find(parems[:id])
+  end
+end
