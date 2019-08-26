@@ -30,8 +30,8 @@ platinum = Subscription.create!(name:"platinum", price:300 , description:"tout i
   photo_one:"../app/assets/images/decouverte_beaubourg1.jpg",
   photo_two:"../app/assets/images/decouverte_beaubourg2.jpg",
   photo_three:"../app/assets/images/decouverte_beaubourg3.jpg",
-  start_date: 30/08/2019,
-  end_date: 30/01/2019,
+  start_date: 2019,8,30
+  end_date: 2019,1,30
   avg_rating: 5,
   place:beaubourg,
   subscription: silver)
@@ -43,8 +43,8 @@ exposition_beaubourg = Activity.create!(
   photo_one:"../app/assets/images/exposition_beaubourg1.jpg",
   photo_two:"../app/assets/images/exposition_beaubourg2.jpg",
   photo_three:"../app/assets/images/exposition_beaubourg3.jpg",
-  start_date: 08/05/2019,
-  end_date: 16/09/2019,
+  start_date: 2019,5,8
+  end_date: 2019,9,16
   avg_rating: 5,
   place: beaubourg,
   subscription: silver)
@@ -56,8 +56,8 @@ once_upon_a_time = Activity.create!(
   photo_one:"../app/assets/images/cine_beaugrenelle1.jpg",
   photo_two:"",
   photo_three:"",
-  start_date: 26/08/2019,
-  end_date: 29/08/2019,
+  start_date: 2019,8,26
+  end_date: 2019,8,29
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
@@ -69,8 +69,8 @@ fast_and_furious = Activity.create!(
   photo_one:"",
   photo_two:"../app/assets/images/cine_beaugrenelle2.jpg",
   photo_three:"../app/assets/images/cine_beaugrenelle3.jpg",
-  start_date: 26/08/2019,
-  end_date: 27/08/2019,
+  start_date: 2019,8,26
+  end_date: 2019,8,27
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
@@ -82,8 +82,8 @@ casse_noisette = Activity.create!(
   photo_one: "../app/assets/images/casse_noisette_1",
   photo_two: "../app/assets/images/casse_noisette_2",
   photo_three: "../app/assets/images/casse_noisette_3",
-  start_date: 01/12/2019,
-  end_date: 30/12/2019,
+  start_date: 2019,12,1
+  end_date: 2019,12,30
   avg_rating: 5,
   place: garnier,
   subscription: platinum)
@@ -95,8 +95,8 @@ traviata = Activity.create!(
   photo_one: "../app/assets/images/traviata-1",
   photo_two: "../app/assets/images/traviata-2",
   photo_three: "../app/assets/images/traviata-3",
-  start_date: 01/08/2019,
-  end_date: 15/09/2019,
+  start_date: 2019,8,1
+  end_date: 2019,9,15
   avg_rating: 5,
   place: garnier,
   subscription: platinum)
@@ -108,8 +108,8 @@ jl_aubert = Activity.create!(
   photo_one: "../app/assets/images/jl_aubert",
   photo_two: "../app/assets/images/bataclan",
   photo_three: "../app/assets/images/jl_aubert_1",
-  start_date: 20/08/2019,
-  end_date: 21/08/2019,
+  start_date: 2019,8,20
+  end_date: 2019,8,21
   avg_rating: 5,
   place: bataclan,
   subscription: gold)
@@ -121,8 +121,8 @@ oh_sees = Activity.create!(
   photo_one: "../app/assets/images/oh_sees",
   photo_two: "../app/assets/images/bataclan",
   photo_three: "../app/assets/images/oh_sees_1",
-  start_date: 01/09/2019,
-  end_date: 02/09/2019,
+  start_date: 2019,9,1
+  end_date: 2019,9,2
   avg_rating: 5,
   place: bataclan,
   subscription: gold)
@@ -135,8 +135,8 @@ docteur_miracle = Activity.create!(
   photo_one: "../app/assets/images/docteur_miracle",
   photo_two: "../app/assets/images/marigny_logo",
   photo_three: "../app/assets/images/marigny_salle",
-  start_date: 20/08/2019,
-  end_date: 21/08/2019,
+  start_date: 2019,8,20
+  end_date: 2019,8,21
   avg_rating: 5,
   place: marigny,
   subscription: gold)
@@ -148,81 +148,81 @@ funny_girl = Activity.create!(
   photo_one: "../app/assets/images/funny_girl",
   photo_two: "../app/assets/images/marigny_logo",
   photo_three: "../app/assets/images/marigny_salle",
-  start_date: 20/08/2019,
-  end_date: 30/09/2019,
+  start_date: 2019,8,20
+  end_date: 2019,9,30
   avg_rating: 5,
   place: marigny,
   subscription: gold)
 
 # Users
 alice = User.create!(
-  first_name: “Alice”,
-  last_name: “Fabre”,
-  phone_number: “06 78 19 59 57”,
-  city: “Paris”,
-  email: “alice@gmail.com”,
+  first_name: "Alice",
+  last_name: "Fabre",
+  phone_number: "06 78 19 59 57",
+  city: "Paris",
+  email: "alice@gmail.com",
   password: "123456",
   photo: 'https://avatars0.githubusercontent.com/u/51875307?v=4')
 
 charles = User.create!(
-  first_name: “Charles”,
-  last_name: “Dieulefet”,
-  address: “29 rue Legendre”,
-  zip_code: ‘75017’,
-  city: “Paris”,
-  email: “charles@gmail.com”,
+  first_name: "Charles",
+  last_name: "Dieulefet",
+  address: "29 rue Legendre",
+  zip_code: "75017",
+  city: "Paris",
+  email: "charles@gmail.com",
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/51363551?v=4")
 
 maxime = User.create!(
-  first_name: “Maxime”,
-  last_name: “Fulconis”,
-  city: “Paris”,
-  email: “maxime@gmail.com”,
+  first_name: "Maxime",
+  last_name: "Fulconis",
+  city: "Paris",
+  email: "maxime@gmail.com",
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/49551009?v=4")
 
 isabelle = User.create!(
-  first_name: “Isabelle”,
-  last_name: “Leclaire”,
-  city: “Paris”,
-  email: “isabelle@gmail.com”,
+  first_name: "Isabelle",
+  last_name: "Leclaire",
+  city: "Paris",
+  email: "isabelle@gmail.com",
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/49897862?v=4")
 
 # Places
 beaubourg = Place.create!(
-  name: “Centre Pompidou”,
-  address: “Place Georges-Pompidou”,
-  city: “Paris”,
+  name: "Centre Pompidou",
+  address: "Place Georges-Pompidou",
+  city: "Paris",
   zip_code: "75004",
   access: "Métro: Rambuteau (ligne 11) Hôtel de Ville (lignes 1 et 11) Châtelet (lignes 1, 4, 7, 11 et 14) RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
 
 marigny = Place.create!(
-  name: “Théâtre Marigny”,
-  address: “Carré Marigny”,
-  city: “Paris”,
-  zip_code: “75008”,
+  name: "Théâtre Marigny",
+  address: "Carré Marigny",
+  city: "Paris",
+  zip_code: "75008",
   access: "Métro: Ligne 1 Station Champs Elysées Clémenceau, Ligne 9 Station Franklin Roosevelt, Ligne 13 Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
 
 beaugrenelle = Place.create!(
-  name: “Pathé Beaugrenelle”,
-  adress: “Centre commercial, 7 Rue Linois”,
-  city: “Paris”,
+  name: "Pathé Beaugrenelle",
+  adress: "Centre commercial, 7 Rue Linois",
+  city: "Paris",
   zip_code: "75015",
   access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
 
 bataclan = Place.create!(
-  name: “Bataclan”,
-  address: “50 Boulevard Voltaire”,
-  city: “Paris”,
-  zip_code: “75011”,
+  name: "Bataclan",
+  address: "50 Boulevard Voltaire",
+  city: "Paris",
+  zip_code: "75011",
   access: "Métro: Oberkampf, lignes 5 et 9 Filles du Calvaire ligne 8 Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
 
 garnier = Place.create!(
-  name: “Palais Garnier”,
-  address: “Place de l’Opéra”,
-  city: “Paris”,
+  name: "Palais Garnier",
+  address: "Place de l’Opéra",
+  city: "Paris",
   zip_code: "75009",
   access: "Métro: Opéra (lignes 3, 7 et :sunglasses: Chaussée d’Antin (lignes 7 et 9) Madeleine (lignes 8 et 14) RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
 
