@@ -11,6 +11,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def set_subscription
-    @subscription = Subscription.find(parems[:id])
+    @subscription = Subscription.find(params[:id])
   end
 end
