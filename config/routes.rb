@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users do
-    resources :subs_bookings, only: [:index, :show, :new, :create]
-  end
+  devise_for :users
   root to: 'pages#home'
+  resources :subs_bookings, only: [:index, :show, :new, :create]
   resources :activities, only: [:index, :show] do
     resources :act_bookings, only: [:show, :new, :create]
   end
