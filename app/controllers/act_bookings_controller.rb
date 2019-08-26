@@ -31,4 +31,8 @@ class ActBookingsController < ApplicationController
     @activity = Activity.find(params[:activity_id])
     @act_booking = Act_booking.find(params[:id])
   end
+
+  def act_booking_params
+    params.require(:act_booking).permit(:date, :user_id, :activity_id, :review_id, :used)
+  end
 end
