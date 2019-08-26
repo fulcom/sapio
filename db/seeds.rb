@@ -18,9 +18,9 @@ review_4 = Review.create!(rating: 4)
 review_5 = Review.create!(rating: 5)
 
 # table Subscriptions
-silver = Subscription.create!(name:"silver", price:30 , description:"inclut cinémas, musées")
-gold = Subscription.create!(name:"gold", price:30 , description:"inclut cinémas, musées, théâtres, concerts")
-platinum = Subscription.create!(name:"platinum", price:30 , description:"tout inclus: cinéma, musée, théâtres, concerts et opéra")
+silver = Subscription.create!(name:"silver", price:50 , description:"inclut cinémas, musées")
+gold = Subscription.create!(name:"gold", price:150 , description:"inclut cinémas, musées, théâtres, concerts")
+platinum = Subscription.create!(name:"platinum", price:300 , description:"tout inclus: cinéma, musée, théâtres, concerts et opéra")
 
 # table Activities
  decouverte_beaubourg = Activity.create!(
