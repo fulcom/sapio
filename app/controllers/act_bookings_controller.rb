@@ -1,5 +1,5 @@
 class ActBookingsController < ApplicationController
-  before_action :set_act_booking, only: [:show]
+  before_action :set_subscription, only: [:show]
 
   def index
     @act_bookings = ActBooking.all
