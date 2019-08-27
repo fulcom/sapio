@@ -1,0 +1,41 @@
+
+.card-text {
+  overflow: hidden;
+  height: 75px;
+  background: white;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+  display: flex;
+  align-items: left;
+  margin-bottom: 8px;
+  padding: 10px;
+}
+
+.card-text img {
+  height: 100%;
+  width: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card-text h2 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+}
+
+.card-text p {
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+.card-text .card-text-infos {
+  padding-left: 6px;
+}
+
+.card-text a {
+  color: #000000;
+  text-decoration: none;
+}
