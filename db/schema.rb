@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_144456) do
+ActiveRecord::Schema.define(version: 2019_08_27_121727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,10 @@ ActiveRecord::Schema.define(version: 2019_08_26_144456) do
     t.date "date"
     t.bigint "user_id"
     t.bigint "activity_id"
-    t.bigint "review_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "used", default: false
     t.index ["activity_id"], name: "index_act_bookings_on_activity_id"
-    t.index ["review_id"], name: "index_act_bookings_on_review_id"
     t.index ["user_id"], name: "index_act_bookings_on_user_id"
   end
 
@@ -61,6 +59,8 @@ ActiveRecord::Schema.define(version: 2019_08_26_144456) do
     t.float "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "act_booking_id"
+    t.index ["act_booking_id"], name: "index_reviews_on_act_booking_id"
   end
 
   create_table "subs_bookings", force: :cascade do |t|
@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 2019_08_26_144456) do
   end
 
   add_foreign_key "act_bookings", "activities"
-  add_foreign_key "act_bookings", "reviews"
   add_foreign_key "act_bookings", "users"
   add_foreign_key "activities", "places"
   add_foreign_key "activities", "subscriptions"
