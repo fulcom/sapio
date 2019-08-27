@@ -5,10 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+User.destroy_all
 
 
 puts "Creating records..."
+
+# Places
+beaubourg = Place.create!(
+  name: "Centre Pompidou",
+  address: "Place Georges-Pompidou",
+  city: "Paris",
+  zip_code: "75004",
+  access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
+
+marigny = Place.create!(
+  name: "Théâtre Marigny",
+  address: "Carré Marigny",
+  city: "Paris",
+  zip_code: "75008",
+  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+
+beaugrenelle = Place.create!(
+  name: "Pathé Beaugrenelle",
+  address: "Centre commercial, 7 Rue Linois",
+  city: "Paris",
+  zip_code: "75015",
+  access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
+
+bataclan = Place.create!(
+  name: "Bataclan",
+  address: "50 Boulevard Voltaire",
+  city: "Paris",
+  zip_code: "75011",
+  access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
+
+garnier = Place.create!(
+  name: "Palais Garnier",
+  address: "Place de l’Opéra",
+  city: "Paris",
+  zip_code: "75009",
+  access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
+
+
 
 # table Reviews
 review_1 = Review.create!(rating: 1)
@@ -22,6 +60,8 @@ silver = Subscription.create!(name:"silver", price:50, description:"abonnement m
 gold = Subscription.create!(name:"gold", price:150, description:"abonnement mensuel incluant cinémas, musées, théâtres, concerts")
 platinum = Subscription.create!(name:"platinum", price:300, description:"abonnement mensuel incluant: cinémas, musées, théâtres, concerts et opéras")
 
+
+
 # table Activities
  presentation_collections_modernes = Activity.create!(
   category:"Musée",
@@ -30,12 +70,12 @@ platinum = Subscription.create!(name:"platinum", price:300, description:"abonnem
   start_date: "2015-05-27".to_date,
   end_date: "2019-12-31".to_date,
   avg_rating: 5,
-  place:beaubourg,
+  place: beaubourg,
   subscription: silver)
-decouverte_beaubourg.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566850910/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg1.jpg"
-decouverte_beaubourg.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg2.jpg"
-decouverte_beaubourg.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851905/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg3.jpg"
-decouverte_beaubourg.save
+presentation_collections_modernes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566850910/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg1.jpg"
+presentation_collections_modernes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg2.jpg"
+presentation_collections_modernes.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851905/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg3.jpg"
+presentation_collections_modernes.save
 
 exposition_beaubourg = Activity.create!(
   category:"Musée",
@@ -52,7 +92,7 @@ exposition_beaubourg.remote_photo_two_url = "https://res.cloudinary.com/spark-an
 exposition_beaubourg.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852231/Sapio/Prehistoire.-Une-enigme-moderne_Beaubourg3.jpg"
 exposition_beaubourg.save
 
-once_upon_a_time_in_Hollywood = Activity.create!(
+once_upon_a_time = Activity.create!(
   category:"Cinema",
   name:"Once Upon A Time",
   description:"Avec Once Upon a Time in Hollywood, Tarantino convertit une nouvelle fois l'essai, et montre (contre son gré?) de vrais signes de maturité. Lettre d'amour à une époque fantasmée, cette série de digressions souvent humoristiques laisse infuser une mélancolie nouvelle dans sa filmographie. Un scénario plein d'humour, de nostalgie et de suspense, une reconstitution phénoménale du Los Angeles de la fin des années 60, une manière inouïe de mélanger personnages fictifs et réels.",
@@ -62,9 +102,9 @@ once_upon_a_time_in_Hollywood = Activity.create!(
   place: beaugrenelle,
   subscription: silver)
 
-once_upon_a_time.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852608/Sapio/Once-upon_a_time_in_hollywood_Cine1.jpg"
-once_upon_a_time.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852702/Sapio/Once-upon_a_time_in_hollywood_Beaugrenelle2.jpg"
-once_upon_a_time.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852784/Sapio/Once-upon_a_time_in_hollywood_Beaugrenelle3.jpg"
+once_upon_a_time.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852608/Sapio/Once-upon_a_time_Cine1.jpg"
+once_upon_a_time.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852702/Sapio/Once-upon_a_time_Cine2.jpg"
+once_upon_a_time.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852784/Sapio/Once-upon_a_time_Cine3.jpg"
 once_upon_a_time.save
 
 fast_and_furious = Activity.create!(
@@ -210,40 +250,6 @@ isabelle = User.create!(
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/49897862?v=4")
 
-# Places
-beaubourg = Place.create!(
-  name: "Centre Pompidou",
-  address: "Place Georges-Pompidou",
-  city: "Paris",
-  zip_code: "75004",
-  access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
 
-marigny = Place.create!(
-  name: "Théâtre Marigny",
-  address: "Carré Marigny",
-  city: "Paris",
-  zip_code: "75008",
-  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
-
-beaugrenelle = Place.create!(
-  name: "Pathé Beaugrenelle",
-  adress: "Centre commercial, 7 Rue Linois",
-  city: "Paris",
-  zip_code: "75015",
-  access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
-
-bataclan = Place.create!(
-  name: "Bataclan",
-  address: "50 Boulevard Voltaire",
-  city: "Paris",
-  zip_code: "75011",
-  access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
-
-garnier = Place.create!(
-  name: "Palais Garnier",
-  address: "Place de l’Opéra",
-  city: "Paris",
-  zip_code: "75009",
-  access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
 
 puts "...records created!"
