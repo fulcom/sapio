@@ -2,7 +2,7 @@ class ActBookingsController < ApplicationController
   before_action :set_act_booking, only: [:show]
 
   def index
-    @act_bookings = Act_booking.all
+    @act_bookings = ActBooking.all
   end
 
   def show
@@ -10,12 +10,12 @@ class ActBookingsController < ApplicationController
 
   def new
     @activity = Activity.find(params[:activity_id])
-    @act_booking = Act_booking.new
+    @act_booking = ActBooking.new
   end
 
   def create
     @activity = Activity.find(params[:activity_id])
-    @act_booking = Act_booking.new(act_booking_params)
+    @act_booking = ActBooking.new(act_booking_params)
     @act_booking.activity = @activity
     @act_booking.user = current_user
     if @act_booking.save
@@ -29,7 +29,7 @@ class ActBookingsController < ApplicationController
 
   def set_act_booking
     @activity = Activity.find(params[:activity_id])
-    @act_booking = Act_booking.find(params[:id])
+    @act_booking = ActBooking.find(params[:id])
   end
 
   def act_booking_params
