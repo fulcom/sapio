@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :subs_bookings
   has_many :act_bookings
   mount_uploader :photo_one, PhotoUploader
-
 end
