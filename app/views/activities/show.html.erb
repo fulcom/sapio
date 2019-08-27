@@ -1,0 +1,51 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag @activity.photo_one, class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag @activity.photo_two, class: "d-block w-100" %>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag @activity.photo_three, class: "d-block w-100" %>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<div class="container">
+  <h1 class="text-center"><%= @activity.name %></h1>
+  <div class="d-flex">
+    <div>
+      <%= @activity.avg_rating %>
+    </div>
+    <div>
+      <%= @activity.category %>
+    </div>
+  </div>
+  <div class="text-center">
+    <h2 class="text-center">Description de l'activité</h2>
+    <%= @activity.description %>
+  </div>
+  <div>
+    <h2 class="text-center">Infos Pratiques></h2>
+    <%= @place.address %>
+    <%= @activiy.access %>
+  </div>
+  <div class="text-center">
+    <!-- METTRE UNE MODALE POUR LE BOUTON PASS POUR SELECTIONNER LA DATE -->
+    <!-- NAVBAR -->
+  </div>
+</div>
