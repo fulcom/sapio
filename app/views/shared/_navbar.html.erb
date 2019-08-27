@@ -11,6 +11,10 @@
     <i class="fas fa-qrcode" style="color: #3700B3;"></i>
   <% end %>
 
+  <%= link_to act_bookings_path do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+
   <% if current_user != nil %>
   <% else %>
     <%= link_to new_user_session_path do %>
