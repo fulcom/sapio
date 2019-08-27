@@ -1,10 +1,11 @@
 class SubsBookingsController < ApplicationController
   before_action :set_subs_booking, only: [:show]
   def index
-    # @subs_bookings = Subs_booking.all
+    # raise
   end
 
   def show
+
   end
 
   def new
