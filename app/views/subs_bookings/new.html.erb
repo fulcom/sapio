@@ -1,0 +1,12 @@
+<h1>Nouvel abonnement</h1>
+<p>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></p>
+  <% @subscriptions.each do |subscription| %>
+    <p>Abonnement <%= subscription.name%> : <%= subscription.price %>€</p>
+    <%= simple_form_for @subs_booking do |f| %>
+      <%= f.input :subscription_id, as: :hidden, input_html: { value: subscription.id } %>
+      <%= f.submit "Acheter" %>
+    <% end %>
+<% end %>
+
+
+

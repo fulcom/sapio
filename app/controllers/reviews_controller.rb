@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to root_path
     else
+      flash[:alert] = "Vous n'avez pas attribué de note"
       render "new"
     end
   end
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_act_booking
-    @act_booking = Act_booking.find(params[:act_booking_id])
+    @act_booking = ActBooking.find(params[:act_booking_id])
   end
 
   def params_review
