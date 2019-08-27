@@ -1,7 +1,6 @@
 <h1>Vos abonnements</h1>
 
 <% current_user.subs_bookings.order(end_date: :desc).each do |subs_booking| %>
-  <p>Abonnement <%= subs_booking.subscription.name %></p>
-  <p>Du <%= subs_booking.start_date.strftime("%d/%m/%Y") %> au <%= subs_booking.end_date.strftime("%d/%m/%Y") %></p>
-  <p><%= subs_booking.subscription.price %>€</p>
+  <%= render 'subs_booking_details', subs_booking: subs_booking %>
+  <p><%= link_to 'Facture', subs_booking_path(subs_booking)%></p>
 <% end %>

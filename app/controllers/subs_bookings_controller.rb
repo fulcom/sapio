@@ -1,11 +1,11 @@
 class SubsBookingsController < ApplicationController
-  before_action :set_subs_booking, only: [:show]
+  # before_action :set_subs_booking, only: [:show]
   def index
     # raise
   end
 
   def show
-
+    @subs_booking = SubsBooking.find(params[:id])
   end
 
   def new
