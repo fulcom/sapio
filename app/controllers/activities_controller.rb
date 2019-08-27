@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
+    @act_booking = ActBooking.new
   end
 
   private

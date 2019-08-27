@@ -6,13 +6,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag @activity.photo_one, class: "d-block w-100" %>
+      <%= cl_image_path @activity.photo_one , class: "d-block w-100" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag @activity.photo_two, class: "d-block w-100" %>
+      <%= cl_image_path @activity.photo_two, class: "d-block w-100" %>
     </div>
     <div class="carousel-item">
-      <%= image_tag @activity.photo_three, class: "d-block w-100" %>
+      <%= cl_image_path @activity.photo_three, class: "d-block w-100" %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -41,14 +41,14 @@
   </div>
   <div>
     <h2 class="text-center">Infos Pratiques></h2>
-    <%= @activiy.place.address %>
-    <%= @activiy.access %>
+    <%= Place.find(@activity.place_id).address %>
+    <%= Place.find(@activity.place_id).access %>
   </div>
   <div class="text-center">
     <!-- METTRE UNE MODALE POUR LE BOUTON PASS POUR SELECTIONNER LA DATE -->
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal</button>
+    PASS</button>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -71,9 +71,10 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-flat-green" data-dismiss="modal">Annuler</button>
               <div class="form-actions">
-              <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple"  %>
+              <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple" %>
               <!-- <button type="button" class="btn btn-flat-purple">Générer un PASS</button> -->
               </div>
+            <% end %>
           </div>
         </div>
       </div>
