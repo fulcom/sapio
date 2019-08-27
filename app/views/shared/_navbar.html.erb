@@ -1,18 +1,18 @@
 <div class="navbar">
-  <ul class="space-around">
+  <ul class="d-flex list-inline justify-content-around">
     <li>
       <%= link_to root_path, class: "nav-icon" do %>
-        <i class="fal fa-home-alt"></i>
+        <i class="fas fa-home"></i>
       <% end %>
     </li>
     <li>
       <%= link_to activities_path, class: "nav-icon" do %>
-        <i class="fal fa-search"></i>
+        <i class="fas fa-search"></i>
       <% end %>
     </li>
     <li>
       <%= link_to act_bookings_path, class: "nav-icon" do %>
-        <i class="fal fa-qrcode"></i>
+        <i class="fas fa-qrcode"></i>
       <% end %>
     </li>
     </li>
@@ -22,7 +22,7 @@
     <% else %>
       <li>
         <%= link_to new_user_session_path, class: "nav-icon" do %>
-          <i class="fal fa-user"></i>
+          <i class="fas fa-user"></i>
         <% end %>
       </li>
     <% end %>
