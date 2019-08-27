@@ -41,7 +41,7 @@
   </div>
   <div>
     <h2 class="text-center">Infos Pratiques></h2>
-    <%= @place.address %>
+    <%= @activiy.place.address %>
     <%= @activiy.access %>
   </div>
   <div class="text-center">
@@ -60,11 +60,20 @@
             </button>
           </div>
           <div class="modal-body">
-          ...
+         <!-- FORM DATE  -->
+            <%= simple_form_for [@activity, @act_booking] do |f| %>
+              <div class="form-inputs text-center">
+                <%= f.input :date, as: :string,
+                    required: false, label: "Date de réservation",
+                    autofocus: true, input_html: {class: "datepicker"} %>
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-flat-green" data-dismiss="modal">Annuler</button>
-            <button type="button" class="btn btn-flat-purple">Générer un PASS</button>
+              <div class="form-actions">
+              <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple"  %>
+              <!-- <button type="button" class="btn btn-flat-purple">Générer un PASS</button> -->
+              </div>
           </div>
         </div>
       </div>
