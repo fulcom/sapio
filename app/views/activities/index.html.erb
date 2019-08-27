@@ -1,38 +1,34 @@
 <div class="banner">
   <div class="text-in-banner">
-  <div class="banner-flex">
-    <div class="searchbar">
-      <%= form_tag trips_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Que faire" %>
-    </div>
-    <div class="">
-      <%= submit_tag "Chercher", class: "btn btn-flat-green" %>
-    </div>
-      <% end %>
+    <div class="banner-flex">
+      <div class="searchbar">
+        <%= form_tag activities_path, method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Que faire" %>
+      </div>
+      <div class="">
+        <%= submit_tag "Chercher", class: "btn btn-flat-green" %>
+      </div>
+        <% end %>
     </div>
   </div>
 </div>
 
-<div class="container container-trip">
-<!--   <h2 class="m-3 text-center">List des treeps</h2>
- -->  <div class="d-flex pos-photo">
-    <div class="container col-6">
-      <h2 class="m-3">Liste des treeps</h2>
-      <% @trips.each do |trip| %>
-        <div class="card-text m-10">
-          <div class="card-text m-10">
-            <%= cl_image_tag trip.photo %>
-            <div class="card-text-infos">
-              <h2><%= link_to trip.name, trip_path(trip) %></h2>
-              <p><%= trip.description.first(100) %>[...]</p>
-            </div>
+<div class="container">
+  <div class="d-flex">
+      <% @activities.each do |activity| %>
+        <div class="card-text m-5">
+          <%= cl_image_tag activity.photo %>
+          <div class="card-text-infos">
+            <h2><%= link_to activity.name, activity_path(activity) %></h2>
+            <p><%= activity.category %></p>
+            <p><%= activity.category %></p>
+            <p><%= activity.avg_rating %></p>
           </div>
         </div>
       <%end%>
-    </div>
       <div
         id="map", style="width: 100%;, height: 600px;", data-markers="<%= @markers.to_json %>", data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
