@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :subs_bookings
-  has_many :act_bookings
+  has_many :subs_bookings, dependent: :destroy
+  has_many :act_bookings, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 end
