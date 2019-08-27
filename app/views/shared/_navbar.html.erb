@@ -1,0 +1,37 @@
+<div class="navbar">
+  <ul class="space-around>
+    <li>
+      <%= link_to root, class: "nav-icon" do %>
+        <i class="fal fa-home-alt"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to activities_path, class: "nav-icon" do %>
+        <i class="fal fa-search"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to act_bookings_path, class: "nav-icon" do %>
+        <i class="fal fa-qrcode"></i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to PAGE A DEFINIR, class: "nav-icon" do %>
+        <i class="fal fa-star"></i>
+      <% end %>
+    </li>
+    <% if current_user != nil %>
+      <li>
+        <%= link_to 'Profile', PAGE A DEFINIR, class: "nav-icon" do %>
+          <i class="fal fa-user"></i>
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to new_user_session_path, class: "nav-icon" do %>
+          <i class="fal fa-user"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
