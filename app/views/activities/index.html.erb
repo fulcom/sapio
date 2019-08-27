@@ -17,28 +17,23 @@
 </div>
 
 <div class="container">
-  <div class="">
-      <% @activities.each do |activity| %>
-        <div class="card-text m-5">
-          <%= cl_image_tag activity.photo_one %>
-          <div class="card-text-infos">
-            <h2><%= link_to activity.name, activity_path(activity) %></h2>
-            <p><%= activity.category %></p>
-            <p><%= activity.avg_rating %></p>
-          </div>
-        </div>
-      <%end%>
-      <div
-        id="map"
-        style="width: 100%;
-        height: 600px;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
+  <% @activities.each do |activity| %>
+    <div class="card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
+      </div>
     </div>
-  </div>
+  <%end%>
 </div>
-
-
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
 

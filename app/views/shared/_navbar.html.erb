@@ -1,30 +1,20 @@
-<div class="navbar">
-  <ul class="d-flex list-inline justify-content-around">
-    <li>
-      <%= link_to root_path, class: "nav-icon" do %>
-        <i class="fas fa-home"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to activities_path, class: "nav-icon" do %>
-        <i class="fas fa-search"></i>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to act_bookings_path, class: "nav-icon" do %>
-        <i class="fas fa-qrcode"></i>
-      <% end %>
-    </li>
-    </li>
-    <% if current_user != nil %>
-      <li>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to new_user_session_path, class: "nav-icon" do %>
-          <i class="fas fa-user"></i>
-        <% end %>
-      </li>
+<div id="navbar" class="navbar d-flex justify-content-around">
+  <%= link_to root_path do %>
+    <i class="fas fa-home"></i>
+  <% end %>
+
+  <%= link_to activities_path do %>
+    <i class="fas fa-search"></i>
+  <% end %>
+
+  <%= link_to act_bookings_path do %>
+    <i class="fas fa-qrcode" style="color: #3700B3;"></i>
+  <% end %>
+
+  <% if current_user != nil %>
+  <% else %>
+    <%= link_to new_user_session_path do %>
+      <i class="fas fa-user"></i>
     <% end %>
-  </ul>
+  <% end %>
 </div>
