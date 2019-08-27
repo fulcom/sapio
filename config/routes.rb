@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :subs_bookings, only: [:index, :show, :new, :create]
   resources :activities, only: [:index, :show] do
     resources :act_bookings, only: [:show, :new, :create]
+    resources :favorites, only: [:create, :destroy]
   end
 
   resources :act_bookings, only: [:index] do
