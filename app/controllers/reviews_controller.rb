@@ -23,6 +23,6 @@ class ReviewsController < ApplicationController
   end
 
   def params_review
-    params.require(:review).permit(:rating)
+    params.require(:review).permit(:rating, :act_booking_id)
   end
 end

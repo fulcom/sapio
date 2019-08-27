@@ -269,13 +269,14 @@ act_booking5 = ActBooking.create!(
   user_id: 4,
   activity_id:9)
 
+puts "...creating reviews!"
 
-# table Reviews
-review_1 = Review.create!(rating: 1, act_booking_id: 1)
-review_2 = Review.create!(rating: 2, act_booking_id: 2)
-review_3 = Review.create!(rating: 3, act_booking_id: 3)
-review_4 = Review.create!(rating: 4, act_booking_id: 4)
-review_5 = Review.create!(rating: 5, act_booking_id: 5)
+# # table Reviews
+# review_1 = Review.create!(rating: 1, act_booking_id: 1)
+# review_2 = Review.create!(rating: 2, act_booking_id: 2)
+# review_3 = Review.create!(rating: 3, act_booking_id: 3)
+# review_4 = Review.create!(rating: 4, act_booking_id: 4)
+# review_5 = Review.create!(rating: 5, act_booking_id: 5)
 
 puts "...records created!"
 
