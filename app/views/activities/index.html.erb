@@ -17,13 +17,12 @@
 </div>
 
 <div class="container">
-  <div class="d-flex">
+  <div class="">
       <% @activities.each do |activity| %>
         <div class="card-text m-5">
-          <%= cl_image_tag activity.photo %>
+          <%= cl_image_tag activity.photo_one %>
           <div class="card-text-infos">
             <h2><%= link_to activity.name, activity_path(activity) %></h2>
-            <p><%= activity.category %></p>
             <p><%= activity.category %></p>
             <p><%= activity.avg_rating %></p>
           </div>

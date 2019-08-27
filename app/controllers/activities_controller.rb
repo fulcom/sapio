@@ -2,13 +2,14 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
   def index
     # @activities = Activity.all
-    @activities = Activity.geocoded # returns activities with coordinates
+    @activities = Activity.all # returns activities with coordinates
+    @places = Place.geocoded
 
-    @markers = @activities.map do |activity|
+    @markers = @places.map do |place|
       {
-        lat: activity.latitude,
-        lng: activity.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { flat: flat })
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
       }
     end
   end
