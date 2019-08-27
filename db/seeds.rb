@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Place.destroy_all
+Subscription.destroy_all
+Activity.destroy_all
+ActBooking.destroy_all
 
 
 puts "Creating records..."
@@ -246,37 +250,37 @@ isabelle = User.create!(
 #Act_bookings
 act_booking1 = ActBooking.create!(
   date: "2019-8-27".to_date,
-  user_id: 4,
-  activity_id:1)
+  user: alice,
+  activity: presentation_collections_modernes)
 
 act_booking2 = ActBooking.create!(
   date: "2019-8-30".to_date,
-  user_id: 1,
-  activity_id:10)
+  user: charles,
+  activity: exposition_beaubourg)
 
 act_booking3 = ActBooking.create!(
   date: "2019-6-30".to_date,
-  user_id: 2,
-  activity_id:3)
+  user: maxime,
+  activity: once_upon_a_time)
 
 act_booking4 = ActBooking.create!(
   date: "2019-8-27".to_date,
-  user_id: 3,
-  activity_id:4)
+  user: isabelle,
+  activity: casse_noisette)
 
 act_booking5 = ActBooking.create!(
   date: "2019-12-10".to_date,
-  user_id: 4,
-  activity_id:9)
+  user: isabelle,
+  activity: traviata)
 
 puts "...creating reviews!"
 
-# # table Reviews
-# review_1 = Review.create!(rating: 1, act_booking_id: 1)
-# review_2 = Review.create!(rating: 2, act_booking_id: 2)
-# review_3 = Review.create!(rating: 3, act_booking_id: 3)
-# review_4 = Review.create!(rating: 4, act_booking_id: 4)
-# review_5 = Review.create!(rating: 5, act_booking_id: 5)
+# table Reviews
+review_1 = Review.create!(rating: 1, act_booking: act_booking1)
+review_2 = Review.create!(rating: 2, act_booking: act_booking2)
+review_3 = Review.create!(rating: 3, act_booking: act_booking3)
+review_4 = Review.create!(rating: 4, act_booking: act_booking4)
+review_5 = Review.create!(rating: 5, act_booking: act_booking5)
 
 puts "...records created!"
 
