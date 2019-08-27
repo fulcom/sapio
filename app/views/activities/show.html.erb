@@ -61,7 +61,7 @@
           </div>
           <div class="modal-body">
          <!-- FORM DATE  -->
-            <%= simple_form_for [@activitiy, @act_booking] do |f| %>
+            <%= simple_form_for [@activity, @act_booking] do |f| %>
               <div class="form-inputs text-center">
                 <%= f.input :date, as: :string,
                     required: false, label: "Date de réservation",
@@ -71,7 +71,7 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-flat-green" data-dismiss="modal">Annuler</button>
               <div class="form-actions">
-              <%= f.button :submit, "Treep !", class: "btn btn-flat-green w-100"  %>
+              <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple"  %>
               <!-- <button type="button" class="btn btn-flat-purple">Générer un PASS</button> -->
               </div>
           </div>
