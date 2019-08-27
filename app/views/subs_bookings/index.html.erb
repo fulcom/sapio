@@ -1,0 +1,8 @@
+<h1>Vos abonnements</h1>
+
+<% @subs_bookings.each do |subs_booking| %>
+  <%= render 'subs_booking_details', subs_booking: subs_booking %>
+  <p><%= link_to 'Facture', subs_booking_path(subs_booking)%></p>
+<% end %>
+
+<p><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path %></p>
