@@ -6,13 +6,13 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_path @activity.photo_one , class: "d-block w-100" %>
+      <%= cl_image_tag @activity.photo_one , class: "d-block w-100", crop: :fill, height: 200%>
     </div>
     <div class="carousel-item">
-      <%= cl_image_path @activity.photo_two, class: "d-block w-100" %>
+      <%= cl_image_tag @activity.photo_two, class: "d-block w-100", crop: :fill, height: 200 %>
     </div>
     <div class="carousel-item">
-      <%= cl_image_path @activity.photo_three, class: "d-block w-100" %>
+      <%= cl_image_tag @activity.photo_three, class: "d-block w-100", crop: :fill, height: 200 %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -37,48 +37,50 @@
   </div>
   <div class="text-center">
     <h2 class="text-center">Description de l'activité</h2>
-    <%= @activity.description %>
+    <p><%= @activity.description %></p>
   </div>
   <div>
-    <h2 class="text-center">Infos Pratiques></h2>
-    <%= Place.find(@activity.place_id).address %>
-    <%= Place.find(@activity.place_id).access %>
+    <h2 class="text-center">Infos Pratiques</h2>
+    <p><%= Place.find(@activity.place_id).address %></p>
+    <p><%= Place.find(@activity.place_id).access %></p>
   </div>
-  <div class="text-center">
+</div>
+<div class="text-center">
     <!-- METTRE UNE MODALE POUR LE BOUTON PASS POUR SELECTIONNER LA DATE -->
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <div id="contenant">
+    <button type="button" class="btn-flat-purple" data-toggle="modal" data-target="#exampleModal">
     PASS</button>
+  </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Choisissez la date de votre réservation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Choisissez la date de votre réservation</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
          <!-- FORM DATE  -->
-            <%= simple_form_for [@activity, @act_booking] do |f| %>
-              <div class="form-inputs text-center">
-                <%= f.input :date, as: :string,
-                    required: false, label: "Date de réservation",
-                    autofocus: true, input_html: {class: "datepicker"} %>
-              </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-flat-green" data-dismiss="modal">Annuler</button>
-              <div class="form-actions">
-              <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple" %>
-              <!-- <button type="button" class="btn btn-flat-purple">Générer un PASS</button> -->
-              </div>
-            <% end %>
-          </div>
+          <%= simple_form_for [@activity, @act_booking] do |f| %>
+            <div class="form-inputs text-center">
+              <%= f.input :date, as: :string,
+                  required: false, label: "Date de réservation",
+                  autofocus: true, input_html: {class: "datepicker"} %>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-flat-green" data-dismiss="modal">Annuler</button>
+            <div class="form-actions">
+            <%= f.button :submit, "Générer un Pass", class: "btn btn-flat-purple" %>
+            <!-- <button type="button" class="btn btn-flat-purple">Générer un PASS</button> -->
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
-    <!-- NAVBAR -->
   </div>
+  <!-- NAVBAR -->
 </div>
