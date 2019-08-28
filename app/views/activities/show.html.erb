@@ -24,24 +24,107 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
+<!-- croix -->
+<div id="croix">
+  <%= link_to activities_path, :method => :get do %>
+  <i class="fas fa-times"></i>
+  <% end %>
+</div>
+
+  <!-- Favori -->
+  <div id="favori">
+    <% if @favorite.nil? %>
+      <%= link_to activity_favorites_path(@activity.id),:method => :post do %>
+          <i class="far fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to activity_favorite_path(@activity.id, @favorite.id),:method => :delete do %>
+          <i class="fas fa-heart"></i>
+      <% end %>
+    <% end %>
+</div>
+
+</div>
 <div class="container">
-  <h1 class="text-center"><%= @activity.name %></h1>
-  <div class="d-flex">
+    <h1 class="text-center activity-h1"><%= @activity.name %></h1>
+  <div class="d-flex activity-rating-category justify-content-center">
     <div>
-      <%= @activity.avg_rating %>
+      <% if @average_rating == 0.5 %>
+        <i class="fas fa-star-half"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 1.0 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 1.5 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 2.0 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 2.5 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 3.0 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 3.5 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 4.0 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @average_rating == 4.5 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half"></i>
+      <% else %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      <% end %>
     </div>
-    <div>
+    <div id="activity-category">
       <%= @activity.category %>
     </div>
   </div>
-  <div class="text-center">
-    <h2 class="text-center">Description de l'activité</h2>
-    <p><%= @activity.description %></p>
-  </div>
-  <div>
-    <h2 class="text-center">Infos Pratiques</h2>
-    <p> Adresse : <%= Place.find(@activity.place_id).address %></p>
-    <p><%= Place.find(@activity.place_id).access %></p>
+    <div class="container text-center">
+      <h2 class="text-center activity-h2">Description de l'activité</h2>
+      <p class="activity-p"><%= @activity.description %></p>
+    </div>
+  <div class="container">
+    <h2 class="text-center activity-h2">Infos Pratiques</h2>
+    <p class="activity-p"> Adresse : <%= Place.find(@activity.place_id).address %></p>
+    <p class="activity-p"><%= Place.find(@activity.place_id).access %></p>
   </div>
 </div>
 <div class="text-center">
@@ -84,8 +167,10 @@
   <!-- NAVBAR -->
 </div>
 
-<% if @favorite.nil? %>
-  <%= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
-<% else %>
-  <%= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
-<% end %>
+
+
+<%# if @favorite.nil? %>
+  <%#= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
+<%# else %>
+  <%#= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
+<%# end %>
