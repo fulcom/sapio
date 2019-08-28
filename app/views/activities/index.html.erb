@@ -14,8 +14,23 @@
       <% end %>
   </div>
 </div>
-
-<%= render 'list_activities', activities: @activities %>
+<div class="toggle-map-button">
+  <i class="fas fa-map-marked-alt"></i>
+  <i class="fas fa-search d-none"></i>
+</div>
+<div class="container toggle-map">
+  <% @activities.each do |activity| %>
+    <div class="card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
+      </div>
+    </div>
+  <%end%>
+</div>
+  <div class="toggle-map"
 
   <div
     id="map"

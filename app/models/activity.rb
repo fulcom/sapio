@@ -10,4 +10,6 @@ class Activity < ApplicationRecord
   has_many :reviews, through: :act_bookings
 
   has_many :favorites
+  include PgSearch::Model
+  multisearchable against: [:category, :description]
 end

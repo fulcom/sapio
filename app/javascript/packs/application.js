@@ -18,3 +18,8 @@ import { initStarRating } from '../plugins/init_star_rating';
 
 initStarRating();
 
+import { mapAppear } from '../components/map';
+
+mapAppear();
+
+
