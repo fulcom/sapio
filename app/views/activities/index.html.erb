@@ -1,41 +1,38 @@
 <div class="banner">
   <div class="text-in-banner">
-    <div class="banner-flex">
-      <div class="searchbar">
-        <%= form_tag activities_path, method: :get do %>
-        <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Que faire" %>
-      </div>
-      <div class="">
-        <%= submit_tag "Chercher", class: "btn btn-flat-green" %>
-      </div>
-        <% end %>
+    <h1>Que voulez-vous faire ?</h1>
+    <div class="searchbar">
+      <%= form_tag activities_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Que faire" %>
     </div>
+    <div class="">
+      <%= submit_tag "Chercher", class: "btn btn-flat-purple" %>
+    </div>
+      <% end %>
   </div>
 </div>
 
 <div class="container">
-  <div class="d-flex">
-      <% @activities.each do |activity| %>
-        <div class="card-text m-5">
-          <%= cl_image_tag activity.photo %>
-          <div class="card-text-infos">
-            <h2><%= link_to activity.name, activity_path(activity) %></h2>
-            <p><%= activity.category %></p>
-            <p><%= activity.category %></p>
-            <p><%= activity.avg_rating %></p>
-          </div>
-        </div>
-      <%end%>
-      <div
-        id="map", style="width: 100%;, height: 600px;", data-markers="<%= @markers.to_json %>", data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <% @activities.each do |activity| %>
+    <div class="card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
       </div>
     </div>
-  </div>
+  <%end%>
 </div>
-
-
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 
 

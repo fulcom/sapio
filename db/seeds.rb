@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Place.destroy_all
+Subscription.destroy_all
+Activity.destroy_all
+ActBooking.destroy_all
 
 
 puts "Creating records..."
@@ -47,12 +51,6 @@ garnier = Place.create!(
   zip_code: "75009",
   access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
 
-# table Reviews
-review_1 = Review.create!(rating: 1)
-review_2 = Review.create!(rating: 2)
-review_3 = Review.create!(rating: 3)
-review_4 = Review.create!(rating: 4)
-review_5 = Review.create!(rating: 5)
 
 # table Subscriptions
 silver = Subscription.create!(name:"silver", price:50, description:"abonnement mensuel incluant cinémas, musées")
@@ -249,7 +247,40 @@ isabelle = User.create!(
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/49897862?v=4")
 
+#Act_bookings
+act_booking1 = ActBooking.create!(
+  date: "2019-8-27".to_date,
+  user: alice,
+  activity: presentation_collections_modernes)
 
+act_booking2 = ActBooking.create!(
+  date: "2019-8-30".to_date,
+  user: charles,
+  activity: exposition_beaubourg)
+
+act_booking3 = ActBooking.create!(
+  date: "2019-6-30".to_date,
+  user: maxime,
+  activity: once_upon_a_time)
+
+act_booking4 = ActBooking.create!(
+  date: "2019-8-27".to_date,
+  user: isabelle,
+  activity: casse_noisette)
+
+act_booking5 = ActBooking.create!(
+  date: "2019-12-10".to_date,
+  user: isabelle,
+  activity: traviata)
+
+puts "...creating reviews!"
+
+# table Reviews
+review_1 = Review.create!(rating: 1, act_booking: act_booking1)
+review_2 = Review.create!(rating: 2, act_booking: act_booking2)
+review_3 = Review.create!(rating: 3, act_booking: act_booking3)
+review_4 = Review.create!(rating: 4, act_booking: act_booking4)
+review_5 = Review.create!(rating: 5, act_booking: act_booking5)
 
 puts "...records created!"
 
