@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :subs_bookings, dependent: :destroy
   has_many :act_bookings, dependent: :destroy
   mount_uploader :photo, PhotoUploader
+
+  has_many :favorites
 end

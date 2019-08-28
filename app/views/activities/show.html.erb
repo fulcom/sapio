@@ -24,7 +24,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 <div class="container">
   <h1 class="text-center"><%= @activity.name %></h1>
   <div class="d-flex">
@@ -84,3 +83,9 @@
   </div>
   <!-- NAVBAR -->
 </div>
+
+<% if @favorite.nil? %>
+  <%= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
+<% else %>
+  <%= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
+<% end %>
