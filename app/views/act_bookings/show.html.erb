@@ -1,0 +1,20 @@
+<div class="banner">
+  <div class="text-in-banner">
+    <h1>Votre Pass</h1>
+    <div class="searchbar">
+      <%= form_tag activities_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Que faire" %>
+    </div>
+    <div class="">
+      <%= submit_tag "Chercher", class: "btn btn-flat-purple" %>
+    </div>
+      <% end %>
+  </div>
+</div>
+
+
+
+
