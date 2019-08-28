@@ -17,6 +17,9 @@ class ActivitiesController < ApplicationController
 
   def show
     @act_booking = ActBooking.new
+    sum_of_ratings = 0
+    @activity.reviews.each { |review| sum_of_ratings += review.rating }
+    @average_rating = ((sum_of_ratings / @activity.reviews.size) * 2.0).round / 2.0
     @favorite = Favorite.where(user: current_user, activity: params[:id]).take
     # raise
   end
