@@ -1,6 +1,8 @@
 class FavoritesController < ApplicationController
 
-
+  def index
+    #raise
+  end
 
   def create
     activity = Activity.find(params[:activity_id])
