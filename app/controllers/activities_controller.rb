@@ -9,7 +9,8 @@ class ActivitiesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        category: place.activities.first.category.downcase.gsub("é", "e").gsub("â", "a")
       }
     end
   end
