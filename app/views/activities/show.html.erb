@@ -25,7 +25,7 @@
   </a>
 
   <!-- Favori -->
-  <div id="favori">
+  <div id="favori" >
     <% if @favorite.nil? %>
       <%= link_to activity_favorites_path(@activity.id),:method => :post do %>
           <i class="far fa-heart"></i>
