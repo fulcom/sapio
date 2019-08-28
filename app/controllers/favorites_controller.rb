@@ -10,13 +10,27 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    favorite = Favorite.new(user: current_user)
-    activity = Activity.find(params[:id])
-  end
+    activity = Activity.find(params[:activity_id])
+    favorite = Favorite.new(user: current_user, activity: activity)
+    # favorite = favorite.new(favorite_params)
+    # favorite.user = current_user
+    # favorite.activity = activity
 
+    if favorite.save
+      redirect_to activity_path(activity)
+    else
+      redirect_to activity_path(activity)
+    end
+  end
 
   def destroy
-    raise
+    favorite = Favorite.find(params[:id])
+    activity = Activity.find(params[:activity_id])
+    favorite.destroy
+    redirect_to activity_path(activity)
   end
 
+  # def favorite_params
+  #   params.require(:favorite).permit(:user_id, :activity_id)
+  # end
 end

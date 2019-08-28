@@ -88,8 +88,5 @@
 <% if @favorite.nil? %>
   <%= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
 <% else %>
-  <%= link_to "Remove", activity_favorite_path(@favorite), :method => :delete  %>
+  <%= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
 <% end %>
-<%#= if @favorite.exists? == true %>
-  <%#= "Remove" %>
-<%# end %>
