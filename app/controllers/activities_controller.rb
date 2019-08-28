@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
       @activities = @pg_search_docs.map(&:searchable)
       @places = @pg_search_docs.map(&:searchable)
     else
-      @activities = Activity.all # returns activities with coordinates
+      @activities = Activity.all
       @places = Place.geocoded
     end
     @markers = @places.map do |place|
