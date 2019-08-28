@@ -2,11 +2,20 @@ import mapboxgl from 'mapbox-gl';
 
 const mapElement = document.getElementById('map');
 
+const getUserCoordinates = (map, callback) => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      callback(map, position.coords);
+    });
+  }
+}
+
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/fulcom/cjzv0seg501bc1cnzo60u47wq'
   });
 };
 
