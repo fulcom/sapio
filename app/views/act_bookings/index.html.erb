@@ -3,8 +3,9 @@
 <div class="">
   <% @act_bookings.each do |booking| %>
     <div class=""><%= booking.activity.name %></div>
+    <div class=""><%= booking.activity.category %></div>
+    <div class=""><%= link_to "Show pass", activity_act_booking_path(booking.activity, booking) %></div>
   <% end %>
-
 </div>
 
 
