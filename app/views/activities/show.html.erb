@@ -23,6 +23,20 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+
+  <!-- Favori -->
+  <div id="favori" >
+    <% if @favorite.nil? %>
+      <%= link_to activity_favorites_path(@activity.id),:method => :post do %>
+          <i class="far fa-heart"></i>
+      <% end %>
+    <% else %>
+      <%= link_to activity_favorite_path(@activity.id, @favorite.id),:method => :delete do %>
+          <i class="fas fa-heart"></i>
+      <% end %>
+    <% end %>
+</div>
+
 </div>
 <div class="container">
   <h1 class="text-center"><%= @activity.name %></h1>
@@ -84,8 +98,10 @@
   <!-- NAVBAR -->
 </div>
 
-<% if @favorite.nil? %>
-  <%= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
-<% else %>
-  <%= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
-<% end %>
+
+
+<%# if @favorite.nil? %>
+  <%#= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
+<%# else %>
+  <%#= link_to "Remove", activity_favorite_path(@activity.id, @favorite.id), :method => :delete %>
+<%# end %>
