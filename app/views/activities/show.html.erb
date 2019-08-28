@@ -4,15 +4,15 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <!-- <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag @activity.photo_one , class: "d-block w-100", crop: :fill, height: 200%>
+      <%#= cl_image_tag @activity.photo_one , class: "d-block w-100", crop: :fill, height: 200%>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @activity.photo_two, class: "d-block w-100", crop: :fill, height: 200 %>
+      <%#= cl_image_tag @activity.photo_two, class: "d-block w-100", crop: :fill, height: 200 %>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @activity.photo_three, class: "d-block w-100", crop: :fill, height: 200 %>
+      <%#= cl_image_tag @activity.photo_three, class: "d-block w-100", crop: :fill, height: 200 %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -24,7 +24,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
+ -->
 <div class="container">
   <h1 class="text-center"><%= @activity.name %></h1>
   <div class="d-flex">
@@ -84,3 +84,12 @@
   </div>
   <!-- NAVBAR -->
 </div>
+
+<% if @favorite.nil? %>
+  <%= link_to "Add", activity_favorites_path(@activity.id), :method => :post %>
+<% else %>
+  <%= link_to "Remove", activity_favorite_path(@favorite), :method => :delete  %>
+<% end %>
+<%#= if @favorite.exists? == true %>
+  <%#= "Remove" %>
+<%# end %>

@@ -6,6 +6,8 @@ class ActivitiesController < ApplicationController
 
   def show
     @act_booking = ActBooking.new
+    @favorite = Favorite.where(user: current_user, activity: params[:id]).take
+    # raise
   end
 
   private
