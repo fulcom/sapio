@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
+  resources :favorites, only: [:index]
+
   resources :act_bookings, only: [:index] do
       resources :reviews, only: [:new, :create]
   end
