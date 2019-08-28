@@ -20,41 +20,46 @@ beaubourg = Place.create!(
   name: "Centre Pompidou",
   address: "Place Georges-Pompidou",
   city: "Paris",
+  country: "France",
   zip_code: "75004",
-  access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg"),
-  country: "France"
+  access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
+
 
 marigny = Place.create!(
   name: "Théâtre Marigny",
   address: "Carré Marigny",
   city: "Paris",
+  country: "France",
   zip_code: "75008",
-  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées"),
-  country: "France"
+  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+
 
 beaugrenelle = Place.create!(
   name: "Pathé Beaugrenelle",
   address: "Centre commercial, 7 Rue Linois",
   city: "Paris",
+  country: "France",
   zip_code: "75015",
-  access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places"),
-  country: "France"
+  access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
+
 
 bataclan = Place.create!(
   name: "Bataclan",
   address: "50 Boulevard Voltaire",
   city: "Paris",
+  country: "France",
   zip_code: "75011",
-  access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte"),
-  country: "France"
+  access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
+
 
 garnier = Place.create!(
   name: "Palais Garnier",
   address: "Place de l’Opéra",
   city: "Paris",
+  country: "France",
   zip_code: "75009",
-  access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)"),
-  country: "France"
+  access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
+
 
 # table Subscriptions
 silver = Subscription.create!(name:"silver", price:50, description:"abonnement mensuel incluant cinémas, musées")
