@@ -9,7 +9,8 @@ class ActivitiesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        category: place.activities.first.category.downcase.gsub("é", "e").gsub("â", "a")
       }
     end
   end
@@ -19,6 +20,8 @@ class ActivitiesController < ApplicationController
     sum_of_ratings = 0
     @activity.reviews.each { |review| sum_of_ratings += review.rating }
     @average_rating = ((sum_of_ratings / @activity.reviews.size) * 2.0).round / 2.0
+    @favorite = Favorite.where(user: current_user, activity: params[:id]).take
+    # raise
   end
 
   private

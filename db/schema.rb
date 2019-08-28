@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_134202) do
+ActiveRecord::Schema.define(version: 2019_08_28_123835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,15 @@ ActiveRecord::Schema.define(version: 2019_08_27_134202) do
     t.index ["subscription_id"], name: "index_activities_on_subscription_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "activity_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_favorites_on_activity_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -55,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_134202) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
+    t.string "country"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -108,6 +118,8 @@ ActiveRecord::Schema.define(version: 2019_08_27_134202) do
   add_foreign_key "act_bookings", "users"
   add_foreign_key "activities", "places"
   add_foreign_key "activities", "subscriptions"
+  add_foreign_key "favorites", "activities"
+  add_foreign_key "favorites", "users"
   add_foreign_key "subs_bookings", "subscriptions"
   add_foreign_key "subs_bookings", "users"
 end

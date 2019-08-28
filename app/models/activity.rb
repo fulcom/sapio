@@ -9,4 +9,5 @@ class Activity < ApplicationRecord
 
   has_many :reviews, through: :act_bookings
 
+  has_many :favorites
 end
