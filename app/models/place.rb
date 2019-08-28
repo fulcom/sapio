@@ -4,7 +4,6 @@ class Place < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def full_address
-    "#{address}, #{city}"
+    "#{address}, #{city}, #{country}"
   end
-
 end
