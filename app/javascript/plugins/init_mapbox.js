@@ -15,7 +15,7 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/fulcom/cjzv0seg501bc1cnzo60u47wq'
+    style: 'mapbox://styles/mapbox/streets-v10'
   });
 };
 
@@ -42,10 +42,16 @@ const fitMapToMarkers = (map, markers) => {
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
-
+    document.querySelector('#map-container').classList.add('d-none');
   }
 };
 
