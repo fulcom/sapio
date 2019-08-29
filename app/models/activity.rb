@@ -12,4 +12,6 @@ class Activity < ApplicationRecord
   has_many :favorites
   include PgSearch::Model
   multisearchable against: [:category, :description]
+
+  CATEGORIES = ["Cinéma", "Théâtre", "Opéra", "Concert", "Musée"]
 end
