@@ -6,7 +6,7 @@
 </div>
 
 <div class="container">
-  <div class="">
+  <div style="margin: 0 auto;">
     <%= @qrcode.as_svg.html_safe %>
   </div>
   <div class="d-flex align-items-center">
@@ -15,9 +15,9 @@
       Notez cette activité</button>
     </div>
     <div>
-      <button type="button" class="mini-btn-flat-purple" data-toggle="modal" data-target="#exampleModal">
-      Comment s'y rendre</button>
+      <button type="button" class="mini-btn-flat-red" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-map-marker-alt"></i> Comment s'y rendre</button>
     </div>
+    <div class="padding-bottom-page"></div>
   </div>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
