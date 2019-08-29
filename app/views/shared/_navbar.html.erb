@@ -15,16 +15,14 @@
   <%= link_to  new_user_session_path do %>
       <i class="fas fa-heart"></i>
   <% end %>
+  <%= link_to  new_user_session_path do %>
+      <i class="fas fa-user"></i>
+  <% end %>
 <% else %>
   <%= link_to favorites_path do %>
     <i class="fas fa-heart"></i>
   <% end %>
-<% end %>
-
-  <% if current_user != nil %>
-  <% else %>
-    <%= link_to new_user_session_path do %>
+  <%= link_to edit_user_registration_path do %>
       <i class="fas fa-user"></i>
-    <% end %>
   <% end %>
-</div>
+<% end %>
