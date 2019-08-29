@@ -5,6 +5,7 @@
   background: #24AFA0;
   transition: background 0.3s ease;
   width: 175px;
+  border: 0;
 }
 
 .btn-flat-purple {
@@ -15,6 +16,7 @@
   background: #3700B3;
   transition: background 0.3s ease;
   width: 300px;
+  border: 0;
 }
 
 
@@ -24,6 +26,15 @@
   margin: 10px 10px;
   border-radius: 4px;
   background: #3700B3;
+  transition: background 0.3s ease;
+}
+
+.mini-btn-flat-red {
+  color: white;
+  padding: 8px 10px;
+  margin: 10px 10px;
+  border-radius: 4px;
+  background: rgba(213, 80, 88, 0.74);
   transition: background 0.3s ease;
 }
 
@@ -45,5 +56,9 @@
 
 input.btn {
   color: white !important;
+}
+
+button {
+  border: 0;
 }
 
