@@ -6,7 +6,9 @@
 </div>
 
 <div class="container">
-  <%= @qrcode.as_svg.html_safe %>
+  <div class="">
+    <%= @qrcode.as_svg.html_safe %>
+  </div>
   <div class="d-flex align-items-center">
     <div>
       <button type="button" class="btn-flat-green" data-toggle="modal" data-target="#exampleModal">
@@ -31,13 +33,11 @@
          <!-- FORM DATE  -->
         <%= simple_form_for [@act_booking,@review] do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Notez cette activité" %>
-        </div>
-      </div>
-      <div class="modal-footer">
         <div class="form-actions">
           <%= f.submit "Soumettre", class: "btn-flat-purple" %>
-          </div>
+        </div>
         <% end %>
+        </div>
       </div>
     </div>
   </div>
