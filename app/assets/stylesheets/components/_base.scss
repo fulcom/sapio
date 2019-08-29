@@ -67,6 +67,7 @@ p {
   overflow-x: scroll;
   display: flex;
   margin-bottom: 15px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .horizontal-scroll::-webkit-scrollbar {
