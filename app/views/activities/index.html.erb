@@ -27,12 +27,12 @@
     </div>
   <%end%>
 </div>
-  <div class="toggle-map d-none">
+  <div class="toggle-map" id="map-container">
 
   <div
     id="map"
-    style="width: 100%;
-    height: 600px;"
+    style="width: 100vw;
+    height: 100vh;"
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>

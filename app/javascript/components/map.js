@@ -9,6 +9,7 @@ const mapAppear = () => {
     buttonImages.forEach((element) => {
       element.classList.toggle("d-none");
     });
+    document.querySelector(".mapboxgl-ctrl-geolocate").click();
   });
 };
 
