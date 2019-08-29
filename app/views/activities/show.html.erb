@@ -37,7 +37,7 @@
   <div id="favori">
     <% if @favorite.nil? %>
       <%= link_to activity_favorites_path(@activity.id),:method => :post do %>
-          <i id="heart_activity "class="far fa-heart"></i>
+          <i id="heart_activity" class="far fa-heart"></i>
       <% end %>
     <% else %>
       <%= link_to activity_favorite_path(@activity.id, @favorite.id),:method => :delete do %>
