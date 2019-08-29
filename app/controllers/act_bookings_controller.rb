@@ -6,6 +6,7 @@ class ActBookingsController < ApplicationController
   end
 
   def show
+    @qrcode = RQRCode::QRCode.new("http://github.com/")
   end
 
   def new
@@ -23,6 +24,10 @@ class ActBookingsController < ApplicationController
     else
       render "activities/show"
     end
+  end
+
+  def used_booking
+
   end
 
   private
