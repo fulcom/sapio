@@ -2,9 +2,19 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
   def index
     if params[:query].present?
-      @pg_search_docs = PgSearch.multisearch(params[:query])
-      @activities = @pg_search_docs.map(&:searchable)
-      @places = @pg_search_docs.map(&:searchable)
+      @activities = []
+      @pg_search_docs = PgSearch.multisearch(params[:query].downcase.gsub("é", "e").gsub("â", "a"))
+      @places = @pg_search_docs.map(&:searchable).map do |element|
+        if defined?(element.category)
+          @activities << element
+          Place.find(element.place_id)
+        else
+          element.activities.each do |a|
+            @activities << a
+          end
+          element
+        end
+      end
     else
       @activities = Activity.all
       @places = Place.geocoded
