@@ -1,2 +1,83 @@
-<h1>Bienvenue sur Sapio</h1>
-<p>Le partenaire de vos activités culturelles </p>
+<div class="banner">
+  <div class="text-in-banner">
+    <h1>Bonjour ,</h1>
+    <h2>Que voulez-vous faire aujourd'hui ?</h2>
+  </div>
+</div>
+<div class="search">
+  <div class="searchbar">
+    <%= form_tag activities_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Que faire" %>
+  </div>
+    <% end %>
+  <div class="btn-filter">
+  Filtres
+  </div>
+</div>
+
+<div class="horizontal-scroll">
+  <div class="category-orange">
+  Musée
+  </div>
+  <div class="category-blue">
+    Cinéma
+  </div>
+  <div class="category-yellow">
+    Théâtre
+  </div>
+  <div class="category-red">
+    Concert
+  </div>
+  <div class="category-purple">
+    Opéra
+  </div>
+</div>
+
+<h2 class="text-center">A refaire</h2>
+
+<div class="horizontal-scroll">
+  <% @activities.each do |activity| %>
+    <div class="card-text-home card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<h2 class="text-center">Dernière chance</h2>
+
+<div class="horizontal-scroll">
+  <% @activities.each do |activity| %>
+    <div class="card-text-home card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
+      </div>
+    </div>
+  <%end%>
+</div>
+
+<h2 class="text-center">Les plus populaires</h2>
+
+<div class="horizontal-scroll">
+  <% @activities.each do |activity| %>
+    <div class="card-text-home card-text">
+      <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <p><%= activity.category %></p>
+        <p><%= activity.avg_rating %></p>
+      </div>
+    </div>
+  <%end%>
+</div>
+

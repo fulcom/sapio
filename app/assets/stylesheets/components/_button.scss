@@ -25,7 +25,22 @@
   border-radius: 4px;
   background: #3700B3;
   transition: background 0.3s ease;
+}
 
+.btn-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 40px;
+  color: white;
+  font-weight: 550;
+  background: #3700B3;
+  left: 83.12%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  border-radius: 8px;
 }
 
 input.btn {
