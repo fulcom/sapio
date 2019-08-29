@@ -7,9 +7,11 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(params_review)
+    @act_booking.activity = @activity
+    @act_booking.user = current_user
     @review.act_booking = @act_booking
     if @review.save
-      redirect_to root_path
+      redirect_to act_bookings_path
     else
       flash[:alert] = "Vous n'avez pas attribué de note"
       render "new"
@@ -23,6 +25,6 @@ class ReviewsController < ApplicationController
   end
 
   def params_review
-    params.require(:review).permit(:rating, :act_booking_id)
+    params.require(:review).permit(:rating)
   end
 end

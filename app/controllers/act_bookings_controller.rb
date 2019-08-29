@@ -7,6 +7,7 @@ class ActBookingsController < ApplicationController
 
   def show
     @qrcode = RQRCode::QRCode.new("http://github.com/")
+    @review = Review.new
   end
 
   def new

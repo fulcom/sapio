@@ -5,8 +5,42 @@
   </div>
 </div>
 
-<div>
+<div class="container">
   <%= @qrcode.as_svg.html_safe %>
+  <div class="d-flex align-items-center">
+    <div>
+      <button type="button" class="btn-flat-green" data-toggle="modal" data-target="#exampleModal">
+      Notez cette activité</button>
+    </div>
+    <div>
+      <button type="button" class="mini-btn-flat-purple" data-toggle="modal" data-target="#exampleModal">
+      Comment s'y rendre</button>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Notez cette activité</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <!-- FORM DATE  -->
+        <%= simple_form_for [@act_booking,@review] do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Notez cette activité" %>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="form-actions">
+          <%= f.submit "Soumettre", class: "btn-flat-purple" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
 
