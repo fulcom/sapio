@@ -3,7 +3,7 @@ class ActivitiesController < ApplicationController
   def index
     if params[:query].present?
       @activities = []
-      @pg_search_docs = PgSearch.multisearch(params[:query].downcase.gsub("é", "e").gsub("â", "a"))
+      @pg_search_docs = PgSearch.multisearch(params[:query])
       @places = @pg_search_docs.map(&:searchable).map do |element|
         if defined?(element.category)
           @activities << element
