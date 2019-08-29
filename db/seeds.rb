@@ -42,7 +42,7 @@ beaugrenelle = Place.create!(
 
 bataclan = Place.create!(
   name: "Bataclan",
-  address: "50 Boulevard Voltaire",
+  address: "50 Boulevard Voltaire, Paris",
   city: "Paris",
   country: "France",
   zip_code: "75011",
