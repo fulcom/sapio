@@ -11,9 +11,15 @@
     <i class="fas fa-qrcode" style="color: #3700B3;"></i>
   <% end %>
 
-  <%= link_to act_bookings_path do %>
+<% if current_user.nil? %>
+  <%= link_to  new_user_session_path do %>
+      <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to favorites_path do %>
     <i class="fas fa-heart"></i>
   <% end %>
+<% end %>
 
   <% if current_user != nil %>
   <% else %>
