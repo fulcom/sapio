@@ -8,9 +8,6 @@
       class: "form-control",
       placeholder: "Que faire" %>
     </div>
-    <div class="">
-      <%= submit_tag "Chercher", class: "btn btn-flat-purple" %>
-    </div>
       <% end %>
   </div>
 </div>
@@ -30,7 +27,7 @@
     </div>
   <%end%>
 </div>
-  <div class="toggle-map"
+  <div class="toggle-map d-none">
 
   <div
     id="map"
@@ -39,5 +36,6 @@
     data-markers="<%= @markers.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
   ></div>
+</div>
 
 
