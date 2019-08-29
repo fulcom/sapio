@@ -1,24 +1,13 @@
 <div class="banner">
   <div class="text-in-banner">
     <h1>Vos Pass</h1>
-    <div class="searchbar">
-      <%= form_tag activities_path, method: :get do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Que faire" %>
-    </div>
-    <div class="">
-      <%= submit_tag "Chercher", class: "btn btn-flat-purple" %>
-    </div>
-      <% end %>
   </div>
 </div>
 
 <div class="container">
   <% @act_bookings.each do |booking| %>
     <div class="card-text">
-      <!-- image tag à insérer avec pass photo-->
+      <%= cl_image_tag booking.activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to booking.activity.name, activity_act_booking_path(booking.activity, booking) %></h2>
         <p><%= booking.activity.category %></p>
