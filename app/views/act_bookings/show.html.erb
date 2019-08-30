@@ -15,7 +15,12 @@
       Notez cette activité</button>
     </div>
     <div>
-      <button type="button" class="mini-btn-flat-red" data-toggle="modal" data-target="#exampleModal"><i class="fas fa-map-marker-alt"></i> Comment s'y rendre</button>
+      <div class="d-flex mini-btn-flat-red justify-content-center" >
+        <% activity_map = Activity.find(@act_booking.activity_id) %>
+        <i class="fas fa-map-marker-alt"></i>
+        <%= link_to "Comment s'y rendre", "https://www.google.com/maps/search/#{Place.find(activity_map.place_id).latitude}+#{Place.find(activity_map.place_id).longitude}", target: "_blank"%>
+      </div>
+
     </div>
     <div class="padding-bottom-page"></div>
   </div>
