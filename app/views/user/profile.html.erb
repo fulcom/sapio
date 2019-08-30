@@ -14,26 +14,12 @@
   <h2><%= link_to 'Mes abonnements', subs_bookings_path %></h2>
 </div>
 
-<!--  -->
 <div class="card-text profile d-flex align-items-center">
   <img src="https://image.flaticon.com/icons/png/512/107/107005.png">
-  <h2><%= link_to 'Changer mon mot de passe / Marche pas', edit_user_password_path %></h2>
+  <h2><%= link_to 'Changer mon mot de passe', edit_user_registration_path %></h2>
 </div>
 
-<div class="card-text profile d-flex align-items-center">
-  <img src="https://image.flaticon.com/icons/png/512/107/107005.png">
-  <h2><%= link_to "J'ai oublié mon mot de passe/ Marche pas", new_user_password_path %></h2>
-</div>
-
-<div class="card-text profile d-flex align-items-center">
-  <img src="https://cdn1.iconfinder.com/data/icons/hawcons/32/699373-icon-26-trash-can-512.png">
-  <h2><%= link_to 'Supprimer mon compte/ Marche pas', cancel_user_registration_path  %></h2>
-</div>
-
-<!--  -->
 <div class="card-text profile d-flex align-items-center">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv3GLeKYBhkB1k3NCHCT-kbV5qyIoo2WOnGkPvF6KBuQad1rU4">
   <h2><%= link_to 'Log out', destroy_user_session_path, method: :delete %></h2>
 </div>
-
-<%#= current_user.email %>
