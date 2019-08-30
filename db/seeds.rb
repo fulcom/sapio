@@ -162,7 +162,7 @@ jl_aubert = Activity.create!(
   description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
   start_date: "2019-8-20".to_date,
   end_date: "2019-8-21".to_date,
-  avg_rating: 5,
+  avg_rating: 3,
   place: bataclan,
   subscription: gold)
 
@@ -192,7 +192,7 @@ docteur_miracle = Activity.create!(
   description: "Opéra-comique en un acte, sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857. Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : rappeler le passé glorieux de l’opéra-comique français et permettre aux genres légers de garder une place de choix à Paris.",
   start_date: "2019-8-20".to_date,
   end_date: "2019-8-21".to_date,
-  avg_rating: 5,
+  avg_rating: 4,
   place: marigny,
   subscription: gold)
 
@@ -207,7 +207,7 @@ funny_girl = Activity.create!(
   description: "THE BROADWAY MUSICAL! Festif, fun, émouvant pour la première fois à Paris dans une nouvelle production. Le spectacle sera donné en anglais avec des surtitres en français. Tadaaaaaaa… C’est Christina Bianco qui prendra la suite de Barbra Streisand et interprétera le rôle de Fanny Brice dans la nouvelle production de Funny Girl au Théâtre Marigny. Elle en est très heureuse et nous également ! Réservez vite, il n’y aura pas de places pour tout le monde !",
   start_date: "2019-8-20".to_date,
   end_date: "2019-9-30".to_date,
-  avg_rating: 5,
+  avg_rating: 2,
   place: marigny,
   subscription: gold)
 

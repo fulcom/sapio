@@ -30,42 +30,43 @@
 </div>
 
 <div class="horizontal-scroll">
-  <div class="category-orange">
-  Musée
+  <div class="category category-orange">
+    <%= link_to "Musée", activities_path(query: "musée") %>
   </div>
-  <div class="category-blue">
-    Cinéma
+  <div class="category category-blue">
+    <%= link_to "Cinéma", activities_path(query: "cinéma") %>
   </div>
-  <div class="category-yellow">
-    Théâtre
+  <div class="category category-yellow">
+    <%= link_to "Théâtre", activities_path(query: "théâtre") %>
   </div>
-  <div class="category-red">
-    Concert
+  <div class="category category-red">
+    <%= link_to "Concert", activities_path(query: "concert") %>
   </div>
-  <div class="category-purple">
-    Opéra
+  <div class="category category-purple">
+    <%= link_to "Opéra", activities_path(query: "opéra") %>
   </div>
 </div>
 
 <h2 class="text-center">A refaire</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
+  <% @do_it_again.each do |booking| %>
     <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
+      <%= cl_image_tag booking.activity.photo_one %>
       <div class="card-text-infos">
-        <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+        <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
+        <p><%= booking.activity.category %></p>
+        <p><%= booking.activity.avg_rating %></p>
       </div>
     </div>
   <%end%>
 </div>
 
+
 <h2 class="text-center">Dernière chance</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
+  <% @last_chance.each do |activity| %>
     <div class="card-text-home card-text">
       <%= cl_image_tag activity.photo_one %>
       <div class="card-text-infos">
@@ -80,7 +81,7 @@
 <h2 class="text-center">Les plus populaires</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
+  <% @best_rating.each do |activity| %>
     <div class="card-text-home card-text">
       <%= cl_image_tag activity.photo_one %>
       <div class="card-text-infos">
