@@ -47,20 +47,25 @@
   </div>
 </div>
 
-<h2 class="text-center">A refaire</h2>
+<% unless current_user.nil? %>
+  <h2 class="text-center">A refaire</h2>
 
-<div class="horizontal-scroll">
-  <% @do_it_again.each do |booking| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag booking.activity.photo_one %>
-      <div class="card-text-infos">
-        <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
-        <p><%= booking.activity.category %></p>
-        <p><%= booking.activity.avg_rating %></p>
+  <div class="horizontal-scroll">
+    <% @do_it_again.each do |booking| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag booking.activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
+          <p><%= booking.activity.category %></p>
+          <p><%= booking.activity.avg_rating %></p>
+        </div>
       </div>
-    </div>
-  <%end%>
-</div>
+    <%end%>
+  </div>
+<% else %>
+<% end %>
+
+
 
 
 <h2 class="text-center">Dernière chance</h2>

@@ -3,7 +3,9 @@ class PagesController < ApplicationController
     @activities = Activity.all
     @act_bookings = ActBooking.all
 
-    @do_it_again = current_user.act_bookings.order(date: :desc).limit(5)
+    unless current_user. nil?
+      @do_it_again = current_user.act_bookings.order(date: :desc).limit(5)
+    end
 
     @last_chance = Activity.where('end_date < ?', DateTime.current + 10)
 
