@@ -6,11 +6,15 @@
   <%= link_to activities_path do %>
     <i class="fas fa-search"></i>
   <% end %>
-
-  <%= link_to act_bookings_path do %>
+  <% if current_user.nil? %>
+    <%= link_to new_user_session_path do %>
     <i class="fas fa-qrcode" style="color: #3700B3;"></i>
+    <% end %>
+  <% else %>
+    <%= link_to act_bookings_path do %>
+      <i class="fas fa-qrcode" style="color: #3700B3;"></i>
+    <% end %>
   <% end %>
-
   <% if current_user.nil? %>
    <%= link_to  new_user_session_path do %>
      <i class="fas fa-heart"></i>
