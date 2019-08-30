@@ -3,7 +3,7 @@
   color: #24AFA0 !important;
 }
 
-.br-theme-css-stars .br-widget a.br-active:after {
+.br-theme-css-stars .br-widget a.br-active {
   color: #24AFA0 !important;
 }
 
@@ -17,4 +17,12 @@ h5 {
 
 .br-widget a {
   font-size: 40px !important;
+}
+
+.br-theme-css-stars .br-widget {
+    height: 28px;
+    white-space: nowrap;
+    display: flex !important;
+    justify-content: space-around !important;
+    margin-bottom: 35px;
 }
