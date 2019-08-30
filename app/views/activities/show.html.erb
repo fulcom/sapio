@@ -29,7 +29,7 @@
 <!-- croix -->
 <div id="croix">
   <%= link_to activities_path, :method => :get do %>
-  <i class="fas fa-times"></i>
+  <i class="fas fa-times fa-times-retour"></i>
   <% end %>
 </div>
 
@@ -149,7 +149,8 @@
           <%= simple_form_for [@activity, @act_booking] do |f| %>
             <div class="form-inputs text-center">
               <%= f.input :date, as: :string,
-                  required: false, label: "Date de réservation",
+                  required:
+                   false, label: "Date de réservation",
                   autofocus: true, input_html: {class: "datepicker"} %>
             </div>
         </div>
