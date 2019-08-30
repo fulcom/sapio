@@ -21,5 +21,5 @@
 
 <div class="card-text profile d-flex align-items-center">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv3GLeKYBhkB1k3NCHCT-kbV5qyIoo2WOnGkPvF6KBuQad1rU4">
-  <h2><%= link_to 'Log out', destroy_user_session_path, method: :delete %></h2>
+  <h2><%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: "Etes-vous sûr de vouloir vous delogger?"} %></h2>
 </div>
