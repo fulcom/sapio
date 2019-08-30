@@ -8,6 +8,7 @@ class ActivitiesController < ApplicationController
         if defined?(element.category)
           @activities << element
           Place.find(element.place_id)
+
         else
           element.activities.each do |a|
             @activities << a
