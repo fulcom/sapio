@@ -9,11 +9,17 @@
   <h2><%= link_to 'Mon profil', edit_user_registration_path %></h2>
 </div>
 
-
 <div class="card-text profile d-flex align-items-center">
   <img src="https://www.freeiconspng.com/uploads/euro-icon-2.png">
-  <h2><%= link_to 'Mes abonnements', subs_bookings_path %></h2>
+  <h2><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path %></h2>
 </div>
+
+<% if @subscription_exists == true %>
+  <div class="card-text profile d-flex align-items-center">
+    <img src="https://www.freeiconspng.com/uploads/euro-icon-2.png">
+    <h2><%= link_to 'Mes abonnements', subs_bookings_path %></h2>
+  </div>
+<% end %>
 
 <div class="card-text profile d-flex align-items-center">
   <img src="https://image.flaticon.com/icons/png/512/107/107005.png">
@@ -24,3 +30,5 @@
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv3GLeKYBhkB1k3NCHCT-kbV5qyIoo2WOnGkPvF6KBuQad1rU4">
   <h2><%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: "Etes-vous sûr de vouloir vous delogger?"} %></h2>
 </div>
+
+
