@@ -1,5 +1,10 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
+
+  def filter_sort
+    # @activities = Activity.all
+  end
+
   def index
     if params[:query].present?
       @activities = []

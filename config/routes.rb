@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :activities, only: [:index, :show] do
     resources :act_bookings, only: [:show, :new, :create]
     resources :favorites, only: [:create, :destroy]
+    collection do
+      get 'filter_sort'
+    end
   end
 
   resources :favorites, only: [:index]
