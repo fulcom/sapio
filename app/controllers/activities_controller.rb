@@ -1,8 +1,38 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
 
+  def filter_sort_modal
+    @activities = Activity.all
+
+    ### Filtre par catégorie
+    categories_all = []
+    Activity.all.each do |activity|
+      categories_all << activity.category
+    end
+    @categories = categories_all.uniq
+
+  end
+
   def filter_sort
-    # @activities = Activity.all
+    # categories = {}
+    #   for i in (0..params.keys.length-1)
+    #     if params.keys[i].split("_").first == "category"
+    #       categories[params.keys[i]] = params.values[i]
+    #     end
+    categories = []
+    for i in (0..params.keys.length-1)
+      categories << params.values[i] if params.keys[i].split("_").first == "category"
+    end
+    @activities_by_category = []
+    categories.each do |category|
+      Activity.all.each do |activity|
+        @activities_by_category << activity if activity.category == category
+      end
+    end
+
+    ### Filtre par date
+    # render json: @activities_by_category
+    ### Filtre par place
   end
 
   def index

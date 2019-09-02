@@ -23,3 +23,7 @@ import { mapAppear } from '../components/map';
 mapAppear();
 
 
+// import filter from '../components/filter_categories';
+// filter();
+
+

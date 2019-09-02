@@ -1,0 +1,23 @@
+<div class="banner">
+  <div class="text-in-banner">
+    <h1>Vos critères</h1>
+  </div>
+</div>
+
+<div class="container">
+  <form action="/activities/filter_sort", method="get">
+    <h2>Sélectionnez une catégorie</h2>
+
+      <% @categories.each do |category| %>
+        <div>
+          <input type="checkbox" class="categoryCheckbox" value="<%= "#{category}" %>" name="category_<%= "#{category}" %>">
+          <!-- value="<%#= @categories.index("#{category}")" %> => index de @categories -->
+          <%= category %>
+        </div>
+      <% end %>
+
+<!--     <h2>Sélectionnez une date</h2>
+    <input type="text" class="date" name="date">
+      date -->
+    <input type="submit" value="Send Request" id="ModalSubmit">
+  </form>
