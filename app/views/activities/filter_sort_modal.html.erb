@@ -20,7 +20,11 @@
         <input type="radio" id="sortEndDate" name="sort" value="end_date">Date de fin
         <input type="radio" id="sortRating" name="sort" value="avg_rating">Note
         <input type="radio" id="sortName" name="sort" value="name">Nom
-        <input type="radio" id="sortDistance" name="sort" value="distance">Distance
+        <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">Distance
+
+        <input style="visibility:hidden" type="radio" id="longitudeUser" name="longitude" value="" checked>
+        <input style="visibility:hidden" type="radio" id="latitudeUser" name="latitude" value="" checked>
+
         <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
         <!-- name = clé qu'on récupère dans les params -->
         <!-- value = valeur de la clé qu'on récupère dans les params -->
@@ -31,3 +35,36 @@
       date -->
     <input type="submit" value="Send Request" id="ModalSubmit">
   </form>
+
+
+<p id="demo"></p>
+
+<script>
+// var x = document.getElementById("sortDistance");
+var long = document.getElementById("longitudeUser");
+var lat = document.getElementById("latitudeUser");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPositionLongitude);
+    navigator.geolocation.getCurrentPosition(showPositionLatitude);
+    // navigator.geolocation.getCurrentPosition(showPosition);
+
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+// function showPosition(position) {
+//   x.value = "Latitude: " + position.coords.latitude +
+//   "<br>Longitude: " + position.coords.longitude;
+// }
+
+function showPositionLongitude(position) {
+  long.value = position.coords.longitude;
+}
+
+function showPositionLatitude(position) {
+  lat.value = position.coords.latitude;
+}
+</script>

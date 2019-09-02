@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
       # when "distance"
       #   @activities_by_category.sort_by! { |activity| activity.distance }
     end
-      #raise
+      raise
 
   end
 
@@ -72,6 +72,7 @@ class ActivitiesController < ApplicationController
         category: place.activities.first.category.downcase.gsub("é", "e").gsub("â", "a")
       }
     end
+    #raise
   end
 
   def show

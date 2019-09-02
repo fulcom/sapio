@@ -23,6 +23,10 @@ import { mapAppear } from '../components/map';
 mapAppear();
 
 
+// import { geolocalisation } from '../components/current_user_geoloc';
+// geolocalisation();
+
+
 // import filter from '../components/filter_categories';
 // filter();
 
