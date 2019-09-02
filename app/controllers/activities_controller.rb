@@ -30,9 +30,19 @@ class ActivitiesController < ApplicationController
       end
     end
 
-    ### Filtre par date
-    # render json: @activities_by_category
-    ### Filtre par place
+    sorting_choice = params["sort"]
+    case sorting_choice
+      when "end_date"
+        @activities_by_category.sort_by! { |activity| activity.end_date }
+      when "avg_rating"
+        @activities_by_category.sort_by! { |activity| activity.avg_rating }.reverse!
+      when "name"
+        @activities_by_category.sort_by! { |activity| activity.name }
+      # when "distance"
+      #   @activities_by_category.sort_by! { |activity| activity.distance }
+    end
+      #raise
+
   end
 
   def index

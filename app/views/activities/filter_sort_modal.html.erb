@@ -15,6 +15,16 @@
           <%= category %>
         </div>
       <% end %>
+    <h2>Trier par</h2>
+      <div>
+        <input type="radio" id="sortEndDate" name="sort" value="end_date">Date de fin
+        <input type="radio" id="sortRating" name="sort" value="avg_rating">Note
+        <input type="radio" id="sortName" name="sort" value="name">Nom
+        <input type="radio" id="sortDistance" name="sort" value="distance">Distance
+        <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
+        <!-- name = clé qu'on récupère dans les params -->
+        <!-- value = valeur de la clé qu'on récupère dans les params -->
+      </div>
 
 <!--     <h2>Sélectionnez une date</h2>
     <input type="text" class="date" name="date">
