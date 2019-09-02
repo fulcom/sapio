@@ -1,10 +1,26 @@
-<h1>Vos abonnements</h1>
+<div class="banner">
+  <div class="text-in-banner">
+    <h1 >Vos abonnements </h1>
+  </div>
+</div>
 
-<% @subs_bookings.each do |subs_booking| %>
-  <%= render 'subs_booking_details', subs_booking: subs_booking %>
-  <p><%= link_to 'Facture', subs_booking_path(subs_booking)%></p>
-<% end %>
+<div class="container", style="padding:16px">
+  <div>
+    <h3 style="padding-bottom:16px"><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path, class:"cursor:pointer;" %></h3>
+    <h3>Vos abonnements passés</h3>
+  </div>
 
-<p><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path %></p>
+  <% @subs_bookings.each do |subs_booking| %>
+    <div class="card-text subscription d-flex align-items-center justify-content-between">
+      <div>
+        <p>Abonnement <%= subs_booking.subscription.name %></p>
+        <p>Du <%= subs_booking.start_date.strftime("%d/%m/%Y") %> au <%= subs_booking.end_date.strftime("%d/%m/%Y") %></p>
+        <p>Tarif : <%= subs_booking.subscription.price %>€</p>
+      </div>
+      <%= link_to 'Facture', subs_booking_path(subs_booking), class:"btn-flat-green", style:"width:auto; padding:8px; color:white"%>
+    </div>
+  <% end %>
+</div>
+
 
 <div class="padding-bottom-page"></div>
