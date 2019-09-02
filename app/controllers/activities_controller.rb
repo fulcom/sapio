@@ -37,7 +37,8 @@ class ActivitiesController < ApplicationController
         @average_rating = 0
       else
         sum_of_ratings += review.rating
-        @average_rating = ((sum_of_ratings / @activity.reviews.size) * 2.0).round / 2.0
+        # @average_rating = ((sum_of_ratings / @activity.reviews.size) * 2.0).round / 2.0
+        @average_rating = (sum_of_ratings / @activity.reviews.size)
       end
     end
     @favorite = Favorite.where(user: current_user, activity: params[:id]).take

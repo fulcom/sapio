@@ -22,7 +22,23 @@
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+          <div class="d-flex">
+            <div>
+              <% sum_of_ratings = 0 %>
+              <% activity.reviews.each do |review| %>
+                <% if review.rating.nil? %>
+                  <% @average_rating = 0 %>
+                <% else  %>
+                  <% sum_of_ratings += review.rating %>
+                <% end %>
+              <% end %>
+              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0%>
+              <%= @average_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
       </div>
     </div>
   <%end%>
