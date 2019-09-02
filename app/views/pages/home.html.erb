@@ -15,8 +15,8 @@
     params[:query],
     class: "form-control",
     placeholder: "🔍" %>
-  </div>
     <% end %>
+  </div>
 
 <!-- ALICE -->
 
@@ -47,150 +47,92 @@
   </div>
 </div>
 
-<h2 class="text-center">Nos recommandations</h2>
+
+<% unless current_user.nil? %>
+  <h2 class="text-center">Nos recommandations</h2>
 
 <div class="horizontal-scroll">
-  <% @recommandations[0].each do |activity| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
-      <div class="card-text-infos">
-        <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-      <% if @average_rating == 0.5 %>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-      <% else %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      <% end %>
+    <% @recommandations[0].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <% sum_of_ratings = 0 %>
+              <% activity.reviews.each do |review| %>
+                <% if review.rating.nil? %>
+                  <% @average_rating = 0 %>
+                <% else  %>
+                  <% sum_of_ratings += review.rating %>
+                <% end %>
+              <% end %>
+              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0%>
+              <%= @average_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  <%end%>
-  <% @recommandations[1].each do |activity| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
-      <div class="card-text-infos">
-        <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-      <% if @average_rating == 0.5 %>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-      <% else %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      <% end %>
+    <%end%>
+    <% @recommandations[1].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <% sum_of_ratings = 0 %>
+              <% activity.reviews.each do |review| %>
+                <% if review.rating.nil? %>
+                  <% @average_rating = 0 %>
+                <% else  %>
+                  <% sum_of_ratings += review.rating %>
+                <% end %>
+              <% end %>
+              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0%>
+              <%= @average_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  <%end%>
-</div>
+    <%end%>
+    <% @recommandations[2].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <% sum_of_ratings = 0 %>
+              <% activity.reviews.each do |review| %>
+                <% if review.rating.nil? %>
+                  <% @average_rating = 0 %>
+                <% else  %>
+                  <% sum_of_ratings += review.rating %>
+                <% end %>
+              <% end %>
+              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
+              <%= @average_rating %>
+            </div>
+            <div>
+            <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+<% end %>
+
 
 <% unless current_user.nil? %>
   <h2 class="text-center">A refaire</h2>
@@ -202,72 +144,27 @@
         <div class="card-text-infos">
           <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
           <p><%= booking.activity.category %></p>
-       <% if @average_rating == 0.5 %>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-      <% else %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      <% end %>
+          <div class="d-flex">
+            <div>
+              <% sum_of_ratings = 0 %>
+              <% booking.activity.reviews.each do |review| %>
+                <% if review.rating.nil? %>
+                  <% @average_rating = 0 %>
+                <% else  %>
+                  <% sum_of_ratings += review.rating %>
+                <% end %>
+              <% end %>
+              <% @average_rating = (sum_of_ratings / booking.activity.reviews.size) if booking.activity.reviews.size > 0 %>
+              <%= @average_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
         </div>
       </div>
     <%end%>
   </div>
-<% else %>
 <% end %>
 
 
@@ -282,71 +179,28 @@
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-                <% if @average_rating == 0.5 %>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-      <% else %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      <% end %>
+        <div class="d-flex">
+          <div>
+            <% sum_of_ratings = 0 %>
+            <% activity.reviews.each do |review| %>
+              <% if review.rating.nil? %>
+                <% @average_rating = 0 %>
+              <% else  %>
+                <% sum_of_ratings += review.rating %>
+              <% end %>
+            <% end %>
+            <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
+            <%= @average_rating %>
+          </div>
+          <div>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
     </div>
-  <%end%>
+  <% end %>
 </div>
+
 
 <h2 class="text-center">Les plus populaires</h2>
 
@@ -357,67 +211,23 @@
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-                <% if @average_rating == 0.5 %>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 1.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 3.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @average_rating == 4.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half"></i>
-      <% else %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      <% end %>
+        <div class="d-flex">
+          <div>
+           <% sum_of_ratings = 0 %>
+            <% activity.reviews.each do |review| %>
+              <% if review.rating.nil? %>
+                <% @average_rating = 0 %>
+              <% else  %>
+                <% sum_of_ratings += review.rating %>
+              <% end %>
+            <% end %>
+            <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
+            <%= @average_rating %>
+          </div>
+          <div>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
     </div>
   <%end%>
