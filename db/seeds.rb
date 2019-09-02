@@ -212,7 +212,7 @@ exposition_musee_grevin.remote_photo_two_url = "https://res.cloudinary.com/spark
 exposition_musee_grevin.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422811/Sapio/Expo_musee_grevin_3.jpg"
 exposition_musee_grevin.save
 
-expo_musee_du_fumeur = Activity.create!(
+exposition_musee_du_fumeur = Activity.create!(
   category:"Musée",
   name:"Musée du Fumeur",
   description:"Le musée du Fumeur a été fondé en 2001 par Michka Seeliger et Tigrane Hadengue. Il réunit plantes, œuvres d’art et objets liés à une pratique ancestrale : fumer. Témoignant de l’évolution des comportements à travers les siècles, ces collections sont propres à susciter la réflexion sur l’acte de fumer, originellement rapporté des Amériques par Christophe Colomb et, en cinq siècles, devenu planétaire.",
