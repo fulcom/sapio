@@ -170,8 +170,8 @@ exposition_beaubourg = Activity.create!(
   category:"Musée",
   name:"Préhistoire. Une énigme moderne",
   description:"À travers cette exposition inédite, le Centre Pompidou propose de revisiter la relation féconde qui unit la préhistoire à l’art moderne et contemporain. Dans ce grand moment de crise qu’incarne la modernité, des artistes incontournables comme Picasso, Miró mais aussi Cézanne, Klee, Giacometti, Ernst, Beuys, Klein, Dubuffet, Smithson, Penone… ont été hantés par la question de la préhistoire et ses origines fantasmées.",
-  start_date: "2019-5-8".to_date,
-  end_date: "2019-9-16".to_date,
+  start_date: "2019-05-08".to_date,
+  end_date: "2019-09-16".to_date,
   avg_rating: 5,
   place: beaubourg,
   subscription: silver)
@@ -232,8 +232,8 @@ once_upon_a_time = Activity.create!(
   category:"Cinéma",
   name:"Once Upon A Time",
   description:"Avec Once Upon a Time in Hollywood, Tarantino convertit une nouvelle fois l'essai, et montre (contre son gré?) de vrais signes de maturité. Lettre d'amour à une époque fantasmée, cette série de digressions souvent humoristiques laisse infuser une mélancolie nouvelle dans sa filmographie. Un scénario plein d'humour, de nostalgie et de suspense, une reconstitution phénoménale du Los Angeles de la fin des années 60, une manière inouïe de mélanger personnages fictifs et réels.",
-  start_date: "2019-8-26".to_date,
-  end_date: "2019-8-29".to_date,
+  start_date: "2019-08-26".to_date,
+  end_date: "2019-08-29".to_date,
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
@@ -247,8 +247,8 @@ fast_and_furious = Activity.create!(
   category:"Cinéma",
   name:"Fast and Furious : Hobbs & Shaw",
   description:"Depuis que Hobbs et Shaw se sont affrontés, les deux hommes font tout pour se nuire l'un à l'autre. Mais lorsque Brixton, un anarchiste génétiquement modifié, met la main sur une arme de destruction massive après avoir battu le meilleur agent du MI6 qui se trouve être la soeur de Shaw. Les deux ennemis de longue date vont devoir alors faire équipe pour faire tomber le seul adversaire capable de les anéantir.",
-  start_date: "2019-8-26".to_date,
-  end_date: "2019-8-27".to_date,
+  start_date: "2019-08-26".to_date,
+  end_date: "2019-08-27".to_date,
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
@@ -307,8 +307,8 @@ docteur_miracle = Activity.create!(
   category: "Théâtre",
   name: "Le Docteur Miracle",
   description: "Opéra-comique en un acte, sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857. Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : rappeler le passé glorieux de l’opéra-comique français et permettre aux genres légers de garder une place de choix à Paris.",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-8-21".to_date,
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-08-21".to_date,
   avg_rating: 4,
   place: marigny,
   subscription: gold)
@@ -322,8 +322,8 @@ funny_girl = Activity.create!(
   category: "Théâtre",
   name: "Funny Girl",
   description: "THE BROADWAY MUSICAL! Festif, fun, émouvant pour la première fois à Paris dans une nouvelle production. Le spectacle sera donné en anglais avec des surtitres en français. Tadaaaaaaa… C’est Christina Bianco qui prendra la suite de Barbra Streisand et interprétera le rôle de Fanny Brice dans la nouvelle production de Funny Girl au Théâtre Marigny. Elle en est très heureuse et nous également ! Réservez vite, il n’y aura pas de places pour tout le monde !",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-9-30".to_date,
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-09-30".to_date,
   avg_rating: 2,
   place: marigny,
   subscription: gold)
@@ -384,8 +384,8 @@ jl_aubert = Activity.create!(
   category: "Concert",
   name: "Jean-Louis Aubert",
   description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-8-21".to_date,
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-08-21".to_date,
   avg_rating: 3,
   place: bataclan,
   subscription: gold)
@@ -399,8 +399,8 @@ oh_sees = Activity.create!(
   category: "Concert",
   name: "OH SEES",
   description: "Quand John Dwyer et sa clique déboule dans la Creuse, c’est pas vraiment pour acheter du terrain. Vingt ans que ces furieux partent et reviennent à San Francisco pour enregistrer album sur album, entre deux tournées. Deux batteries sur scène et une énergie à faire pâlir les apprentis rockeurs qui craignent trop la sueur. Oh Sees est finalement l’incarnation idéale de cette première programmation Check-in : rock jusqu’à la moelle, sans concession et généreuse.",
-  start_date: "2019-9-1".to_date,
-  end_date: "2019-9-2".to_date,
+  start_date: "2019-09-01".to_date,
+  end_date: "2019-09-02".to_date,
   avg_rating: 5,
   place: bataclan,
   subscription: gold)
@@ -460,7 +460,7 @@ casse_noisette = Activity.create!(
   category: "Opéra",
   name: "Casse-noisette",
   description: "Historiquement présentés en diptyque en 1892, Iolanta et Casse‑Noisette sont à nouveau réunis dans cette production de l’Opéra de Paris. Dans la mise en scène et les décors de Dmitri Tcherniakov, ils ne deviennent qu’une seule et même oeuvre : l’opéra comme prélude du ballet, le ballet comme résolution de l’opéra. La fille du roi René dont la cécité disparaît aux aurores de l’amour se retrouve dans Marie, jeune fille bien éloignée de la Clara de Marius Petipa.",
-  start_date: "2019-12-1".to_date,
+  start_date: "2019-12-01".to_date,
   end_date: "2019-12-30".to_date,
   avg_rating: 2,
   place: garnier,
@@ -475,8 +475,8 @@ traviata = Activity.create!(
   category: "Opéra",
   name: "La Traviata",
   description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
-  start_date: "2019-8-1".to_date,
-  end_date: "2019-9-15".to_date,
+  start_date: "2019-08-01".to_date,
+  end_date: "2019-09-15".to_date,
   avg_rating: 5,
   place: garnier,
   subscription: platinum)
@@ -519,7 +519,7 @@ inondation = Activity.create!(
   category: "Opéra",
   name: "Inondation",
   description: "Parce qu’ils ne peuvent pas avoir d’enfant, deux époux finissent par adopter une orpheline. L’adolescente se fait une place imprévue dans leur foyer et dans leurs coeurs. Dans ce faubourg de Saint-Pétersbourg, la parole entre les époux s'est raréfiée et les silences deviennent pesants. Le monde que la femme s’est construit pour surmonter la tristesse de sa vie affective va se dérégler tandis qu’en cette fin d’hiver montent les eaux du fleuve.",
-  start_date: "2019_09-27".to_date,
+  start_date: "2019-09-27".to_date,
   end_date: "2019-10-03".to_date,
   avg_rating: 4,
   place: opera_comique,
@@ -604,7 +604,7 @@ act_booking6 = ActBooking.create!(
 # Charles: 6 bookings
 
 act_booking7 = ActBooking.create!(
-  date: "2019-8-30".to_date,
+  date: "2019-08-30".to_date,
   user: charles,
   activity: exposition_beaubourg)
 
@@ -686,7 +686,7 @@ act_booking21 = ActBooking.create!(
 act_booking22 = ActBooking.create!(
   date: "2019-10-10".to_date,
   user: isabelle,
-  activity: expo_musee_du_fumeur)
+  activity: exposition_musee_du_fumeur)
 
 act_booking23 = ActBooking.create!(
   date: "2019-08-28".to_date,
@@ -728,9 +728,9 @@ review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
 
-@review.act_booking = @act_booking
-@activity = Activity.find(@act_booking.activity_id)
-@activity.avg_rating = @activity.average
+# @review.act_booking = @act_booking
+# @activity = Activity.find(@act_booking.activity_id)
+# @activity.avg_rating = @activity.average
 
 puts "...records created!"
 
