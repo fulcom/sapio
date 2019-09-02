@@ -728,5 +728,9 @@ review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
 
+@review.act_booking = @act_booking
+@activity = Activity.find(@act_booking.activity_id)
+@activity.avg_rating = @activity.average
+
 puts "...records created!"
 

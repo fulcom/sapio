@@ -60,16 +60,7 @@
           <p><%= activity.category %></p>
           <div class="d-flex">
             <div>
-              <% sum_of_ratings = 0 %>
-              <% activity.reviews.each do |review| %>
-                <% if review.rating.nil? %>
-                  <% @average_rating = 0 %>
-                <% else  %>
-                  <% sum_of_ratings += review.rating %>
-                <% end %>
-              <% end %>
-              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0%>
-              <%= @average_rating %>
+              <%= activity.avg_rating %>
             </div>
             <div>
               <i class="fas fa-star"></i>
@@ -86,16 +77,7 @@
           <p><%= activity.category %></p>
           <div class="d-flex">
             <div>
-              <% sum_of_ratings = 0 %>
-              <% activity.reviews.each do |review| %>
-                <% if review.rating.nil? %>
-                  <% @average_rating = 0 %>
-                <% else  %>
-                  <% sum_of_ratings += review.rating %>
-                <% end %>
-              <% end %>
-              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0%>
-              <%= @average_rating %>
+              <%= activity.avg_rating %>
             </div>
             <div>
               <i class="fas fa-star"></i>
@@ -112,16 +94,7 @@
           <p><%= activity.category %></p>
           <div class="d-flex">
             <div>
-              <% sum_of_ratings = 0 %>
-              <% activity.reviews.each do |review| %>
-                <% if review.rating.nil? %>
-                  <% @average_rating = 0 %>
-                <% else  %>
-                  <% sum_of_ratings += review.rating %>
-                <% end %>
-              <% end %>
-              <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
-              <%= @average_rating %>
+              <%= activity.avg_rating %>
             </div>
             <div>
             <i class="fas fa-star"></i>
@@ -145,16 +118,7 @@
         <p><%= activity.category %></p>
         <div class="d-flex">
           <div>
-            <% sum_of_ratings = 0 %>
-            <% activity.reviews.each do |review| %>
-              <% if review.rating.nil? %>
-                <% @average_rating = 0 %>
-              <% else  %>
-                <% sum_of_ratings += review.rating %>
-              <% end %>
-            <% end %>
-            <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
-            <%= @average_rating %>
+            <%= activity.avg_rating %>
           </div>
           <div>
             <i class="fas fa-star"></i>
@@ -177,16 +141,7 @@
         <p><%= activity.category %></p>
         <div class="d-flex">
           <div>
-           <% sum_of_ratings = 0 %>
-            <% activity.reviews.each do |review| %>
-              <% if review.rating.nil? %>
-                <% @average_rating = 0 %>
-              <% else  %>
-                <% sum_of_ratings += review.rating %>
-              <% end %>
-            <% end %>
-            <% @average_rating = (sum_of_ratings / activity.reviews.size) if activity.reviews.size > 0 %>
-            <%= @average_rating %>
+            <%= activity.avg_rating %>
           </div>
           <div>
             <i class="fas fa-star"></i>
@@ -209,16 +164,7 @@
           <p><%= booking.activity.category %></p>
           <div class="d-flex">
             <div>
-              <% sum_of_ratings = 0 %>
-              <% booking.activity.reviews.each do |review| %>
-                <% if review.rating.nil? %>
-                  <% @average_rating = 0 %>
-                <% else  %>
-                  <% sum_of_ratings += review.rating %>
-                <% end %>
-              <% end %>
-              <% @average_rating = (sum_of_ratings / booking.activity.reviews.size) if booking.activity.reviews.size > 0 %>
-              <%= @average_rating %>
+              <%= Activity.find(booking.activity_id).avg_rating %>
             </div>
             <div>
               <i class="fas fa-star"></i>
