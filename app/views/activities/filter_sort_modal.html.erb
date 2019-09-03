@@ -17,16 +17,15 @@
         </div>
       <% end %>
 
-      <!-- <h2>Sélectionnez une un endroit</h2>
-        <label for="selectAllPlaces" id="selectAllPlacessLabel">Tout sélectionner</label>
-        <input type="checkbox" id="selectAllPlaces" class="placeCheckbox" name="selectAll"> -->
-        <%# @places.each do |place| %>
-          <!-- <div>
-            <input type="checkbox" class="placeCheckbox" value="<%#= "#{place}" %>" name="place_<%#= "#{place}" %>"> -->
-            <!-- value="<%#= @categories.index("#{category}")" %> => index de @categories -->
-            <%#= place %>
-<!--           </div>
-        <%# end %> -->
+      <h2>Sélectionnez un endroit</h2>
+        <label for="selectAllPlaces" id="selectAllPlacesLabel">Tout sélectionner</label>
+        <input type="checkbox" id="selectAllPlaces" class="placeCheckbox" name="selectAll">
+        <% @places.each do |place| %>
+          <div>
+            <input type="checkbox" class="placeCheckbox" value="<%= "#{place.name}" %>" name="place_<%= "#{place.name}" %>">
+            <%= place.name %>
+          </div>
+       <% end %>
 
     <h2>Trier par</h2>
       <div>
@@ -56,6 +55,7 @@
 
     <input type="submit" value="Send Request" id="ModalSubmit">
   </form>
+</div>
 
 <!-- <script>
   // var x = document.getElementById("sortDistance");

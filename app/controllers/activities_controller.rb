@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
 
   def filter_sort_modal
     @activities = Activity.all
+    @places = Place.all.order('name')
 
     ### Filtre par catégorie
     categories_all = []
@@ -19,9 +20,6 @@ class ActivitiesController < ApplicationController
     #     if params.keys[i].split("_").first == "category"
     #       categories[params.keys[i]] = params.values[i]
     #     end
-
-    # @places = Place.all
-
     @activities = []
 
     Activity.all.each do |activity|
