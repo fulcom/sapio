@@ -12,4 +12,17 @@ class Activity < ApplicationRecord
   has_many :favorites
   include PgSearch::Model
   multisearchable against: [:category, :description]
+
+
+  def average
+    if self.reviews.empty?
+      return 0
+    else
+      sum_of_ratings = 0
+      self.reviews.each do |review|
+        sum_of_ratings += review.rating
+      end
+      return sum_of_ratings.fdiv(self.reviews.size).round(1)
+    end
+  end
 end

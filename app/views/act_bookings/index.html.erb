@@ -1,22 +1,26 @@
 <div class="banner">
-  <div class="text-in-banner">
-    <h1>Vos Pass</h1>
-  </div>
+    <i id="burger" class="fas fa-bars"></i>
+    <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
+    <h1>Vos Pass</h1>
 
 <div class="container">
   <% @act_bookings.each do |booking| %>
-    <div class="card-text">
+    <div class="card-text delete-croix">
       <%= cl_image_tag booking.activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to booking.activity.name, activity_act_booking_path(booking.activity, booking) %></h2>
         <p><%= booking.activity.category %></p>
         <p>Date: <%= booking.date %></p>
       </div>
-      </div>
-      <% end %>
-      </div>
+
+        <%= link_to act_booking_path(booking), method: :delete, class: "fa-times-delete" do %>
+          <i class="fas fa-times"></i>
+        <% end %>
+
     </div>
+  <% end %>
   </div>
 </div>
 <div class="padding-bottom-page"></div>
+

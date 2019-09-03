@@ -1,8 +1,11 @@
 class ActBookingsController < ApplicationController
-  before_action :set_act_booking, only: [:show]
+  before_action :set_act_booking, only: [:show, :destroy]
 
   def index
     @act_bookings = ActBooking.all
+    @act_bookings.select do |element|
+      element.user = current_user
+    end
   end
 
   def show
@@ -27,15 +30,19 @@ class ActBookingsController < ApplicationController
     end
   end
 
-  def used_booking
+  def destroy
+    @act_booking.destroy!
+    redirect_to act_bookings_path
+  end
 
+  def used_booking
   end
 
   private
 
   def set_act_booking
-    @activity = Activity.find(params[:activity_id])
-    @act_booking = ActBooking.find(params[:id])
+    @activity = Activity.find(params[:activity_id]) if params[:activity_id]
+    @act_booking = ActBooking.find(params[:id]) if params[:id]
   end
 
   def act_booking_params

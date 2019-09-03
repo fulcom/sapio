@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root to: 'pages#home'
   resources :subs_bookings, only: [:index, :show, :new, :create]
+
   resources :activities, only: [:index, :show] do
     resources :act_bookings, only: [:show, :new, :create]
     resources :favorites, only: [:create, :destroy]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:index]
 
-  resources :act_bookings, only: [:index] do
+  resources :act_bookings, only: [:index, :destroy] do
       resources :reviews, only: [:new, :create]
   end
   # resources :places, only: [:show]

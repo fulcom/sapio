@@ -23,6 +23,7 @@ import { mapAppear } from '../components/map';
 mapAppear();
 
 
+
 import { selectAllCheckbox } from '../components/checkboxes_radio_filter_sort';
 selectAllCheckbox();
 
@@ -32,4 +33,9 @@ getLocation();
 // import filter from '../components/filter_categories';
 // filter();
 
+
+
+import { burgerMenu } from '../components/navbar_menu';
+
+burgerMenu();
 
