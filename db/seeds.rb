@@ -9,12 +9,6 @@
 User.destroy_all
 Place.destroy_all
 Subscription.destroy_all
-Activity.all.each do |activity|
-  activity.remove_photo_one!
-  activity.remove_photo_two!
-  activity.remove_photo_three!
-  activity.save
-end
 Activity.destroy_all
 ActBooking.destroy_all
 
@@ -31,13 +25,13 @@ beaubourg = Place.create!(
   zip_code: "75004",
   access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
 
-musee_orsay = Place.create!(
-  name: "Musée d'Orsay",
-  address: "1 Rue de la Légion d'Honneur",
+musee_du_fumeur = Place.create!(
+  name: "Musée du Fumeur",
+  address: "7 Rue Pache",
   city: "Paris",
   country: "France",
-  zip_code: "75007",
-  access: "Métro: Ligne 12, Train: L; Bus: 48, 68, 69, 72, 73; RER: C, Parking: Carrousel du Louvre, Bac Montalembert")
+  zip_code: "75011",
+  access: "Métro: Ligne 9 - Voltaire, RER Gare de Lyon, Bus: Lignes 46, 56, 61, 69")
 
 musee_grevin = Place.create!(
   name: "Musée Grévin",
@@ -47,29 +41,21 @@ musee_grevin = Place.create!(
   zip_code: "75009",
   access: "Métro: Lignes 3, 8 et 9 - Grands Boulevards ou Bourse, Bus: Lignes 20, 39, 48, Parking: Indigo car park - 31B Rue Vivienne ou Chauchat Drouot")
 
-musee_du_fumeur = Place.create!(
-  name: "Musée du Fumeur",
-  address: "7 Rue Pache",
+musee_orsay = Place.create!(
+  name: "Musée d'Orsay",
+  address: "1 Rue de la Légion d'Honneur",
   city: "Paris",
   country: "France",
-  zip_code: "75011",
-  access: "Métro: Ligne 9 - Voltaire, RER Gare de Lyon, Bus: Lignes 46, 56, 61, 69")
+  zip_code: "75007",
+  access: "Métro: Ligne 12, Train: L; Bus: 48, 68, 69, 72, 73; RER: C, Parking: Carrousel du Louvre, Bac Montalembert")
 
 beaugrenelle = Place.create!(
   name: "Pathé Beaugrenelle",
-  address: "Centre commercial, 7 Rue Linois",
+  address: "7 Rue Linois",
   city: "Paris",
   country: "France",
   zip_code: "75015",
   access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
-
-ugc_les_halles = Place.create!(
-  name: "UGC Les Halles",
-  address: "101 rue Berger",
-  city: "Paris",
-  country: "France",
-  zip_code: "75001",
-  access: "Métro: Lignes 1, 3, 4 RER: A, B, D  Train: J et L, Bus: Lignes 24, 29, 39, 58, 72")
 
 mk2_odeon = Place.create!(
   name: "MK2 Odéon",
@@ -79,13 +65,13 @@ mk2_odeon = Place.create!(
   zip_code: "75006",
   access: "Métro: Lignes 3, 4, 9, 10, 13, Mabillon RER: B, C, Bus: Lignes 12, 58, 171, 276, 378, ")
 
-marigny = Place.create!(
-  name: "Théâtre Marigny",
-  address: "Carré Marigny",
+ugc_les_halles = Place.create!(
+  name: "UGC Les Halles",
+  address: "101 rue Berger",
   city: "Paris",
   country: "France",
-  zip_code: "75008",
-  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+  zip_code: "75001",
+  access: "Métro: Lignes 1, 3, 4 RER: A, B, D  Train: J et L, Bus: Lignes 24, 29, 39, 58, 72")
 
 madeleine = Place.create!(
   name: "Théâtre de la Madeleine",
@@ -95,6 +81,14 @@ madeleine = Place.create!(
   zip_code: "75008",
   access: "Métro: Lignes 8, 12, 14 - Madeleine Bus: lignes 32, 42, 45, 94, 24")
 
+marigny = Place.create!(
+  name: "Théâtre Marigny",
+  address: "Carré Marigny",
+  city: "Paris",
+  country: "France",
+  zip_code: "75008",
+  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+
 bataclan = Place.create!(
   name: "Bataclan",
   address: "50 Boulevard Voltaire",
@@ -102,7 +96,6 @@ bataclan = Place.create!(
   country: "France",
   zip_code: "75011",
   access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
-
 
 palais_congres = Place.create!(
   name: "Palais des Congrès",
@@ -120,6 +113,13 @@ zenith = Place.create!(
   zip_code: "75019",
   access: "Métro: Ligne 5, station Porte de Pantin (600 mètres du Zénith), Ligne 7, station Porte de la Villette (900 mètres du Zénith) Bus: Ligne 75, station Porte de Pantin, Ligne PC, station Porte de Pantin ou Porte de la Villette, Noctilien N45, N140, N41, N13 Porte de Pantin ou N42 Porte de la Villette Tram: Ligne 3b, station Porte de Pantin - Parc de la Villette (800 mètres du Zénith)")
 
+bastille = Place.create!(
+  name: "L'Opéra Bastille",
+  address: "Place de la Bastille",
+  city: "Paris",
+  country: "France",
+  zip_code: "75012",
+  access: "Métro: Lignes 1, 5, 8 - Bastille Bus: lignes 20, 29, 65, 69, 76, 86, 87, 91")
 
 garnier = Place.create!(
   name: "Palais Garnier",
@@ -128,14 +128,6 @@ garnier = Place.create!(
   country: "France",
   zip_code: "75009",
   access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
-
-bastille = Place.create!(
-  name: "L'Opéra Bastille",
-  address: "Place de la Bastille",
-  city: "Paris",
-  country: "France",
-  zip_code: "75012",
-  access: "Métro: Lignes 1, 5, 8 - Bastille Bus: lignes 20, 29, 65, 69, 76, 86, 87, 91")
 
 opera_comique = Place.create!(
   name: "L'Opéra Comique",
@@ -154,13 +146,14 @@ platinum = Subscription.create!(name:"platinum", price:300, description:"abonnem
 # table Activities
  presentation_collections_modernes = Activity.create!(
   category:"Musée",
-  name:"Présentation des collections modernes 1905 - 1965",
+  name:"Collections modernes 1905 - 1965",
   description:"À partir du 27 mai 2015 jusqu'au 31 décembre 2019, le Centre Pompidou dévoile une nouvelle présentation de ses collections modernes, de 1905 à 1965. Ce parcours profondément renouvelé renoue avec une progression chronologique marquée par de grands jalons historiques. Il offre au visiteur de suivre le fil des figures, des œuvres et des mouvements qui ont écrit l’art moderne, en compagnie d’autres passeurs qui ont contribué à faire l’histoire de la modernité.",
   start_date: "2015-05-27".to_date,
   end_date: "2019-12-31".to_date,
   avg_rating: 5,
   place: beaubourg,
   subscription: silver)
+
 presentation_collections_modernes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437482/Sapio/Presentation_Collections_Modernes_beaubourg_1.jpg"
 presentation_collections_modernes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation_Collections_Modernes_beaubourg_2.jpg"
 presentation_collections_modernes.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439997/Sapio/Presentation_Collections_Modernes_beaubourg_3.jpg"
@@ -172,7 +165,7 @@ exposition_beaubourg = Activity.create!(
   description:"À travers cette exposition inédite, le Centre Pompidou propose de revisiter la relation féconde qui unit la préhistoire à l’art moderne et contemporain. Dans ce grand moment de crise qu’incarne la modernité, des artistes incontournables comme Picasso, Miró mais aussi Cézanne, Klee, Giacometti, Ernst, Beuys, Klein, Dubuffet, Smithson, Penone… ont été hantés par la question de la préhistoire et ses origines fantasmées.",
   start_date: "2019-05-08".to_date,
   end_date: "2019-09-16".to_date,
-  avg_rating: 5,
+  avg_rating: 4,
   place: beaubourg,
   subscription: silver)
 
@@ -204,10 +197,9 @@ exposition_musee_grevin = Activity.create!(
   end_date: "2019-12-31".to_date,
   avg_rating: 3,
   place: musee_grevin,
-  subscription: silver
-  )
+  subscription: silver)
 
-exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Musee_du_fumeur_1.jpg"
+exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422631/Sapio/Expo_musee_grevin_1.jpg"
 exposition_musee_grevin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422708/Sapio/Expo_musee_grevin_2.jpg"
 exposition_musee_grevin.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422811/Sapio/Expo_musee_grevin_3.jpg"
 exposition_musee_grevin.save
@@ -220,8 +212,7 @@ exposition_musee_du_fumeur = Activity.create!(
   end_date: "2019-12-31".to_date,
   avg_rating: 5,
   place: musee_du_fumeur,
-  subscription: silver
-  )
+  subscription: silver)
 
 exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Expo_Musee_du_fumeur_1.jpg"
 exposition_musee_du_fumeur.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426319/Sapio/Expo_musee_du_fumeur_2.jpg"
@@ -302,17 +293,6 @@ wedding_nigthmare.remote_photo_one_url = "https://res.cloudinary.com/spark-and-r
 wedding_nigthmare.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430621/Sapio/Wedding_nightmare_mk2_odeon_2.jpg"
 wedding_nigthmare.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430680/Sapio/Wedding_nightmare_mk2_odeon_3.jpg"
 wedding_nigthmare.save
-
-
-traviata = Activity.create!(
-  category: "Opéra",
-  name: "La Traviata",
-  description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
-  start_date: "2019-8-1".to_date,
-  end_date: "2019-9-15".to_date,
-  avg_rating: 3,
-  place: garnier,
-  subscription: platinum)
 
 docteur_miracle = Activity.create!(
   category: "Théâtre",
@@ -467,7 +447,6 @@ obispo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/ima
 obispo.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437286/Sapio/Obispo_zenith_3.jpg"
 obispo.save
 
-
 casse_noisette = Activity.create!(
   category: "Opéra",
   name: "Casse-noisette",
@@ -496,6 +475,7 @@ traviata = Activity.create!(
 traviata.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439732/Traviata_opera_1.jpg"
 traviata.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853486/Sapio/Traviata_opera_2.jpg"
 traviata.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853546/Sapio/Traviata_opera_3.jpg"
+traviata.save
 
 madame_butterfly = Activity.create!(
   category: "Opéra",
@@ -742,20 +722,16 @@ review_22 = Review.create!(rating: 3, act_booking: act_booking22)
 review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
+@act_bookings = [act_booking1, act_booking2, act_booking3, act_booking4, act_booking5, act_booking5, act_booking6, act_booking7,
+                act_booking8, act_booking9, act_booking10, act_booking11, act_booking12, act_booking13, act_booking14, act_booking15,
+                act_booking16, act_booking17, act_booking18, act_booking19, act_booking20, act_booking21, act_booking22,act_booking23,
+                act_booking24]
+@act_bookings.each do |act_booking|
+  20.times do
+    Review.create!(rating: rand(1..5), act_booking: act_booking)
+  end
+end
 
-# @act_bookings = [act_booking1, act_booking2, act_booking3, act_booking4, act_booking5, act_booking5, act_booking6, act_booking7,
-#                 act_booking8, act_booking9, act_booking10, act_booking11, act_booking12, act_booking13, act_booking14, act_booking15,
-#                 act_booking16, act_booking17, act_booking18, act_booking19, act_booking20, act_booking21, act_booking22,act_booking23,
-#                 act_booking24]
-# @act_bookings.each do |act_booking|
-#   20.times do
-#     Review.create!(rating: rand(1..5), act_booking: act_booking)
-#   end
-# end
-
-# @review.act_booking = @act_booking
-# @activity = Activity.find(@act_booking.activity_id)
-# @activity.avg_rating = @activity.average
 
 puts "...records created!"
 
