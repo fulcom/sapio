@@ -207,7 +207,7 @@ exposition_musee_grevin = Activity.create!(
   subscription: silver
   )
 
-exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422631/Sapio/Expo_musee_grevin_1.jpg"
+exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Musee_du_fumeur_1.jpg"
 exposition_musee_grevin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422708/Sapio/Expo_musee_grevin_2.jpg"
 exposition_musee_grevin.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422811/Sapio/Expo_musee_grevin_3.jpg"
 exposition_musee_grevin.save
@@ -728,9 +728,9 @@ review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
 
-# @review.act_booking = @act_booking
-# @activity = Activity.find(@act_booking.activity_id)
-# @activity.avg_rating = @activity.average
+@review.act_booking = @act_booking
+@activity = Activity.find(@act_booking.activity_id)
+@activity.avg_rating = @activity.average
 
 puts "...records created!"
 
