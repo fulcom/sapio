@@ -10,6 +10,13 @@
     <%= @qrcode.as_svg.html_safe %>
   </div>
   <div class="d-flex align-items-center">
+    <% if @act_booking.date > DateTime.current %>
+          <div class="d-flex mini-btn-flat-red justify-content-center" >
+        <% activity_map = Activity.find(@act_booking.activity_id) %>
+        <i class="fas fa-map-marker-alt"></i>
+        <%= link_to "Comment s'y rendre", "https://www.google.com/maps/search/#{Place.find(activity_map.place_id).latitude}+#{Place.find(activity_map.place_id).longitude}", target: "_blank"%>
+      </div>
+    <% else %>
     <div>
       <button type="button" class="btn-flat-green" data-toggle="modal" data-target="#exampleModal">
       Notez cette activité</button>
@@ -20,8 +27,8 @@
         <i class="fas fa-map-marker-alt"></i>
         <%= link_to "Comment s'y rendre", "https://www.google.com/maps/search/#{Place.find(activity_map.place_id).latitude}+#{Place.find(activity_map.place_id).longitude}", target: "_blank"%>
       </div>
-
     </div>
+    <% end %>
     <div class="padding-bottom-page"></div>
   </div>
 

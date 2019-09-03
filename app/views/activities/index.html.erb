@@ -23,7 +23,14 @@
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+          <div class="d-flex">
+            <div>
+              <%= activity.avg_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
       </div>
     </div>
   <%end%>

@@ -9,13 +9,20 @@
 User.destroy_all
 Place.destroy_all
 Subscription.destroy_all
+Activity.all.each do |activity|
+  activity.remove_photo_one!
+  activity.remove_photo_two!
+  activity.remove_photo_three!
+  activity.save
+end
 Activity.destroy_all
 ActBooking.destroy_all
 
 
 puts "Creating records..."
 
-# Places
+# Places : Musée, Cinéma, Théâtre, Concert, Opéra
+
 beaubourg = Place.create!(
   name: "Centre Pompidou",
   address: "Place Georges-Pompidou",
@@ -24,13 +31,29 @@ beaubourg = Place.create!(
   zip_code: "75004",
   access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
 
-marigny = Place.create!(
-  name: "Théâtre Marigny",
-  address: "Carré Marigny",
+musee_orsay = Place.create!(
+  name: "Musée d'Orsay",
+  address: "1 Rue de la Légion d'Honneur",
   city: "Paris",
   country: "France",
-  zip_code: "75008",
-  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+  zip_code: "75007",
+  access: "Métro: Ligne 12, Train: L; Bus: 48, 68, 69, 72, 73; RER: C, Parking: Carrousel du Louvre, Bac Montalembert")
+
+musee_grevin = Place.create!(
+  name: "Musée Grévin",
+  address: "10 Boulevard Montmartre",
+  city: "Paris",
+  country: "France",
+  zip_code: "75009",
+  access: "Métro: Lignes 3, 8 et 9 - Grands Boulevards ou Bourse, Bus: Lignes 20, 39, 48, Parking: Indigo car park - 31B Rue Vivienne ou Chauchat Drouot")
+
+musee_du_fumeur = Place.create!(
+  name: "Musée du Fumeur",
+  address: "7 Rue Pache",
+  city: "Paris",
+  country: "France",
+  zip_code: "75011",
+  access: "Métro: Ligne 9 - Voltaire, RER Gare de Lyon, Bus: Lignes 46, 56, 61, 69")
 
 beaugrenelle = Place.create!(
   name: "Pathé Beaugrenelle",
@@ -40,13 +63,63 @@ beaugrenelle = Place.create!(
   zip_code: "75015",
   access: "Métro: Ligne 10 - station Charles Michels, Ligne 6 - station Bir-Hakeim ou Dupleix RER: Ligne C - station Javel ou Avenue du Pdt Kennedy, Bus: Lignes 42, 70 et 88 - station Charles Michels Voiture: En bord de Seine, en face de la Maison de la Radio, à l’intersection de la rue Linois et du Quai de Grenelle. Parkings: Beaugrenelle 1  - 587 places Beaugrenelle 2  - 90 places")
 
+ugc_les_halles = Place.create!(
+  name: "UGC Les Halles",
+  address: "101 rue Berger",
+  city: "Paris",
+  country: "France",
+  zip_code: "75001",
+  access: "Métro: Lignes 1, 3, 4 RER: A, B, D  Train: J et L, Bus: Lignes 24, 29, 39, 58, 72")
+
+mk2_odeon = Place.create!(
+  name: "MK2 Odéon",
+  address: "113 bd Saint Germain",
+  city: "Paris",
+  country: "France",
+  zip_code: "75006",
+  access: "Métro: Lignes 3, 4, 9, 10, 13, Mabillon RER: B, C, Bus: Lignes 12, 58, 171, 276, 378, ")
+
+marigny = Place.create!(
+  name: "Théâtre Marigny",
+  address: "Carré Marigny",
+  city: "Paris",
+  country: "France",
+  zip_code: "75008",
+  access: "Métro: Ligne 1 - Station Champs Elysées Clémenceau, Ligne 9 - Station Franklin Roosevelt, Ligne 13 - Station Champs Elysées Clémenceau Bus: Ligne 42 73 Station Champs Elysées Clémenceau, Ligne 32 80 Rond Point des Champs Elysées Vélib: Station N° 8025, 39 rue de Miromesnil, Station N° 8015, 4 rue Roquepine Station N° 8032, 27 avenue Matignon Parking: Parking INDIGO du Rond Point des Champs Elysées")
+
+madeleine = Place.create!(
+  name: "Théâtre de la Madeleine",
+  address: "19 Rue de Surène",
+  city: "Paris",
+  country: "France",
+  zip_code: "75008",
+  access: "Métro: Lignes 8, 12, 14 - Madeleine Bus: lignes 32, 42, 45, 94, 24")
+
 bataclan = Place.create!(
   name: "Bataclan",
-  address: "50 Boulevard Voltaire, Paris",
+  address: "50 Boulevard Voltaire",
   city: "Paris",
   country: "France",
   zip_code: "75011",
   access: "Métro: Lignes 5 et 9 - Oberkampf, Ligne 8 - Filles du Calvaire Bus: Oberkampf-Richard Lenoir, ligne 56 et 96 Vélib’: Station au 104 Boulevard Richard Lenoir Station au 1 rue du Grand Prieure Autolib’: Station au 110 Boulevard Richard Lenoir Parking: Parking Trois Bornes, 11 rue Trois Bornes Parking Alhambra, 50 rue de Malte")
+
+
+palais_congres = Place.create!(
+  name: "Palais des Congrès",
+  address: "2 Place de la Porte Maillot",
+  city: "Paris",
+  country: "France",
+  zip_code: "75017",
+  access: "Métro: Ligne 1, Station Porte Maillot - sortie 3, RER: Ligne C, Station Neuilly - Porte Maillot, Bus: Lignes 43 73 82 244 PC1 PC3")
+
+zenith = Place.create!(
+  name: "Le Zénith",
+  address: "211 Avenue Jean Jaurès",
+  city: "Paris",
+  country: "France",
+  zip_code: "75019",
+  access: "Métro: Ligne 5, station Porte de Pantin (600 mètres du Zénith), Ligne 7, station Porte de la Villette (900 mètres du Zénith) Bus: Ligne 75, station Porte de Pantin, Ligne PC, station Porte de Pantin ou Porte de la Villette, Noctilien N45, N140, N41, N13 Porte de Pantin ou N42 Porte de la Villette Tram: Ligne 3b, station Porte de Pantin - Parc de la Villette (800 mètres du Zénith)")
+
 
 garnier = Place.create!(
   name: "Palais Garnier",
@@ -56,12 +129,26 @@ garnier = Place.create!(
   zip_code: "75009",
   access: "Métro: Lignes 3,7 et 8 - Opéra  lignes 7 et 9 - Chaussée d'Antin Lignes 8 et 14 - Madeleine RER: Auber (ligne A) Bus: Lignes : 20, 21, 22, 27, 29, 42, 52, 66, 68, 81, 95 Parking: Q-Park Edouard VII - Rue Bruno Coquatrix 75009 Paris (face au 23 Rue de Caumartin)")
 
+bastille = Place.create!(
+  name: "L'Opéra Bastille",
+  address: "Place de la Bastille",
+  city: "Paris",
+  country: "France",
+  zip_code: "75012",
+  access: "Métro: Lignes 1, 5, 8 - Bastille Bus: lignes 20, 29, 65, 69, 76, 86, 87, 91")
+
+opera_comique = Place.create!(
+  name: "L'Opéra Comique",
+  address: "Place Boieldieu",
+  city: "Paris",
+  country: "France",
+  zip_code: "75002",
+  access: "Métro: Richelieu-Drouot (lignes 8 et 9) ou Quatre-Septembre (ligne 3), RER: RER A, Bus: 20, 27, 39, 48, 67, 74, 85, 95 Parking: Chauchat Drouot et Bourse")
 
 # table Subscriptions
 silver = Subscription.create!(name:"silver", price:50, description:"abonnement mensuel incluant cinémas, musées")
 gold = Subscription.create!(name:"gold", price:150, description:"abonnement mensuel incluant cinémas, musées, théâtres, concerts")
 platinum = Subscription.create!(name:"platinum", price:300, description:"abonnement mensuel incluant: cinémas, musées, théâtres, concerts et opéras")
-
 
 
 # table Activities
@@ -74,147 +161,375 @@ platinum = Subscription.create!(name:"platinum", price:300, description:"abonnem
   avg_rating: 5,
   place: beaubourg,
   subscription: silver)
-presentation_collections_modernes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566850910/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg1.jpg"
-presentation_collections_modernes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg2.jpg"
-presentation_collections_modernes.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851905/Sapio/Presentation-collections-modernes-1905-1965_Beaubourg3.jpg"
+presentation_collections_modernes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437482/Sapio/Presentation_Collections_Modernes_beaubourg_1.jpg"
+presentation_collections_modernes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation_Collections_Modernes_beaubourg_2.jpg"
+presentation_collections_modernes.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439997/Sapio/Presentation_Collections_Modernes_beaubourg_3.jpg"
 presentation_collections_modernes.save
 
 exposition_beaubourg = Activity.create!(
   category:"Musée",
   name:"Préhistoire. Une énigme moderne",
   description:"À travers cette exposition inédite, le Centre Pompidou propose de revisiter la relation féconde qui unit la préhistoire à l’art moderne et contemporain. Dans ce grand moment de crise qu’incarne la modernité, des artistes incontournables comme Picasso, Miró mais aussi Cézanne, Klee, Giacometti, Ernst, Beuys, Klein, Dubuffet, Smithson, Penone… ont été hantés par la question de la préhistoire et ses origines fantasmées.",
-  start_date: "2019-5-8".to_date,
-  end_date: "2019-9-16".to_date,
+  start_date: "2019-05-08".to_date,
+  end_date: "2019-09-16".to_date,
   avg_rating: 5,
   place: beaubourg,
   subscription: silver)
 
-exposition_beaubourg.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852329/Sapio/Prehistoire.-Une-enigme-moderne_Beaubourg1.jpg"
-exposition_beaubourg.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852445/Sapio/Prehistoire.-Une-enigme-moderne_Beaubourg2.jpg"
-exposition_beaubourg.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852231/Sapio/Prehistoire.-Une-enigme-moderne_Beaubourg3.jpg"
+exposition_beaubourg.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437732/Sapio/Prehistoire_Une_Enigme_Moderne_beaubourg_1.jpg"
+exposition_beaubourg.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852231/Sapio/Prehistoire_Une_Enigme_Moderne_beaubourg_2.jpg"
+exposition_beaubourg.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852445/Sapio/Prehistoire_Une_Enigme_Moderne_Beaubourg_3.jpg"
 exposition_beaubourg.save
 
+exposition_musee_orsay = Activity.create!(
+  category:"Musée",
+  name:"Exposition Berthe Morisot (1841-1895)",
+  description:"Figure majeure de l'impressionnisme, Berthe Morisot, reste aujourd'hui moins connue que ses amis Monet, Degas ou Renoir. Elle avait pourtant été immédiatement reconnue comme l'une des artistes les plus novatrices du groupe. L'exposition retrace le parcours exceptionnel d'une peintre, qui, à rebours des usages de son temps et de son milieu, devient une figure essentielle des avant-gardes parisiennes de la fin des années 1860 jusqu'à sa mort prématurée en 1895.",
+  start_date: "2019-09-03".to_date,
+  end_date: "2019-09-22".to_date,
+  avg_rating: 4,
+  place: musee_orsay,
+  subscription: silver)
+
+exposition_musee_orsay.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567420297/Sapio/Berthe_Morisot_musee_orsay_1.jpg"
+exposition_musee_orsay.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567420796/Sapio/Berthe_Morisot_musee_orsay_2.jpg"
+exposition_musee_orsay.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567420903/Sapio/Berthe_Morisot_musee_orsay_3.jpg"
+exposition_musee_orsay.save
+
+exposition_musee_grevin = Activity.create!(
+  category:"Musée",
+  name:"Musée Grévin",
+  description:"Et si vous pouviez rencontrer plus de 200 célébrités en une seule journée ? Envie d’un tête à tête avec Louis XIV, Mozart ou Ryan Gosling ? Fan de Kendji Girac ? Sous le charme de Léonardo Dicaprio ou fasciné par la pétillante Katy Perry ? Rencontrez toutes ces personnalités lors d’une visite pleine de surprises au milieu de décors thématiques extraordinaires !",
+  start_date: "2019-08-01".to_date,
+  end_date: "2019-12-31".to_date,
+  avg_rating: 3,
+  place: musee_grevin,
+  subscription: silver
+  )
+
+exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Musee_du_fumeur_1.jpg"
+exposition_musee_grevin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422708/Sapio/Expo_musee_grevin_2.jpg"
+exposition_musee_grevin.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422811/Sapio/Expo_musee_grevin_3.jpg"
+exposition_musee_grevin.save
+
+exposition_musee_du_fumeur = Activity.create!(
+  category:"Musée",
+  name:"Musée du Fumeur",
+  description:"Le musée du Fumeur a été fondé en 2001 par Michka Seeliger et Tigrane Hadengue. Il réunit plantes, œuvres d’art et objets liés à une pratique ancestrale : fumer. Témoignant de l’évolution des comportements à travers les siècles, ces collections sont propres à susciter la réflexion sur l’acte de fumer, originellement rapporté des Amériques par Christophe Colomb et, en cinq siècles, devenu planétaire.",
+  start_date: "2019-09-01".to_date,
+  end_date: "2019-12-31".to_date,
+  avg_rating: 5,
+  place: musee_du_fumeur,
+  subscription: silver
+  )
+
+exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Expo_Musee_du_fumeur_1.jpg"
+exposition_musee_du_fumeur.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426319/Sapio/Expo_musee_du_fumeur_2.jpg"
+exposition_musee_du_fumeur.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426361/Sapio/Expo_musee_du_fumeur_3.jpg"
+exposition_musee_du_fumeur.save
+
 once_upon_a_time = Activity.create!(
-  category:"Cinema",
+  category:"Cinéma",
   name:"Once Upon A Time",
   description:"Avec Once Upon a Time in Hollywood, Tarantino convertit une nouvelle fois l'essai, et montre (contre son gré?) de vrais signes de maturité. Lettre d'amour à une époque fantasmée, cette série de digressions souvent humoristiques laisse infuser une mélancolie nouvelle dans sa filmographie. Un scénario plein d'humour, de nostalgie et de suspense, une reconstitution phénoménale du Los Angeles de la fin des années 60, une manière inouïe de mélanger personnages fictifs et réels.",
-  start_date: "2019-8-26".to_date,
-  end_date: "2019-8-29".to_date,
+  start_date: "2019-08-26".to_date,
+  end_date: "2019-08-29".to_date,
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
 
-once_upon_a_time.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852608/Sapio/Once-upon_a_time_Cine1.jpg"
-once_upon_a_time.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852702/Sapio/Once-upon_a_time_Cine2.jpg"
-once_upon_a_time.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852784/Sapio/Once-upon_a_time_Cine3.jpg"
+once_upon_a_time.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437947/Sapio/Once_Upon_A_Time_Cine_1.jpg"
+once_upon_a_time.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852702/Sapio/Once-upon_a_time_Cine_2.jpg"
+once_upon_a_time.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852784/Sapio/Once-upon_a_time_Cine_3.jpg"
 once_upon_a_time.save
 
 fast_and_furious = Activity.create!(
-  category:"Cinema",
+  category:"Cinéma",
   name:"Fast and Furious : Hobbs & Shaw",
   description:"Depuis que Hobbs et Shaw se sont affrontés, les deux hommes font tout pour se nuire l'un à l'autre. Mais lorsque Brixton, un anarchiste génétiquement modifié, met la main sur une arme de destruction massive après avoir battu le meilleur agent du MI6 qui se trouve être la soeur de Shaw. Les deux ennemis de longue date vont devoir alors faire équipe pour faire tomber le seul adversaire capable de les anéantir.",
-  start_date: "2019-8-26".to_date,
-  end_date: "2019-8-27".to_date,
+  start_date: "2019-08-26".to_date,
+  end_date: "2019-08-27".to_date,
   avg_rating: 5,
   place: beaugrenelle,
   subscription: silver)
 
-fast_and_furious.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852867/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle1.jpg"
-fast_and_furious.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852965/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle2.jpg"
-fast_and_furious.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853021/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle3.jpg"
+fast_and_furious.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438247/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle_1.jpg"
+fast_and_furious.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852965/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle_2.jpg"
+fast_and_furious.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853021/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle_3.jpg"
 fast_and_furious.save
 
-
-casse_noisette = Activity.create!(
-  category: "Opéra",
-  name: "Casse-noisette",
-  description: "Historiquement présentés en diptyque en 1892, Iolanta et Casse‑Noisette sont à nouveau réunis dans cette production de l’Opéra de Paris. Dans la mise en scène et les décors de Dmitri Tcherniakov, ils ne deviennent qu’une seule et même oeuvre : l’opéra comme prélude du ballet, le ballet comme résolution de l’opéra. La fille du roi René dont la cécité disparaît aux aurores de l’amour se retrouve dans Marie, jeune fille bien éloignée de la Clara de Marius Petipa.",
-  start_date: "2019-12-1".to_date,
-  end_date: "2019-12-30".to_date,
+la_vie_scolaire = Activity.create!(
+  category:"Cinéma",
+  name:"La Vie Scolaire",
+  description:"Une année au coeur de l'école de la république, de la vie... et de la démerde ! Samia, jeune CPE novice, débarque de son Ardèche natale dans un collège réputé difficile de la ville de Saint-Denis. Elle y découvre les problèmes récurrents de discipline, la réalité sociale pesant sur le quartier, mais aussi l'incroyable vitalité et l'humour, tant des élèves que de son équipe de surveillants.",
+  start_date: "2019-08-28".to_date,
+  end_date: "2019-09-03".to_date,
   avg_rating: 5,
-  place: garnier,
-  subscription: platinum)
+  place: ugc_les_halles,
+  subscription: silver)
 
-casse_noisette.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853102/Sapio/Casse_noisette_opera1.jpg"
-casse_noisette.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853198/Sapio/Casse_noisette_opera2.jpg"
-casse_noisette.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853304/Sapio/Casse_noisette_opera3.jpg"
-casse_noisette.save
+la_vie_scolaire.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567428469/Sapio/La_vie_scolaire_UGC_chatelet_les_halles_1.png"
+la_vie_scolaire.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567428591/Sapio/La_vie_scolaire_UGC_chatelet_les_halles_2.jpg"
+la_vie_scolaire.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567428682/Sapio/La_vie_scolaire_UGC_chatelet_les_halles_3.jpg"
+la_vie_scolaire.save
 
-traviata = Activity.create!(
-  category: "Opéra",
-  name: "La Traviata",
-  description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
-  start_date: "2019-8-1".to_date,
-  end_date: "2019-9-15".to_date,
+une_fille_facile = Activity.create!(
+  category:"Cinéma",
+  name:"Une fille facile",
+  description:"Difficile d’évoquer Une fille facile sans commencer par souligner, car c’est là le cœur du film, le rôle principal qu’y tient Zahia Dehar, autrefois devenue célèbre malgré elle comme la victime d’une bruyante affaire de mœurs sur laquelle le film de Rebecca Zlotowski ne nous incite pas à nous étendre plus.",
+  start_date: "2019-08-28".to_date,
+  end_date: "2019-09-03".to_date,
+  avg_rating: 4,
+  place: ugc_les_halles,
+  subscription: silver)
+
+une_fille_facile.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567429200/Sapio/Une_fille_facile_ugc_chatelet_les_halles_1.jpg"
+une_fille_facile.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567429291/Sapio/Une_fille_facile_ugc_chatelet_les_halles_2.jpg"
+une_fille_facile.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567429404/Sapio/Une_fille_facile_ugc_chatelet_les_halles_3.jpg"
+une_fille_facile.save
+
+wedding_nigthmare = Activity.create!(
+  category:"Cinéma",
+  name:"Wedding Nightmare",
+  description:"La nuit de noces d’une jeune mariée tourne au cauchemar quand sa riche et excentrique belle-famille lui demande d’honorer une tradition qui va se révéler meurtrière et où chacun luttera pour sa survie.",
+  start_date: "2019-08-28".to_date,
+  end_date: "2019-09-03".to_date,
   avg_rating: 5,
-  place: garnier,
-  subscription: platinum)
+  place: mk2_odeon,
+  subscription: silver)
 
-traviata.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853407/Sapio/La_traviata_opera1.jpg"
-traviata.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853486/Sapio/La_traviata_opera2.jpg"
-traviata.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853546/Sapio/La_traviata_opera3.jpg"
-traviata.save
-
-
-jl_aubert = Activity.create!(
-  category: "Concert",
-  name: "Jean-Louis Aubert",
-  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-8-21".to_date,
-  avg_rating: 3,
-  place: bataclan,
-  subscription: gold)
-
-jl_aubert.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853635/Sapio/Jean-louis-aubert-en-concert-au-bataclan-de-paris_concert1.jpg"
-jl_aubert.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853696/Sapio/Jean-louis-aubert-en-concert-au-bataclan-de-paris_concert2.jpg"
-jl_aubert.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853782/Sapio/Jean-louis-aubert-en-concert-au-bataclan-de-paris_concert3.jpg"
-jl_aubert.save
-
-oh_sees = Activity.create!(
-  category: "Concert",
-  name: "OH SEES",
-  description: "Quand John Dwyer et sa clique déboule dans la Creuse, c’est pas vraiment pour acheter du terrain. Vingt ans que ces furieux partent et reviennent à San Francisco pour enregistrer album sur album, entre deux tournées. Deux batteries sur scène et une énergie à faire pâlir les apprentis rockeurs qui craignent trop la sueur. Oh Sees est finalement l’incarnation idéale de cette première programmation Check-in : rock jusqu’à la moelle, sans concession et généreuse.",
-  start_date: "2019-9-1".to_date,
-  end_date: "2019-9-2".to_date,
-  avg_rating: 5,
-  place: bataclan,
-  subscription: gold)
-
-oh_sees.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853913/Sapio/Oh_sees_concert1.jpg"
-oh_sees.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854062/Sapio/Oh_sees_concert2.jpg"
-oh_sees.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854154/Sapio/Oh_sees_concert3.jpg"
-oh_sees.save
+wedding_nigthmare.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430554/Sapio/Wedding_nightmare_mk2_odeon_1.jpg"
+wedding_nigthmare.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430621/Sapio/Wedding_nightmare_mk2_odeon_2.jpg"
+wedding_nigthmare.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430680/Sapio/Wedding_nightmare_mk2_odeon_3.jpg"
+wedding_nigthmare.save
 
 docteur_miracle = Activity.create!(
   category: "Théâtre",
   name: "Le Docteur Miracle",
   description: "Opéra-comique en un acte, sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857. Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : rappeler le passé glorieux de l’opéra-comique français et permettre aux genres légers de garder une place de choix à Paris.",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-8-21".to_date,
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-08-21".to_date,
   avg_rating: 4,
   place: marigny,
   subscription: gold)
 
-docteur_miracle.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854245/Sapio/Dr_Miracle_theatre1.jpg"
-docteur_miracle.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854329/Sapio/Dr_miracle_theatre2.jpg"
-docteur_miracle.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854410/Sapio/Dr_miracle_theatre3.jpg"
+docteur_miracle.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438485/Sapio/Dr_Miracle_theatre_1.jpg"
+docteur_miracle.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854329/Sapio/Dr_miracle_theatre_2.jpg"
+docteur_miracle.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854410/Sapio/Dr_miracle_theatre_3.jpg"
 docteur_miracle.save
 
 funny_girl = Activity.create!(
   category: "Théâtre",
   name: "Funny Girl",
   description: "THE BROADWAY MUSICAL! Festif, fun, émouvant pour la première fois à Paris dans une nouvelle production. Le spectacle sera donné en anglais avec des surtitres en français. Tadaaaaaaa… C’est Christina Bianco qui prendra la suite de Barbra Streisand et interprétera le rôle de Fanny Brice dans la nouvelle production de Funny Girl au Théâtre Marigny. Elle en est très heureuse et nous également ! Réservez vite, il n’y aura pas de places pour tout le monde !",
-  start_date: "2019-8-20".to_date,
-  end_date: "2019-9-30".to_date,
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-09-30".to_date,
   avg_rating: 2,
   place: marigny,
   subscription: gold)
 
-funny_girl.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854520/Sapio/Funny_girl_theatre1.jpg"
-funny_girl.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854660/Sapio/Funny_girl_theatre2.jpg"
-funny_girl.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854782/Sapio/Funny_girl_marigny_theatre3.jpg"
+funny_girl.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438768/Sapio/Funny_Girl_theatre_1.jpg"
+funny_girl.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854520/Sapio/Funny_Girl_theatre_2.jpg"
+funny_girl.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854660/Sapio/Funny_Girl_theatre_3.jpg"
 funny_girl.save
+
+menopause = Activity.create!(
+  category: "Théâtre",
+  name: "Ménopause",
+  description: "Quatre femmes se rencontrent dans un grand magasin et se rendent compte que malgré leurs styles de vie opposés elles ont un point commun auquel elles ne peuvent échapper... Une actrice en mal de rôles, une mère de famille nombreuse, une chef d’entreprise glaçante et une baba un peu trop cool chantent, dansent et racontent « leurs effets secondaires » avec humour.",
+  start_date: "2019-09-04".to_date,
+  end_date: "2019-09-22".to_date,
+  avg_rating: 5,
+  place: madeleine,
+  subscription: silver)
+
+menopause.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434064/Sapio/Menopause_theatre_madeleine_1.jpg"
+menopause.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434139/Sapio/Menopause_theatre_madeleine_2.jpg"
+menopause.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434201/Sapio/Menopause_theatre_madeleine_3.jpg"
+menopause.save
+
+invitation = Activity.create!(
+  category: "Théâtre",
+  name: "L'invitation",
+  description: "Charlie c'est l’ami imaginaire que Daniel a créé pour tromper son épouse sans éveiller les soupçons. Charlie c’était l’idée parfaite jusqu’au jour où Catherine, sa femme, demanda à le rencontrer. Pour sauver son mariage Daniel va donc devoir inviter à dîner un inconnu qui l’espace d’une soirée jouera le rôle de son meilleur ami. La nouvelle comédie événement avec Gad Elmaleh et Philippe Lellouche.",
+  start_date: "2019-10-02".to_date,
+  end_date: "2020-01-02".to_date,
+  avg_rating: 4,
+  place: madeleine,
+  subscription: silver)
+
+invitation.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434542/Sapio/Invitation_theatre_madeleine_1.jpg"
+invitation.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434611/Sapio/Invitation_theatre_madeleine_2.jpg"
+invitation.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434696/Sapio/Invitation_theatre_madeleine_3.jpg"
+invitation.save
+
+
+a_love_supreme = Activity.create!(
+  category: "Théâtre",
+  name: "A Love Supreme",
+  description: "Les dernières heures d’une ancienne strip-teaseuse au peep show A Love Suprême. Bianca n’a plus vingt ans, son corps commence à trahir son âge. Elle ne fait plus recette. Toute une carrière d’effeuillage défile derrière la vitre sans tain. L’industrie du porno renvoie au néant les déesses de l’éros vieillissantes. Les ombres tristes ont besoin de chair fraîche.",
+  start_date: "2019-03-11".to_date,
+  end_date: "2019-03-27".to_date,
+  avg_rating: 4,
+  place: marigny,
+  subscription: silver)
+
+a_love_supreme.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435086/Sapio/A_Love_Supreme_theatre_marigny_1.jpg"
+a_love_supreme.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435160/Sapio/A_Love_Supreme_theatre_marigny_2.jpg"
+a_love_supreme.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435245/Sapio/A_Love_Supreme_theatre_marigny_3.jpg"
+a_love_supreme.save
+
+
+jl_aubert = Activity.create!(
+  category: "Concert",
+  name: "Jean-Louis Aubert",
+  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-08-21".to_date,
+  avg_rating: 3,
+  place: bataclan,
+  subscription: gold)
+
+jl_aubert.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439076/Sapio/Jean_Louis_Aubert_bataclan_1.jpg"
+jl_aubert.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853696/Sapio/Jean_Louis_Aubert_bataclan_2.jpg"
+jl_aubert.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853782/Sapio/Jean_Louis_Aubert_bataclan_3.jpg"
+jl_aubert.save
+
+oh_sees = Activity.create!(
+  category: "Concert",
+  name: "OH SEES",
+  description: "Quand John Dwyer et sa clique déboule dans la Creuse, c’est pas vraiment pour acheter du terrain. Vingt ans que ces furieux partent et reviennent à San Francisco pour enregistrer album sur album, entre deux tournées. Deux batteries sur scène et une énergie à faire pâlir les apprentis rockeurs qui craignent trop la sueur. Oh Sees est finalement l’incarnation idéale de cette première programmation Check-in : rock jusqu’à la moelle, sans concession et généreuse.",
+  start_date: "2019-09-01".to_date,
+  end_date: "2019-09-02".to_date,
+  avg_rating: 5,
+  place: bataclan,
+  subscription: gold)
+
+oh_sees.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853913/Sapio/Oh_Sees_concert_1.jpg"
+oh_sees.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854062/Sapio/Oh_Sees_concert_2.jpg"
+oh_sees.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854154/Sapio/Oh_Sees_concert_3.jpg"
+oh_sees.save
+
+kingdom_of_hearts_orchestra = Activity.create!(
+  category: "Concert",
+  name: "Kingdom of Hearts Orchestra",
+  description: "Pour fêter le lancement de KINGDOM HEARTS III fin janvier 2019, la série de concerts KINGDOM HEARTS Orchestra repart en tournée avec un tout nouveau programme à partir du 27 avril 2019, KINGDOM HEARTS -World of Tres-, pour 22 représentations dans 17 villes à travers le monde. Acclamé par plus de 80 000 spectateurs ces deux dernières années, ce concert enchantera encore davantage de personnes grâce à son nouveau programme musical et des vidéos palpitantes, pour une expérience inédite à ne surtout pas manquer ! Avec sa projection vidéo sur écran géant en parfaite synchronisation avec la musique jouée par des orchestres de plus de 100 musiciens et choristes, le concert continuera de ravir les millions de fans de la longue série de jeux vidéo à travers le monde.",
+  start_date: "2019-09-28".to_date,
+  end_date: "2019-09-28".to_date,
+  avg_rating: 5,
+  place: palais_congres,
+  subscription: gold)
+
+kingdom_of_hearts_orchestra.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435887/Sapio/Kingdom_Of_Hearts_palais_congres_1.jpg"
+kingdom_of_hearts_orchestra.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435978/Sapio/Kingdom_Of_Hearts_palais_congres_2.jpg"
+kingdom_of_hearts_orchestra.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436088/Sapio/Kingdom_Of_Hearts_palais_congres_3.jpg"
+kingdom_of_hearts_orchestra.save
+
+bolero = Activity.create!(
+  category: "Concert",
+  name: "Boléro - Hommage à Maurice Ravel",
+  description: "Boléro est l’un des projets artistiques de Franceconcert. Chorégraphie, mise en scène, libretto, costumes et décors ont été imaginés par notre équipe artistique et a rencontré un grand succès pour sa première tournée en 2016. Franceconcert est donc propriétaire et détient les droits de représentation de ce ballet qui rend hommage à Maurice Ravel.",
+  start_date: "2019-11-09".to_date,
+  end_date: "2019-11-16".to_date,
+  avg_rating: 5,
+  place: palais_congres,
+  subscription: gold)
+
+bolero.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436455/Sapio/Bolero_palais_congres_1.jpg"
+bolero.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436543/Sapio/Bolero_palais_congres_2.jpg"
+bolero.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436615/Sapio/Bolero_palais_congres_3.jpg"
+bolero.save
+
+obispo = Activity.create!(
+  category: "Concert",
+  name: "Pascal Obispo",
+  description: "",
+  start_date: "2019-11-22".to_date,
+  end_date: "2019-11-23".to_date,
+  avg_rating: 4,
+  place: zenith,
+  subscription: gold)
+
+obispo.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437092/Sapio/Obispo_zenith_1.jpg"
+obispo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437210/Sapio/Obispo_zenith_2.jpg"
+obispo.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437286/Sapio/Obispo_zenith_3.jpg"
+obispo.save
+
+
+casse_noisette = Activity.create!(
+  category: "Opéra",
+  name: "Casse-noisette",
+  description: "Historiquement présentés en diptyque en 1892, Iolanta et Casse‑Noisette sont à nouveau réunis dans cette production de l’Opéra de Paris. Dans la mise en scène et les décors de Dmitri Tcherniakov, ils ne deviennent qu’une seule et même oeuvre : l’opéra comme prélude du ballet, le ballet comme résolution de l’opéra. La fille du roi René dont la cécité disparaît aux aurores de l’amour se retrouve dans Marie, jeune fille bien éloignée de la Clara de Marius Petipa.",
+  start_date: "2019-12-01".to_date,
+  end_date: "2019-12-30".to_date,
+  avg_rating: 2,
+  place: garnier,
+  subscription: platinum)
+
+casse_noisette.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439446/Sapio/Casse_Noisette_opera_1.jpg"
+casse_noisette.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853198/Sapio/Casse_Noisette_opera_2.jpg"
+casse_noisette.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853304/Sapio/Casse_Noisette_opera_3.jpg"
+casse_noisette.save
+
+traviata = Activity.create!(
+  category: "Opéra",
+  name: "La Traviata",
+  description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
+  start_date: "2019-08-01".to_date,
+  end_date: "2019-09-15".to_date,
+  avg_rating: 5,
+  place: garnier,
+  subscription: platinum)
+
+traviata.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439732/Traviata_opera_1.jpg"
+traviata.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853486/Sapio/Traviata_opera_2.jpg"
+traviata.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853546/Sapio/Traviata_opera_3.jpg"
+
+madame_butterfly = Activity.create!(
+  category: "Opéra",
+  name: "Madame Butterfly",
+  description: "Pour écrire Madame Chrysanthème, Pierre Loti a puisé dans les souvenirs de son propre voyage au Japon entrepris en 1885. Pour composer Madama Butterfly, Giacomo Puccini s’est inspiré, quant à lui, des mélodies populaires et des sonorités des voix nippones. Mais dans la littérature comme dans la musique, l’héroïne reste la même : Kiku‑san ou Cio-Cio‑san, une jeune geisha trahie par son mari occidental, symbole de la rencontre entre deux mondes étrangers. La mise en scène épurée de Robert Wilson épouse à merveille l’intensité dramatique et la violence sous-jacente de cette tragédie imprégnée de japonisme.",
+  start_date: "2019-09-14".to_date,
+  end_date: "2019-11-13".to_date,
+  avg_rating: 3,
+  place: bastille,
+  subscription: platinum)
+
+madame_butterfly.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567431616/Sapio/Madame_Butterfly_opera_bastille_1.jpg"
+madame_butterfly.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567431687/Sapio/Madame_Butterfly_opera_bastille_2.jpg"
+madame_butterfly.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567431755/Sapio/Madame_Butterfly_opera_bastille_3.jpg"
+madame_butterfly.save
+
+les_indes_galantes = Activity.create!(
+  category: "Opéra",
+  name: "Les Indes Galantes",
+  description: "Oeuvre-phare dont la redécouverte au XXe siècle a marqué l’histoire de l’Opéra, Les Indes galantes s’apparente à un éblouissant divertissement. Mais le premier opéra‑ballet de Rameau témoigne également d’un humanisme ambigu : le regard que l’Européen pose sur l’Autre est constamment partagé entre le fantasme et une forme de fascination pour l’exotisme. Clément Cogitore réinscrit l’ouvrage dans un espace urbain et politique dont il interroge les frontières.",
+  start_date: "2019-09-27".to_date,
+  end_date: "2019-10-15".to_date,
+  avg_rating: 5,
+  place: bastille,
+  subscription: platinum)
+
+les_indes_galantes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432205/Sapio/Les_indes_galantes_opera_bastille_1.jpg"
+les_indes_galantes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432295/Sapio/Les_indes_galantes_opera_bastille_2.jpg"
+les_indes_galantes.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432366/Sapio/Les_indes_galantes_opera_bastille_3.jpg"
+les_indes_galantes.save
+
+inondation = Activity.create!(
+  category: "Opéra",
+  name: "Inondation",
+  description: "Parce qu’ils ne peuvent pas avoir d’enfant, deux époux finissent par adopter une orpheline. L’adolescente se fait une place imprévue dans leur foyer et dans leurs coeurs. Dans ce faubourg de Saint-Pétersbourg, la parole entre les époux s'est raréfiée et les silences deviennent pesants. Le monde que la femme s’est construit pour surmonter la tristesse de sa vie affective va se dérégler tandis qu’en cette fin d’hiver montent les eaux du fleuve.",
+  start_date: "2019-09-27".to_date,
+  end_date: "2019-10-03".to_date,
+  avg_rating: 4,
+  place: opera_comique,
+  subscription: platinum)
+
+inondation.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432847/Sapio/Inondation_opera_comique_1.png"
+inondation.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432917/Sapio/Inondation_opera_comique_2.jpg"
+inondation.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432983/Sapio/Inondation_opera_comique_3.png"
+inondation.save
+
 
 # Users
 alice = User.create!(
@@ -253,30 +568,136 @@ isabelle = User.create!(
   photo: "https://avatars2.githubusercontent.com/u/49897862?v=4")
 
 #Act_bookings
+
+# Alice: 6 bookings
+
 act_booking1 = ActBooking.create!(
   date: "2019-8-27".to_date,
   user: alice,
   activity: presentation_collections_modernes)
 
 act_booking2 = ActBooking.create!(
-  date: "2019-8-30".to_date,
-  user: charles,
-  activity: exposition_beaubourg)
+  date: "2019-09-15".to_date,
+  user: alice,
+  activity: menopause)
 
 act_booking3 = ActBooking.create!(
-  date: "2019-6-30".to_date,
-  user: maxime,
+  date: "2019-08-26".to_date,
+  user: alice,
   activity: once_upon_a_time)
 
 act_booking4 = ActBooking.create!(
-  date: "2019-8-27".to_date,
-  user: isabelle,
-  activity: casse_noisette)
+  date: "2019-08-20".to_date,
+  user: alice,
+  activity: jl_aubert)
 
 act_booking5 = ActBooking.create!(
-  date: "2019-12-10".to_date,
-  user: isabelle,
+  date: "2019-09-10".to_date,
+  user: alice,
   activity: traviata)
+
+act_booking6 = ActBooking.create!(
+  date: "2019-09-15".to_date,
+  user: alice,
+  activity: menopause)
+
+# Charles: 6 bookings
+
+act_booking7 = ActBooking.create!(
+  date: "2019-08-30".to_date,
+  user: charles,
+  activity: exposition_beaubourg)
+
+act_booking8 = ActBooking.create!(
+  date: "2019-09-10".to_date,
+  user: charles,
+  activity: exposition_musee_orsay)
+
+act_booking9 = ActBooking.create!(
+  date: "2019-10-02".to_date,
+  user: charles,
+  activity: les_indes_galantes)
+
+act_booking10 = ActBooking.create!(
+  date: "2019-09-27".to_date,
+  user: charles,
+  activity: inondation)
+
+act_booking11 = ActBooking.create!(
+  date: "2019-09-01".to_date,
+  user: charles,
+  activity: oh_sees)
+
+act_booking12 = ActBooking.create!(
+  date: "2019-11-02".to_date,
+  user: charles,
+  activity: madame_butterfly)
+
+# Maxime: 6 bookings
+
+act_booking13 = ActBooking.create!(
+  date: "2019-12-01".to_date,
+  user: maxime,
+  activity: presentation_collections_modernes)
+
+act_booking14 = ActBooking.create!(
+  date: "2019-12-15".to_date,
+  user: maxime,
+  activity: casse_noisette)
+
+act_booking15 = ActBooking.create!(
+  date: "2019-03-11".to_date,
+  user: maxime,
+  activity: a_love_supreme)
+
+act_booking16 = ActBooking.create!(
+  date: "2019-09-03".to_date,
+  user: maxime,
+  activity: une_fille_facile)
+
+act_booking17 = ActBooking.create!(
+  date: "2019-11-09".to_date,
+  user: maxime,
+  activity: bolero)
+
+act_booking18 = ActBooking.create!(
+  date: "2019-09-20".to_date,
+  user: maxime,
+  activity: exposition_musee_orsay)
+
+
+# Isabelle: 6 bookings
+
+act_booking19 = ActBooking.create!(
+  date: "2019-09-03".to_date,
+  user: isabelle,
+  activity: fast_and_furious)
+
+act_booking20 = ActBooking.create!(
+  date: "2019-10-15".to_date,
+  user: isabelle,
+  activity: exposition_musee_grevin)
+
+act_booking21 = ActBooking.create!(
+  date: "2019-09-01".to_date,
+  user: isabelle,
+  activity: la_vie_scolaire)
+
+act_booking22 = ActBooking.create!(
+  date: "2019-10-10".to_date,
+  user: isabelle,
+  activity: exposition_musee_du_fumeur)
+
+act_booking23 = ActBooking.create!(
+  date: "2019-08-28".to_date,
+  user: isabelle,
+  activity: wedding_nigthmare)
+
+act_booking24 = ActBooking.create!(
+  date: "2019-08-21".to_date,
+  user: isabelle,
+  activity: docteur_miracle)
+
 
 puts "...creating reviews!"
 
@@ -286,6 +707,30 @@ review_2 = Review.create!(rating: 2, act_booking: act_booking2)
 review_3 = Review.create!(rating: 3, act_booking: act_booking3)
 review_4 = Review.create!(rating: 4, act_booking: act_booking4)
 review_5 = Review.create!(rating: 5, act_booking: act_booking5)
+review_6 = Review.create!(rating: 5, act_booking: act_booking6)
+review_7 = Review.create!(rating: 4, act_booking: act_booking7)
+review_8 = Review.create!(rating: 3, act_booking: act_booking8)
+review_9 = Review.create!(rating: 2, act_booking: act_booking9)
+review_10 = Review.create!(rating: 1, act_booking: act_booking10)
+review_11 = Review.create!(rating: 2, act_booking: act_booking11)
+review_12 = Review.create!(rating: 3, act_booking: act_booking12)
+review_13 = Review.create!(rating: 5, act_booking: act_booking13)
+review_14 = Review.create!(rating: 4, act_booking: act_booking14)
+review_15 = Review.create!(rating: 1, act_booking: act_booking15)
+review_16 = Review.create!(rating: 1, act_booking: act_booking16)
+review_17 = Review.create!(rating: 2, act_booking: act_booking17)
+review_18 = Review.create!(rating: 3, act_booking: act_booking18)
+review_19 = Review.create!(rating: 4, act_booking: act_booking19)
+review_20 = Review.create!(rating: 5, act_booking: act_booking20)
+review_21 = Review.create!(rating: 2, act_booking: act_booking21)
+review_22 = Review.create!(rating: 3, act_booking: act_booking22)
+review_23 = Review.create!(rating: 4, act_booking: act_booking23)
+review_24 = Review.create!(rating: 5, act_booking: act_booking24)
+
+
+# @review.act_booking = @act_booking
+# @activity = Activity.find(@act_booking.activity_id)
+# @activity.avg_rating = @activity.average
 
 puts "...records created!"
 

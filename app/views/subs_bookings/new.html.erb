@@ -1,12 +1,29 @@
-<h1>Nouvel abonnement</h1>
-<p>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></p>
+<div class="banner">
+  <div class="text-in-banner">
+    <h1 >Nouvel abonnement</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div style="padding:16px">
+    <h3>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></h2>
+  </div>
+
   <% @subscriptions.each do |subscription| %>
-    <p>Abonnement <%= subscription.name%> : <%= subscription.price %>€</p>
-    <%= simple_form_for @subs_booking do |f| %>
-      <%= f.input :subscription_id, as: :hidden, input_html: { value: subscription.id } %>
-      <%= f.submit "Acheter" %>
-    <% end %>
-<% end %>
+    <div class="card-text subscription d-flex align-items-center justify-content-between">
+        <div>
+          <h3>Abonnement <%= subscription.name%> : <%= subscription.price %>€<h3>
+          <p><%= subscription.description%></p>
+        </div>
+          <%= simple_form_for @subs_booking do |f| %>
+          <div class="d-flex align-items-center">
+            <%= f.input :subscription_id, as: :hidden, input_html: { value: subscription.id } %>
+          <div><%= f.submit "Acheter", class:"btn-flat-green", style:"width:auto; padding:8px"%></div>
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+</div>
 
 
 
