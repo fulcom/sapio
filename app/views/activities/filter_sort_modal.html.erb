@@ -5,7 +5,7 @@
 </div>
 
 <div class="container">
-  <form action="/activities/filter_sort", method="get">
+  <form id="filterSortForm" action="/activities/filter_sort", method="get">
     <h2>Sélectionnez une catégorie</h2>
       <label for="selectAllCategories" id="selectAllCategoriesLabel">Tout sélectionner</label>
       <input type="checkbox" id="selectAllCategories" class="categoryCheckbox" name="selectAll">
@@ -17,15 +17,15 @@
         </div>
       <% end %>
 
-      <h2>Sélectionnez un endroit</h2>
+      <!-- <h2>Sélectionnez un endroit</h2>
         <label for="selectAllPlaces" id="selectAllPlacesLabel">Tout sélectionner</label>
         <input type="checkbox" id="selectAllPlaces" class="placeCheckbox" name="selectAll">
-        <% @places.each do |place| %>
+        <%# @places.each do |place| %>
           <div>
-            <input type="checkbox" class="placeCheckbox" value="<%= "#{place.name}" %>" name="place_<%= "#{place.name}" %>">
-            <%= place.name %>
+            <input type="checkbox" class="placeCheckbox" value="<%#= "#{place.name}" %>" name="place_<#%= "#{place.name}" %>">
+            <%#= place.name %>
           </div>
-       <% end %>
+       <%# end %> -->
 
     <h2>Trier par</h2>
       <div>
@@ -57,32 +57,4 @@
   </form>
 </div>
 
-<!-- <script>
-  // var x = document.getElementById("sortDistance");
-  const long = document.getElementById("longitudeUser");
-  const lat = document.getElementById("latitudeUser");
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPositionLongitude);
-      navigator.geolocation.getCurrentPosition(showPositionLatitude);
-      // navigator.geolocation.getCurrentPosition(showPosition);
-
-    } else {
-      x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-  }
-
-  // function showPosition(position) {
-  //   x.value = "Latitude: " + position.coords.latitude +
-  //   "<br>Longitude: " + position.coords.longitude;
-  // }
-
-  const showPositionLongitude = (position) => {
-    long.value = position.coords.longitude;
-  }
-
-  const showPositionLatitude = (position) => {
-    lat.value = position.coords.latitude;
-  }
-</script> -->
