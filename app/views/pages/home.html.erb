@@ -47,55 +47,58 @@
 
 
 <% unless current_user.nil? %>
-  <h2 class="text-center">Nos recommandations</h2>
+  <h2 class="text-center">Nos recommandations pour vous</h2>
 
 <div class="horizontal-scroll">
     <% @recommandations[0].each do |activity| %>
-      <div class="card-text-home card-text">
-        <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
           <h2><%= link_to activity.name, activity_path(activity) %></h2>
-          <p><%= activity.category %></p>
-          <div class="d-flex">
+          <div class="d-flex justify-content-around">
             <div>
-              <%= activity.avg_rating %>
+              <p><%= activity.category %></p>
             </div>
-            <div>
-              <i class="fas fa-star"></i>
+            <div class="rating row">
+                <p><%= activity.avg_rating %></p>
+              <div>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
     <%end%>
     <% @recommandations[1].each do |activity| %>
-      <div class="card-text-home card-text">
-        <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
           <h2><%= link_to activity.name, activity_path(activity) %></h2>
-          <p><%= activity.category %></p>
-          <div class="d-flex">
+          <div class="d-flex justify-content-around">
             <div>
-              <%= activity.avg_rating %>
+              <p><%= activity.category %></p>
             </div>
-            <div>
-              <i class="fas fa-star"></i>
+            <div class="rating row">
+              <p><%= activity.avg_rating %></p>
+              <div>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
         </div>
       </div>
     <%end%>
     <% @recommandations[2].each do |activity| %>
-      <div class="card-text-home card-text">
-        <%= cl_image_tag activity.photo_one %>
+      <div class="card-text-home card-text"  style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
           <h2><%= link_to activity.name, activity_path(activity) %></h2>
-          <p><%= activity.category %></p>
-          <div class="d-flex">
+          <div class="d-flex justify-content-around">
             <div>
-              <%= activity.avg_rating %>
+              <p><%= activity.category %></p>
             </div>
-            <div>
-            <i class="fas fa-star"></i>
+            <div class="rating row">
+              <p><%= activity.avg_rating %></p>
+              <div>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -109,17 +112,18 @@
 
 <div class="horizontal-scroll">
   <% @last_chance.each do |activity| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-        <div class="d-flex">
+        <div class="d-flex justify-content-around">
           <div>
-            <%= activity.avg_rating %>
+            <p><%= activity.category %></p>
           </div>
-          <div>
-            <i class="fas fa-star"></i>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -132,17 +136,18 @@
 
 <div class="horizontal-scroll">
   <% @best_rating.each do |activity| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-        <div class="d-flex">
+        <div class="d-flex justify-content-around">
           <div>
-            <%= activity.avg_rating %>
+            <p><%= activity.category %></p>
           </div>
-          <div>
-            <i class="fas fa-star"></i>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
           </div>
         </div>
       </div>
@@ -150,27 +155,120 @@
   <%end%>
 </div>
 
-<% unless current_user.nil? %>
-  <h2 class="text-center">A refaire</h2>
+<h2 class="text-center">Musée</h2>
 
-  <div class="horizontal-scroll">
-    <% @do_it_again.each do |booking| %>
-      <div class="card-text-home card-text">
-        <%= cl_image_tag booking.activity.photo_one %>
-        <div class="card-text-infos">
-          <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
-          <p><%= booking.activity.category %></p>
-          <div class="d-flex">
-            <div>
-              <%= Activity.find(booking.activity_id).avg_rating %>
-            </div>
+<div class="horizontal-scroll">
+  <% @museums.each do |activity| %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <p><%= activity.category %></p>
+          </div>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
             <div>
               <i class="fas fa-star"></i>
             </div>
           </div>
         </div>
       </div>
-    <%end%>
-  </div>
-<% end %>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-center">Cinéma</h2>
+
+<div class="horizontal-scroll">
+  <% @cinemas.each do |activity| %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <p><%= activity.category %></p>
+          </div>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-center">Théâtre</h2>
+
+<div class="horizontal-scroll">
+  <% @theatres.each do |activity| %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <p><%= activity.category %></p>
+          </div>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-center">Concert</h2>
+
+<div class="horizontal-scroll">
+  <% @concerts.each do |activity| %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <p><%= activity.category %></p>
+          </div>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h2 class="text-center">Opéra</h2>
+
+<div class="horizontal-scroll">
+  <% @operas.each do |activity| %>
+    <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
+      <div class="card-text-infos">
+        <h2><%= link_to activity.name, activity_path(activity) %></h2>
+        <div class="d-flex justify-content-around">
+          <div>
+            <p><%= activity.category %></p>
+          </div>
+          <div class="rating row">
+            <p><%= activity.avg_rating %></p>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <div class="padding-bottom-page"></div>
+

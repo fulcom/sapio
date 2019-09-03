@@ -6,7 +6,7 @@
 
 <div class="container">
   <% @act_bookings.each do |booking| %>
-    <div class="card-text delete-croix">
+    <div class="card-text-pass delete-croix">
       <%= cl_image_tag booking.activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to booking.activity.name, activity_act_booking_path(booking.activity, booking) %></h2>

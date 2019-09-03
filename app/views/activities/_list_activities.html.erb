@@ -1,6 +1,6 @@
 <div class="container">
   <% activities.each do |activity| %>
-    <div class="card-text">
+    <div class="card-text-pass">
       <%= cl_image_tag activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>

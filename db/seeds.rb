@@ -57,7 +57,7 @@ musee_du_fumeur = Place.create!(
 
 beaugrenelle = Place.create!(
   name: "Pathé Beaugrenelle",
-  address: "Centre commercial, 7 Rue Linois",
+  address: "7 Rue Linois",
   city: "Paris",
   country: "France",
   zip_code: "75015",
