@@ -1,12 +1,7 @@
 <div class="banner">
-  <div class="text-in-banner">
-    <% if current_user == nil %>
-      <h1>Bonjour,</h1>
-    <% else %>
-      <h1>Bonjour <%= current_user.first_name %>,</h1>
-    <% end %>
-    <h2>Que voulez-vous faire aujourd'hui ?</h2>
-  </div>
+    <div><i id="burger" class="fas fa-bars"></i></div>
+    <div style="font-size: 24px; color: white; align-items: center;">Sapio</div>
+    <div><%= image_tag "logo.png", alt: "Sapio" %></div>
 </div>
 <div class="search">
   <div class="searchbar">
@@ -14,7 +9,10 @@
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "🔍" %>
+
+    placeholder: "Que voulez-vous faire ?" %>
+  </div>
+
     <% end %>
   </div>
 
