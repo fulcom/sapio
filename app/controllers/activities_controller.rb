@@ -31,21 +31,26 @@ class ActivitiesController < ApplicationController
       categories << params.values[i] if params.keys[i].split("_").first == "category"
     end
 
-    activities_by_category = []
+    activities_filtered = []
     categories.each do |category|
       Activity.all.each do |activity|
-        activities_by_category << activity if activity.category == category
+        activities_filtered << activity if activity.category == category
       end
     end
 
-    unless activities_by_category == []
-      @activities = activities_by_category
-    end
-
-    # raise
     places = []
     for i in (0..params.keys.length-1)
-      places << params.values[i] if params.keys[i].split("_").first == "category"
+      places << params.values[i] if params.keys[i].split("_").first == "place"
+    end
+
+    places.each do |place|
+      Activity.all.each do |activity|
+        activities_filtered << activity if activity.place == place
+      end
+    end
+
+    unless activities_filtered == []
+      @activities = activities_filtered.uniq
     end
 
 

@@ -31,7 +31,18 @@ const selectAllCheckbox = () => {
 
   if (checkboxExist) {
   selectAllChexboxes(checkboxSelectAllCategories, checkboxesCategories, textCheckboxSelectAllCategories);
-  selectAllChexboxes(checkboxSelectAllPlaces, checkboxesPlaces, textCheckboxSelectAllPlaces);
+  // selectAllChexboxes(checkboxSelectAllPlaces, checkboxesPlaces, textCheckboxSelectAllPlaces);
+
+  // j'écoute l'event sur le click d'une catégorie
+  // qd je clique sur catégorie "Musée"
+    // ça inspecte toutes les checkbox "place"
+    // si index 1 de [activity.catégorie, activité.place] n'est catégory
+    // style="visibility:hidden"
+  // document.querySelector(".categoryCheckbox").addEventListener("click", (event) => {
+  //   document.querySelectorAll(".placeCheckbox").forEach((checkbox) => {
+  //     console.log(coucou);
+  //    })
+  // })
 
     // checkboxSelectAllCategories.addEventListener("click", (event) => {
     //   // console.log(event);
@@ -58,5 +69,12 @@ const selectAllCheckbox = () => {
 }
 
 export { selectAllCheckbox };
+
+// document.getElementById("ModalSubmit").addEventListener("click", (event) => {
+//   console.log("coucou");
+//   event.preventDefault();
+//   const form = document.getElementById("filterSortForm");
+//   setTimeout(form.submit(), 5000);
+// })
 
 
