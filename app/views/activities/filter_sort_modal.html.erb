@@ -7,7 +7,8 @@
 <div class="container">
   <form action="/activities/filter_sort", method="get">
     <h2>Sélectionnez une catégorie</h2>
-
+      <label for="selectAllCategories" id="selectAllCategoriesLabel">Tout sélectionner</label>
+      <input type="checkbox" id="selectAllCategories" class="categoryCheckbox" name="selectAll">
       <% @categories.each do |category| %>
         <div>
           <input type="checkbox" class="categoryCheckbox" value="<%= "#{category}" %>" name="category_<%= "#{category}" %>">
@@ -15,12 +16,35 @@
           <%= category %>
         </div>
       <% end %>
+
+      <!-- <h2>Sélectionnez une un endroit</h2>
+        <label for="selectAllPlaces" id="selectAllPlacessLabel">Tout sélectionner</label>
+        <input type="checkbox" id="selectAllPlaces" class="placeCheckbox" name="selectAll"> -->
+        <%# @places.each do |place| %>
+          <!-- <div>
+            <input type="checkbox" class="placeCheckbox" value="<%#= "#{place}" %>" name="place_<%#= "#{place}" %>"> -->
+            <!-- value="<%#= @categories.index("#{category}")" %> => index de @categories -->
+            <%#= place %>
+<!--           </div>
+        <%# end %> -->
+
     <h2>Trier par</h2>
       <div>
         <input type="radio" id="sortEndDate" name="sort" value="end_date">Date de fin
         <input type="radio" id="sortRating" name="sort" value="avg_rating">Note
         <input type="radio" id="sortName" name="sort" value="name">Nom
-        <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">Distance
+
+        <div>
+          <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">Distance :
+          <!-- à moins de <input type="text" id="sortAround" name="sort" value="20" placeholder="20">km de moi -->
+          <select onclick="getLocation()" class="dropDownList" name="distanceFromMe">
+            <option value="10000">Pas de restrictions</option>
+            <option value="3">>A moins de 3 km de moi</option>
+            <option value="5">>A moins de 5 km de moi</option>
+            <option value="10">>A moins de 10 km de moi</option>
+            <option value="15">>A moins de 15 km de moi</option>
+          </select>
+        </div>
 
         <input style="visibility:hidden" type="radio" id="longitudeUser" name="longitude" value="" checked>
         <input style="visibility:hidden" type="radio" id="latitudeUser" name="latitude" value="" checked>
@@ -30,41 +54,35 @@
         <!-- value = valeur de la clé qu'on récupère dans les params -->
       </div>
 
-<!--     <h2>Sélectionnez une date</h2>
-    <input type="text" class="date" name="date">
-      date -->
     <input type="submit" value="Send Request" id="ModalSubmit">
   </form>
 
+<!-- <script>
+  // var x = document.getElementById("sortDistance");
+  const long = document.getElementById("longitudeUser");
+  const lat = document.getElementById("latitudeUser");
 
-<p id="demo"></p>
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPositionLongitude);
+      navigator.geolocation.getCurrentPosition(showPositionLatitude);
+      // navigator.geolocation.getCurrentPosition(showPosition);
 
-<script>
-// var x = document.getElementById("sortDistance");
-var long = document.getElementById("longitudeUser");
-var lat = document.getElementById("latitudeUser");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPositionLongitude);
-    navigator.geolocation.getCurrentPosition(showPositionLatitude);
-    // navigator.geolocation.getCurrentPosition(showPosition);
-
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
   }
-}
 
-// function showPosition(position) {
-//   x.value = "Latitude: " + position.coords.latitude +
-//   "<br>Longitude: " + position.coords.longitude;
-// }
+  // function showPosition(position) {
+  //   x.value = "Latitude: " + position.coords.latitude +
+  //   "<br>Longitude: " + position.coords.longitude;
+  // }
 
-function showPositionLongitude(position) {
-  long.value = position.coords.longitude;
-}
+  const showPositionLongitude = (position) => {
+    long.value = position.coords.longitude;
+  }
 
-function showPositionLatitude(position) {
-  lat.value = position.coords.latitude;
-}
-</script>
+  const showPositionLatitude = (position) => {
+    lat.value = position.coords.latitude;
+  }
+</script> -->

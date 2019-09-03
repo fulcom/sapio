@@ -5,7 +5,7 @@
 </div>
 
   <div class="container toggle-map">
-    <% @activities_by_category.each do |activity| %>
+    <% @activities.each do |activity| %>
       <div class="card-text">
         <%= cl_image_tag activity.photo_one %>
         <div class="card-text-infos">

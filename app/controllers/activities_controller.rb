@@ -19,30 +19,55 @@ class ActivitiesController < ApplicationController
     #     if params.keys[i].split("_").first == "category"
     #       categories[params.keys[i]] = params.values[i]
     #     end
+
+    # @places = Place.all
+
+    @activities = []
+
+    Activity.all.each do |activity|
+      @activities << activity
+    end
+
     categories = []
     for i in (0..params.keys.length-1)
       categories << params.values[i] if params.keys[i].split("_").first == "category"
     end
-    @activities_by_category = []
+
+    activities_by_category = []
     categories.each do |category|
       Activity.all.each do |activity|
-        @activities_by_category << activity if activity.category == category
+        activities_by_category << activity if activity.category == category
       end
     end
+
+    unless activities_by_category == []
+      @activities = activities_by_category
+    end
+
+    # raise
+    places = []
+    for i in (0..params.keys.length-1)
+      places << params.values[i] if params.keys[i].split("_").first == "category"
+    end
+
 
     sorting_choice = params["sort"]
     case sorting_choice
       when "end_date"
-        @activities_by_category.sort_by! { |activity| activity.end_date }
+        @activities.sort_by! { |activity| activity.end_date }
       when "avg_rating"
-        @activities_by_category.sort_by! { |activity| activity.avg_rating }.reverse!
+        @activities.sort_by! { |activity| activity.avg_rating }.reverse!
       when "name"
-        @activities_by_category.sort_by! { |activity| activity.name }
-      # when "distance"
-      #   @activities_by_category.sort_by! { |activity| activity.distance }
+        @activities.sort_by! { |activity| activity.name }
+      when "distance"
+        position_current_user = [params["latitude"], params["longitude"]]
+        position_from_me = params["distanceFromMe"].to_f
+        activities_near = []
+        @activities.each do |activity|
+          activities_near << activity if Place.near(position_current_user, position_from_me).include?(activity.place)
+        end
+        @activities = activities_near
     end
-      raise
-
   end
 
   def index

@@ -1,21 +1,31 @@
-// const geolocalisation = () => {
+// var x = document.getElementById("sortDistance");
+  const long = document.getElementById("longitudeUser");
+  const lat = document.getElementById("latitudeUser");
 
-//   var x = document.getElementById("demo");
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPositionLongitude);
+      navigator.geolocation.getCurrentPosition(showPositionLatitude);
+      // navigator.geolocation.getCurrentPosition(showPosition);
 
-//   function getLocation() {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition(showPosition);
-//     } else {
-//       x.innerHTML = "Geolocation is not supported by this browser.";
-//     }
-//   }
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
 
-//   function showPosition(position) {
-//     x.innerHTML = "Latitude: " + position.coords.latitude +
-//     "<br>Longitude: " + position.coords.longitude;
-//   }
+  // function showPosition(position) {
+  //   x.value = "Latitude: " + position.coords.latitude +
+  //   "<br>Longitude: " + position.coords.longitude;
+  // }
 
-// };
+  const showPositionLongitude = (position) => {
+    long.value = position.coords.longitude;
+  }
 
-// export { geolocalisation };
+  const showPositionLatitude = (position) => {
+    lat.value = position.coords.latitude;
+  }
+
+
+export { getLocation };
 

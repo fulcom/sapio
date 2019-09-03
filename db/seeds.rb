@@ -146,7 +146,7 @@ traviata = Activity.create!(
   description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
   start_date: "2019-8-1".to_date,
   end_date: "2019-9-15".to_date,
-  avg_rating: 5,
+  avg_rating: 3,
   place: garnier,
   subscription: platinum)
 

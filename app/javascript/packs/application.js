@@ -23,9 +23,11 @@ import { mapAppear } from '../components/map';
 mapAppear();
 
 
-// import { geolocalisation } from '../components/current_user_geoloc';
-// geolocalisation();
+import { selectAllCheckbox } from '../components/checkboxes_radio_filter_sort';
+selectAllCheckbox();
 
+import { getLocation } from '../components/current_user_geoloc';
+getLocation();
 
 // import filter from '../components/filter_categories';
 // filter();
