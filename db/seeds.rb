@@ -25,6 +25,46 @@ beaubourg = Place.create!(
   zip_code: "75004",
   access: "Métro: Ligne 11 - Rambuteau, Lignes 1 et 11 - Hôtel de Ville, Lignes 1, 4, 7, 11 et 14 - Châtelet RER: Châtelet Les Halles (lignes A, B, D) Bus: 29, 38, 47, 75 Vélib: station n°4020, face 27, rue Quincampoix, station n°3014, face 34, rue Grenier Saint-Lazare, station n°3010, 46, rue Beaubourg Autolib: station 204, rue Saint-Martin, station 36, rue du Temple Parking: Centre Pompidou : accès au 31, rue Beaubourg")
 
+musee_art_moderne = Place.create!(
+  name: "Musée d'Art moderne",
+  address: "12-14 avenue de New York",
+  city: "Paris",
+  country: "France",
+  zip_code: "75016",
+  access: "Métro: ligne 9 - Arrêt Alma-Marceau ou Iéna, Bus : Lignes 32 (Iéna), 42 (Alma-Marceau), 72 (Musée d'Art moderne), 80 (Alma-Marceau), 82 (Iéna) et 92 (Alma-Marceau), Station Vélib': 45 avenue Marceau ou 3 avenue Bosquet")
+
+musee_clemenceau = Place.create!(
+  name: "Musée Clémenceau",
+  address: "8 rue Benjamin Franklin",
+  city: "Paris",
+  country: "France",
+  zip_code: "75016",
+  access: "Métro: Ligne 6 - Passy, Trocadéro, Bus: 22, 32, 63, 72, Velib’: rue de Passy")
+
+musee_curie = Place.create!(
+  name: "Musée Curie",
+  address: "1 rue Pierre et Marie Curie",
+  city: "Paris",
+  country: "France",
+  zip_code: "75005",
+  access: "Métro: Ligne 7 - Place Monge, Ligne 10 - Cardinal Lemoine RER: B, Bus : 21, 24, 27, 38, 75, 82, 84 et 89 Parking : 18/19, rue Soufflot")
+
+musee_guimee = Place.create!(
+  name: "Musée Guimée",
+  address: "6 place d'Iéna",
+  city: "Paris",
+  country: "France",
+  zip_code: "75016",
+  access: "Métro: Ligne 9 - Iéna, Ligne 6 - Boissière, Bus: Iéna (63, 82, 32) ou Kléber-Boissière (30, 22) Vélib’: 4 Rue de Longchamp (n° 16007) ou 1 Rue Galilée (n° 16008).")
+
+institut_du_monde_arabe = Place.create!(
+  name: "Institut du Monde Arabe",
+  address: "1 rue des Fossés-Saint-Bernard",
+  city: "Paris",
+  country: "France",
+  zip_code: "75005",
+  access: "Métro: Ligne 7 - Jussieu, Ligne 10 - Cardinal Lemoine, Bus: Lignes 24, 63, 67, 86, 87, 89 Parking: Maubert Collège des Bernardins, 39, bd Saint-Germain 75005, 01 43 26 97 01")
+
 musee_du_fumeur = Place.create!(
   name: "Musée du Fumeur",
   address: "7 Rue Pache",
@@ -144,6 +184,87 @@ platinum = Subscription.create!(name:"platinum", price:300, description:"abonnem
 
 
 # table Activities
+
+hans_hartung = Activity.create!(
+  category:"Musée",
+  name:"Hans Hartung, la fabrique du geste",
+  description:"Hans Hartung (1904-1989) a joué un rôle essentiel dans l’histoire de l’abstraction. Cet artiste majeur de l’art du XXe siècle place l’expérimentation au cœur de son travail. Le parcours d’exposition s’intéresse à la grande diversité des supports utilisés, à la variété d’exécution, à la richesse des innovations techniques développées ainsi qu’au nombre important d’outils expérimentés.",
+  start_date: "2019-10-11".to_date,
+  end_date: "2020-03-01".to_date,
+  avg_rating: 4,
+  place: musee_art_moderne,
+  subscription: silver)
+
+hans_hartung.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567526806/Sapio/Hans_Hartung_musee_art_moderne_1.jpg"
+hans_hartung.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567526917/Sapio/Hans_Hartung_musee_art_moderne_2.jpg"
+hans_hartung.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527048/Sapio/Hans_Hartung_musee_art_moderne_3.jpg"
+hans_hartung.save
+
+
+gilbert_bellan = Activity.create!(
+  category:"Musée",
+  name:"Gilbert Bellan",
+  description:"Gilbert Bellan (1868-1951) fut peintre du traité de Versailles, des ruines de la Grande Guerre, de la Victoire de 1918 et de la Libération de 1944 et, par-dessus tout, celui de Clemenceau. De Passy à Bélébat, il accompagne ainsi le Tigre tout au long de sa retraite. En 1922, il se voit confier une double mission : représenter les vieux arbres du bois du Veillon d'une part, les ciels et mers de Vendée de l'autre. Retour sur une amitié fructueuse entre un artiste de talent et un homme politique au soir de sa vie.",
+  start_date: "2019-09-17".to_date,
+  end_date: "2020-02-01".to_date,
+  avg_rating: 4,
+  place: musee_clemenceau,
+  subscription: silver)
+
+gilbert_bellan.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527527/Sapio/Gilbert_Bellan_musee_clemenceau_1.jpg"
+gilbert_bellan.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527556/Sapio/Gilbert_Bellan_musee_clemenceau_2.jpg"
+gilbert_bellan.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527773/Sapio/Gilbert_Bellan_musee_clemenceau_3.jpg"
+gilbert_bellan.save
+
+
+marie_curie = Activity.create!(
+  category:"Musée",
+  name:"Marie Curie, une femme au Panthéon",
+  description:"Née le 7 novembre 1867 en Pologne, depuis, l’histoire de Marie Curie est devenue légendaire. Quittant son pays natal à 24 ans pour venir étudier les sciences à la Sorbonne, c’est en 1894 que Marie Sklodowska rencontre le physicien Pierre Curie. Ensemble, ils découvrent deux nouveaux atomes, radioactifs, le polonium et le radium.",
+  start_date: "2017-11-08".to_date,
+  end_date: "2018-03-2018".to_date,
+  avg_rating: 3,
+  place: musee_curie,
+  subscription: silver)
+
+marie_curie.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528230/Sapio/Marie_Curie_musee_curie_2.jpg"
+marie_curie.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528259/Sapio/Marie_Curie_musee_curie_1.jpg"
+marie_curie.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528283/Sapio/Marie_Curie_musee_curie_3.jpg"
+marie_curie.save
+
+
+bouddha = Activity.create!(
+  category:"Musée",
+  name:"Bouddha, la légende dorée",
+  description:"La vie du Bouddha, et la diffusion du bouddhisme en Asie, sont au cœur de cette exposition. La richesse des traditions iconographiques et stylistiques se rapportant à la représentation de la vie exemplaire et édifiante du fondateur du bouddhisme est ainsi mise en lumière à travers ce parcours. Celui-ci s'appuie sur une sélection de chefs-d’œuvre appartenant aux collections du musée.",
+  start_date: "2019-06-19".to_date,
+  end_date: "2019-11-04".to_date,
+  avg_rating: 5,
+  place: musee_guimee,
+  subscription: silver)
+
+bouddha.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528559/Sapio/Bouddha_musee_guillemet_1.jpg"
+bouddha.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528589/Sapio/Bouddha_musee_guillemet_2.jpg"
+bouddha.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528615/Sapio/Bouddha_musee_guillemet_3.jpg"
+bouddha.save
+
+
+plume_pinceau_crayon = Activity.create!(
+  category:"Musée",
+  name:"À la plume, au pinceau, au crayon",
+  description:"Le dessin dans le monde arabe, à travers une centaine d’œuvres issues de la collection de l'IMA, est au cœur de cette exposition. Celle-ci présente des dessins pour la plupart figuratifs, datant du XIe siècle à nos jours, et parfois exposés ici pour la première fois. Le parcours, qui se déploie sur trois niveaux du musée, s'intéresse aux œuvres modernes et contemporaines de trois générations d’artistes, ainsi qu'aux dessins exécutés entre le XIe et le XVIe siècle sur divers supports : papier, cuir, textile ou encore céramique.",
+  start_date: "2019-03-26".to_date,
+  end_date: "2019-09-15".to_date,
+  avg_rating: 3,
+  place: institut_du_monde_arabe,
+  subscription: silver)
+
+plume_pinceau_crayon.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528927/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_1.png"
+plume_pinceau_crayon.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528948/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_2.jpg"
+plume_pinceau_crayon.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567529003/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_3.jpg"
+plume_pinceau_crayon.save
+
+
  presentation_collections_modernes = Activity.create!(
   category:"Musée",
   name:"Collections modernes 1905 - 1965",
