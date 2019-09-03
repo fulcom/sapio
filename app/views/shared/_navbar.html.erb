@@ -1,33 +1,24 @@
-<div id="navbar" class="navbar d-flex justify-content-around">
-  <%= link_to root_path do %>
-    <i class="fas fa-home"></i>
-  <% end %>
+<div id="navbar-max" class="navbar-max navbar-hidden">
+  <div class="navbar-burger">
+    <%= link_to "Home", root_path %>
+  </div>
+  <div class="navbar-burger">
+    <% if current_user.nil? %>
+      <%= link_to "Mes pass", new_user_session_path  %>
+    <% else %>
+      <%= link_to "Mes pass", act_bookings_path %>
+    <% end %>
+  </div>
 
-  <%= link_to activities_path do %>
-    <i class="fas fa-search"></i>
-  <% end %>
-  <% if current_user.nil? %>
-    <%= link_to new_user_session_path do %>
-    <i class="fas fa-qrcode" style="color: #3700B3;"></i>
+  <div class="navbar-burger">
+    <% if current_user.nil? %>
+     <%= link_to  "Mes Favoris", new_user_session_path %>
+    <% else %>
+     <%= link_to "Mes favoris", favorites_path %>
     <% end %>
-  <% else %>
-    <%= link_to act_bookings_path do %>
-      <i class="fas fa-qrcode" style="color: #3700B3;"></i>
-    <% end %>
-  <% end %>
-  <% if current_user.nil? %>
-   <%= link_to  new_user_session_path do %>
-     <i class="fas fa-heart"></i>
-    <% end %>
-    <%= link_to  new_user_session_path do %>
-      <i class="fas fa-user"></i>
-   <% end %>
-  <% else %>
-   <%= link_to favorites_path do %>
-      <i class="fas fa-heart"></i>
-   <% end %>
-   <%= link_to edit_user_registration_path do %>
-      <i class="fas fa-user"></i>
-    <% end %>
-  <% end %>
+  </div>
+
+  <div class="navbar-burger">
+   <%= link_to "Mon profil", edit_user_registration_path %>
+  </div>
 </div>

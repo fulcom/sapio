@@ -23,3 +23,6 @@ import { mapAppear } from '../components/map';
 mapAppear();
 
 
+import { burgerMenu } from '../components/navbar_menu';
+
+burgerMenu();
