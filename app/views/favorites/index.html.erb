@@ -1,7 +1,7 @@
 <div class="banner justify-content-center">
     <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
-<h1 >Mes favoris</h1>
+<h1 class="text-center" >Mes favoris</h1>
 
 <%= render 'activities/list_activities', activities: current_user.activities %>
 <div class="padding-bottom-page"></div>
