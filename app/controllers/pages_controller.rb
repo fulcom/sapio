@@ -28,5 +28,10 @@ class PagesController < ApplicationController
     end
     @last_chance = Activity.where('end_date < ?', DateTime.current + 10)
     @best_rating = Activity.order(avg_rating: :desc).first(10)
+    @museums = Activity.where("category = ?", "Musée")
+    @cinemas = Activity.where("category = ?", "Cinéma")
+    @theatres = Activity.where("category = ?", "Théâtre")
+    @concerts = Activity.where("category = ?", "Concert")
+    @operas = Activity.where("category = ?", "Opéra")
   end
 end

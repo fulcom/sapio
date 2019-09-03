@@ -1,29 +1,26 @@
-.navbar-max {
-  background: white;
+.navbar{
   position: fixed;
-  top: 60px;
-  width: 50%;
-  height:100%;
+  background: white;
+  bottom: 0px;
+  width: 100%;
   line-height: 30px;
   padding-left: 15px;
-  opacity: 0.9;
+  padding-bottom: 25px;
+  padding-top: 25px;
   z-index: 1000;
   }
 
-.navbar-max a {
+.navbar a {
   text-decoration: none;
-  color: black;
+  color: grey;
 }
 
-.navbar-max i {
+.navbar i {
   color: #E5E5E5;
   font-size: 24px;
 }
 
-#navbar-max {
+#navbar {
   border-top: 1px solid #dddddd;
 }
 
-.navbar-hidden {
-  display: none;
-}
