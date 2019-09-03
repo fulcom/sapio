@@ -1,7 +1,8 @@
 .card-text-home {
   width: 150px;
   height: 140px;
-  margin-right: 8px;
+  margin-right: 4px;
+  margin-left: 4px;
   position: relative;
   color: white;
 }
@@ -35,6 +36,7 @@
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   margin-bottom: 8px;
+  position: relative;
 }
 
 .card-text-pass img {
@@ -44,11 +46,43 @@
   border-radius: 4px;
  }
 
+ .card-text-infos-pass {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  position: absolute;
+  bottom: 4px;
+}
 
- .gradient {
-  background-image: linear-gradient(-180deg, black, transparent) !important;
-  z-index: 1000;
- }
+.card-text-infos-pass h2 {
+  padding-left: 0;
+  color: white;
+}
+
+.card-text-infos-pass p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.card-text-infos-pass a {
+  color: white;
+}
+
+.card-text-infos h2 {
+  color: white;
+}
+
+.card-text-infos p {
+  color: white;
+}
+
+.card-text-infos {
+  padding-left: 6px;
+  padding-right: 6px;
+  width: 100%;
+  position: absolute;
+  bottom: 4px;
+}
 
 
 .card-text h2 {
@@ -63,13 +97,6 @@
   font-size: 14px;
   margin-bottom: 0;
 
-}
-
-.card-text .card-text-infos {
-  padding-left: 6px;
-  padding-right: 6px;
-  position: absolute;
-  bottom: 0px;
 }
 
 .card-text a {

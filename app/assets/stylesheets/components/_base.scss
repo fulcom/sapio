@@ -11,9 +11,10 @@ h1 {
 }
 
 h2 {
-  padding-left: 15px;
+  padding-left: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
+  font-weight: bold;
 }
 
 h3 {
@@ -110,4 +111,39 @@ p {
 
 .padding-bottom-page {
   padding-bottom: 85px;
+}
+
+.activity-title {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    height: 3px;
+    flex: 1;
+    margin: 0 8px;
+  }
+}
+
+.activity-title-opera span {
+  background-color: #7634AA;
+}
+
+.activity-title-museum span {
+  background-color: #ff8a5c;
+}
+
+.activity-title-concert span {
+  background-color: #D45058;
+}
+
+.activity-title-cinema span {
+  background-color: #50C5D4;
+}
+
+.activity-title-theatre span {
+  background-color: #F5E761;
 }
