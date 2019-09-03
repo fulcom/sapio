@@ -743,19 +743,6 @@ review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
 
-# @act_bookings = [act_booking1, act_booking2, act_booking3, act_booking4, act_booking5, act_booking5, act_booking6, act_booking7,
-#                 act_booking8, act_booking9, act_booking10, act_booking11, act_booking12, act_booking13, act_booking14, act_booking15,
-#                 act_booking16, act_booking17, act_booking18, act_booking19, act_booking20, act_booking21, act_booking22,act_booking23,
-#                 act_booking24]
-# @act_bookings.each do |act_booking|
-#   20.times do
-#     Review.create!(rating: rand(1..5), act_booking: act_booking)
-#   end
-# end
-
-# @review.act_booking = @act_booking
-# @activity = Activity.find(@act_booking.activity_id)
-# @activity.avg_rating = @activity.average
 
 puts "...records created!"
 
