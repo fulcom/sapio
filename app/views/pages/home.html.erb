@@ -1,12 +1,7 @@
 <div class="banner">
-  <div class="text-in-banner">
-    <% if current_user == nil %>
-      <h1>Bonjour,</h1>
-    <% else %>
-      <h1>Bonjour <%= current_user.first_name %>,</h1>
-    <% end %>
-    <h2>Que voulez-vous faire aujourd'hui ?</h2>
-  </div>
+    <div><i id="burger" class="fas fa-bars"></i></div>
+    <div style="font-size: 24px; color: white; align-items: center;">Sapio</div>
+    <div><%= image_tag "logo.png", alt: "Sapio" %></div>
 </div>
 <div class="search">
   <div class="searchbar">
@@ -14,9 +9,12 @@
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "🔍" %>
+
+    placeholder: "Que voulez-vous faire ?" %>
   </div>
+
     <% end %>
+  </div>
 
 <!-- ALICE -->
 
@@ -30,65 +28,149 @@
 </div>
 
 <div class="horizontal-scroll">
-  <div class="category-orange">
-  Musée
+  <div class="category category-orange">
+    <%= link_to "Musée", activities_path(query: "musée") %>
   </div>
-  <div class="category-blue">
-    Cinéma
+  <div class="category category-blue">
+    <%= link_to "Cinéma", activities_path(query: "cinema") %>
   </div>
-  <div class="category-yellow">
-    Théâtre
+  <div class="category category-yellow">
+    <%= link_to "Théâtre", activities_path(query: "théâtre") %>
   </div>
-  <div class="category-red">
-    Concert
+  <div class="category category-red">
+    <%= link_to "Concert", activities_path(query: "concert") %>
   </div>
-  <div class="category-purple">
-    Opéra
+  <div class="category category-purple">
+    <%= link_to "Opéra", activities_path(query: "opéra") %>
   </div>
 </div>
 
-<h2 class="text-center">A refaire</h2>
+
+<% unless current_user.nil? %>
+  <h2 class="text-center">Nos recommandations</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
-    <div class="card-text-home card-text">
-      <%= cl_image_tag activity.photo_one %>
-      <div class="card-text-infos">
-        <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+    <% @recommandations[0].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <%= activity.avg_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  <%end%>
-</div>
+    <%end%>
+    <% @recommandations[1].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <%= activity.avg_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+    <% @recommandations[2].each do |activity| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to activity.name, activity_path(activity) %></h2>
+          <p><%= activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <%= activity.avg_rating %>
+            </div>
+            <div>
+            <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+<% end %>
+
 
 <h2 class="text-center">Dernière chance</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
+  <% @last_chance.each do |activity| %>
     <div class="card-text-home card-text">
       <%= cl_image_tag activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+        <div class="d-flex">
+          <div>
+            <%= activity.avg_rating %>
+          </div>
+          <div>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
     </div>
-  <%end%>
+  <% end %>
 </div>
+
 
 <h2 class="text-center">Les plus populaires</h2>
 
 <div class="horizontal-scroll">
-  <% @activities.each do |activity| %>
+  <% @best_rating.each do |activity| %>
     <div class="card-text-home card-text">
       <%= cl_image_tag activity.photo_one %>
       <div class="card-text-infos">
         <h2><%= link_to activity.name, activity_path(activity) %></h2>
         <p><%= activity.category %></p>
-        <p><%= activity.avg_rating %></p>
+        <div class="d-flex">
+          <div>
+            <%= activity.avg_rating %>
+          </div>
+          <div>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
       </div>
     </div>
   <%end%>
 </div>
+
+<% unless current_user.nil? %>
+  <h2 class="text-center">A refaire</h2>
+
+  <div class="horizontal-scroll">
+    <% @do_it_again.each do |booking| %>
+      <div class="card-text-home card-text">
+        <%= cl_image_tag booking.activity.photo_one %>
+        <div class="card-text-infos">
+          <h2><%= link_to booking.activity.name, activity_path(booking.activity) %></h2>
+          <p><%= booking.activity.category %></p>
+          <div class="d-flex">
+            <div>
+              <%= Activity.find(booking.activity_id).avg_rating %>
+            </div>
+            <div>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+<% end %>
 <div class="padding-bottom-page"></div>

@@ -5,8 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :subs_bookings, dependent: :destroy
   has_many :act_bookings, dependent: :destroy
+  has_many :booked_activities, through: :act_bookings, source: :activity
   mount_uploader :photo, PhotoUploader
 
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :activities, through: :favorites
 end
