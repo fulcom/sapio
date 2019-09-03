@@ -22,6 +22,30 @@
   <% end %>
 </div>
 
+<div class="pictogramme">
+  <% if @activity.category == "Musée" %>
+    <div class="museum">
+      Musée
+    </div>
+  <% elsif @activity.category == "Cinéma" %>
+    <div class="cinema">
+      Cinéma
+    </div>
+  <% elsif @activity.category == "Concert" %>
+    <div class="concert">
+      Concert
+    </div>
+  <% elsif @activity.category == "Opéra"%>
+    <div class="opera">
+      Opéra
+    </div>
+  <% else %>
+    <div class="theatre">
+      Théâtre
+    </div>
+  <% end %>
+</div>
+
   <!-- Favori -->
   <div id="favori">
     <% if @favorite.nil? %>
