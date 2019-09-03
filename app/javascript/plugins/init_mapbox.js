@@ -46,6 +46,9 @@ const initMapbox = () => {
       positionOptions: {
         enableHighAccuracy: true
       },
+      fitBoundsOptions: {
+        maxZoom: 12
+      },
       trackUserLocation: true
     }));
     const markers = JSON.parse(mapElement.dataset.markers);

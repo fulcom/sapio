@@ -87,6 +87,7 @@ class ActivitiesController < ApplicationController
       @activities = Activity.all
       @places = Place.geocoded
     end
+    @activities = @activities.uniq
     @markers = @places.map do |place|
       {
         lat: place.latitude,
@@ -95,7 +96,6 @@ class ActivitiesController < ApplicationController
         category: place.activities.first.category.downcase.gsub("é", "e").gsub("â", "a")
       }
     end
-    #raise
   end
 
   def show
