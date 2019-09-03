@@ -303,6 +303,17 @@ wedding_nigthmare.remote_photo_two_url = "https://res.cloudinary.com/spark-and-r
 wedding_nigthmare.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430680/Sapio/Wedding_nightmare_mk2_odeon_3.jpg"
 wedding_nigthmare.save
 
+
+traviata = Activity.create!(
+  category: "Opéra",
+  name: "La Traviata",
+  description: "En ouvrant son opéra par un prélude pour cordes d’une économie de moyens inédite, Verdi affirmait en 1853 sa volonté de bousculer les conventions et les normes. Là n’est pas la moindre des radicalités de son oeuvre : sa « Traviata » met implacablement à nu la violence d’une société qui prône la jouissance matérielle et finit par sacrifier une innocente victime sur l’autel de la morale bourgeoise. Simon Stone aime travailler au corps à corps les pièces du répertoire pour les entraîner vers des territoires plus intimes.",
+  start_date: "2019-8-1".to_date,
+  end_date: "2019-9-15".to_date,
+  avg_rating: 3,
+  place: garnier,
+  subscription: platinum)
+
 docteur_miracle = Activity.create!(
   category: "Théâtre",
   name: "Le Docteur Miracle",
@@ -347,6 +358,7 @@ menopause.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/
 menopause.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434139/Sapio/Menopause_theatre_madeleine_2.jpg"
 menopause.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434201/Sapio/Menopause_theatre_madeleine_3.jpg"
 menopause.save
+
 
 invitation = Activity.create!(
   category: "Théâtre",
