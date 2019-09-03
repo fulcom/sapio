@@ -223,7 +223,7 @@ exposition_musee_du_fumeur = Activity.create!(
   subscription: silver
   )
 
-exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426266/Sapio/Expo_musee_du_fumeur_1.jpg"
+exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Expo_Musee_du_fumeur_1.jpg"
 exposition_musee_du_fumeur.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426319/Sapio/Expo_musee_du_fumeur_2.jpg"
 exposition_musee_du_fumeur.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426361/Sapio/Expo_musee_du_fumeur_3.jpg"
 exposition_musee_du_fumeur.save
@@ -728,9 +728,9 @@ review_23 = Review.create!(rating: 4, act_booking: act_booking23)
 review_24 = Review.create!(rating: 5, act_booking: act_booking24)
 
 
-@review.act_booking = @act_booking
-@activity = Activity.find(@act_booking.activity_id)
-@activity.avg_rating = @activity.average
+# @review.act_booking = @act_booking
+# @activity = Activity.find(@act_booking.activity_id)
+# @activity.avg_rating = @activity.average
 
 puts "...records created!"
 
