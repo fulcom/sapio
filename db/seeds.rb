@@ -131,7 +131,7 @@ madeleine = Place.create!(
 
 marigny = Place.create!(
   name: "Théâtre Marigny",
-  address: "Carré Marigny",
+  address: "1 avenue de Marigny",
   city: "Paris",
   country: "France",
   zip_code: "75008",
@@ -577,7 +577,7 @@ a_love_supreme.save
 jl_aubert = Activity.create!(
   category: "Concert",
   name: "Jean-Louis Aubert",
-  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
+  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
   start_date: "2019-08-20".to_date,
   end_date: "2019-08-21".to_date,
   avg_rating: 3,

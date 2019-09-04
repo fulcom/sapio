@@ -93,6 +93,7 @@ class ActivitiesController < ApplicationController
       @places = Place.geocoded
     end
     @activities = @activities.uniq
+    @places = @places.uniq { |place| place.id }
     @markers = @places.map do |place|
       {
         lat: place.latitude,
