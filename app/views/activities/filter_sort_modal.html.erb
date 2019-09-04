@@ -1,4 +1,17 @@
-<div class="container pt-3">
+<div class="banner justify-content-center">
+    <%= image_tag "logo.png", alt: "Sapio" %>
+</div>
+<h1 class="text-center mb-3">Que voulez-vous faire ?</h1>
+<div class="searchbar mb-3">
+  <%= form_tag activities_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "🔍" %>
+</div>
+  <% end %>
+
+<div class="" style="    width: 100%; padding:0px 15px; margin:0 auto 100px auto" >
   <form id="filterSortForm" action="/activities/filter_sort", method="get">
     <h2 class="filtering">Filtrer par</h2>
     <div class="category_choices">
