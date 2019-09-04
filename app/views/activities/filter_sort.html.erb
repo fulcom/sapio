@@ -1,13 +1,69 @@
- <div >
-    <% @activities.each do |activity| %>
+<!--  <div >
+    <%# @activities.each do |activity| %>
       <div>
         <div >
-          <h2><%= link_to activity.name, activity_path(activity) %></h2>
-          <p><%= activity.category %></p>
-          <p><%= activity.avg_rating %></p>
-          <p><%= activity.end_date %></p>
-          <p><%= activity.place.name %></p>
+          <h2><%#= link_to activity.name, activity_path(activity) %></h2>
+          <p><%#= activity.category %></p>
+          <p><%#= activity.avg_rating %></p>
+          <p><%#= activity.end_date %></p>
+          <p><%#= activity.place.name %></p>
+        </div>
+      </div>
+    <%# end %>
+  </div> -->
+
+  <div class="banner justify-content-center">
+    <%= image_tag "logo.png", alt: "Sapio" %>
+</div>
+<h1 class="text-center mb-3">Que voulez-vous faire ?</h1>
+<div class="searchbar mb-3">
+  <%= form_tag activities_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+  placeholder: "🔍" %>
+</div>
+  <% end %>
+
+<div class="toggle-map-button">
+  <i class="fas fa-map-marked-alt"></i>
+  <i class="fas fa-search d-none"></i>
+</div>
+<div class="container toggle-map">
+  <% @activities.each do |activity| %>
+    <%= link_to activity_path(activity) do %>
+      <div class="card-text-pass"  style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 345, height: 200 %>')">
+        <div class="card-text-infos-pass">
+          <h2><%= activity.name %></h2>
+          <div class="d-flex  justify-content-between">
+            <div>
+              <p><%= activity.category %></p>
+            </div>
+            <div class="rating d-flex align-items-center">
+              <p><%= activity.avg_rating %></p>
+              <div>
+                <i class="fas fa-star"></i>
+              </div>
+              <%= activity.place.name %>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
-  </div>
+  <%end%>
+</div>
+
+  <div class="toggle-map" id="map-container">
+
+  <div
+    id="map"
+    style="width: 100vw;
+    height: 100vh;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
+</div>
+<div class="padding-bottom-page"></div>
+
+<% console %>
+
