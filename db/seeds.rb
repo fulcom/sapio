@@ -406,7 +406,7 @@ exposition_musee_du_fumeur.save
 
 expo_monet_fromanger = Activity.create!(
   category:"Musée",
-  name:"MONET / FROMANGER: Impression, soleil levant 2019",
+  name:"Monet / Fromanger: Impression, soleil levant 2019",
   description:"Au détour d’une invitation lancée par le musée Marmottan Monet à Gérard Fromanger, le peintre s’arrête devant un tableau de Gustave Caillebotte, Rue de Paris, temps de pluie. L’impressionniste représente en 1877 deux passants déambulant dans le Paris haussmannien à l’intersection des rues de Turin et de Moscou... ",
   start_date: "2019-03-28".to_date,
   end_date: "2019-09-29".to_date,
@@ -418,7 +418,6 @@ expo_monet_fromanger.remote_photo_one_url = "https://res.cloudinary.com/spark-an
 expo_monet_fromanger.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586634/Sapio/Monet_Fromanger_musee_marmottan_2.jpg"
 expo_monet_fromanger.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586704/Sapio/Monet_Fromanger_musee_marmottan_3.jpg"
 expo_monet_fromanger.save
-
 
 
 once_upon_a_time = Activity.create!(
@@ -600,7 +599,7 @@ oh_sees = Activity.create!(
   subscription: gold)
 
 oh_sees.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853913/Sapio/Oh_Sees_concert_1.jpg"
-oh_sees.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854062/Sapio/Oh_Sees_concert_2.jpg"
+oh_sees.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567599699/Sapio/Oh_Sees_concert_2.png"
 oh_sees.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854154/Sapio/Oh_Sees_concert_3.jpg"
 oh_sees.save
 

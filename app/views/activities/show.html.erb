@@ -4,13 +4,13 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= cl_image_tag @activity.photo_one, class: "d-block w-100", crop: :fill, height: 170%>
+      <%= cl_image_tag @activity.photo_one, class: "d-block w-100", crop: :fill, gravity: :face, height: 170%>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @activity.photo_two, class: "d-block w-100", crop: :fill, height: 170%>
+      <%= cl_image_tag @activity.photo_two, class: "d-block w-100", crop: :fill, gravity: :face, height: 170%>
     </div>
     <div class="carousel-item">
-      <%= cl_image_tag @activity.photo_three, class: "d-block w-100", crop: :fill, height: 170%>
+      <%= cl_image_tag @activity.photo_three, class: "d-block w-100", crop: :fill, gravity: :face, height: 170%>
     </div>
   </div>
 
