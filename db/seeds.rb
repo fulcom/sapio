@@ -499,7 +499,7 @@ wedding_nigthmare.save
 docteur_miracle = Activity.create!(
   category: "Théâtre",
   name: "Le Docteur Miracle",
-  description: "Opéra-comique en un acte, sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857. Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : permettre aux genres légers de garder une place de choix à Paris.",
+  description: "Sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857... Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : permettre aux genres légers de garder une place de choix à Paris.",
   start_date: "2019-08-20".to_date,
   end_date: "2019-08-21".to_date,
   avg_rating: 4,
