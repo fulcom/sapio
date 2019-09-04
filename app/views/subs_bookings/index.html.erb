@@ -1,9 +1,7 @@
-<div class="banner">
-
-    <i id="burger" class="fas fa-bars"></i>
+<div class="banner justify-content-center">
     <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
-<h1>Vos abonnements</h1>
+<h1 class="text-center mt-3">Vos abonnements</h1>
 
 
 <div class="container", style="padding:16px">
@@ -13,11 +11,11 @@
   </div>
 
   <% @subs_bookings.each do |subs_booking| %>
-    <div class="card-text subscription d-flex align-items-center justify-content-between">
+    <div class="subscription d-flex align-items-center justify-content-between">
       <div>
-        <p>Abonnement <%= subs_booking.subscription.name %></p>
-        <p>Du <%= subs_booking.start_date.strftime("%d/%m/%Y") %> au <%= subs_booking.end_date.strftime("%d/%m/%Y") %></p>
-        <p>Tarif : <%= subs_booking.subscription.price %>€</p>
+        <h3>Abonnement <%= subs_booking.subscription.name %></h3>
+        <h3>Du <%= subs_booking.start_date.strftime("%d/%m/%Y") %> au <%= subs_booking.end_date.strftime("%d/%m/%Y") %><h3>
+        <h3>Tarif : <%= subs_booking.subscription.price %>€<h3>
       </div>
       <%= link_to 'Facture', subs_booking_path(subs_booking), class:"btn-flat-green", style:"width:auto; padding:8px; color:white"%>
     </div>

@@ -1,21 +1,7 @@
-<!--  <div >
-    <%# @activities.each do |activity| %>
-      <div>
-        <div >
-          <h2><%#= link_to activity.name, activity_path(activity) %></h2>
-          <p><%#= activity.category %></p>
-          <p><%#= activity.avg_rating %></p>
-          <p><%#= activity.end_date %></p>
-          <p><%#= activity.place.name %></p>
-        </div>
-      </div>
-    <%# end %>
-  </div> -->
-
 <div class="banner justify-content-center">
     <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
-<h1 class="text-center mb-3">Que voulez-vous faire ?</h1>
+<h1 class="text-center mb-3 mt-3">Que voulez-vous faire ?</h1>
 <div class="searchbar mb-3">
   <%= form_tag activities_path, method: :get do %>
   <%= text_field_tag :query,

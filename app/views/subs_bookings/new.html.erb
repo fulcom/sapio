@@ -1,16 +1,15 @@
-<div class="banner">
-  <div class="text-in-banner">
-    <h1 >Nouvel abonnement</h1>
-  </div>
+<div class="banner justify-content-center">
+    <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
+<h1 class="text-center mt-3">Nouvel abonnement</h1>
 
 <div class="container">
   <div style="padding:16px">
-    <h3>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></h2>
+    <h3>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></h3>
   </div>
 
   <% @subscriptions.each do |subscription| %>
-    <div class="card-text subscription d-flex align-items-center justify-content-between">
+    <div class="subscription d-flex align-items-center justify-content-between">
         <div>
           <h3>Abonnement <%= subscription.name%> : <%= subscription.price %>€<h3>
           <p><%= subscription.description%></p>
