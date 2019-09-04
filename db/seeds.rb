@@ -222,7 +222,7 @@ marie_curie = Activity.create!(
   name:"Marie Curie, une femme au Panthéon",
   description:"Née le 7 novembre 1867 en Pologne, depuis, l’histoire de Marie Curie est devenue légendaire. Quittant son pays natal à 24 ans pour venir étudier les sciences à la Sorbonne, c’est en 1894 que Marie Sklodowska rencontre le physicien Pierre Curie. Ensemble, ils découvrent deux nouveaux atomes, radioactifs, le polonium et le radium.",
   start_date: "2017-11-08".to_date,
-  end_date: "2018-03-2018".to_date,
+  end_date: "2018-03-04".to_date,
   avg_rating: 3,
   place: musee_curie,
   subscription: silver)
