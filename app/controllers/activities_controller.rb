@@ -71,6 +71,41 @@ class ActivitiesController < ApplicationController
         end
         @activities = activities_near
     end
+
+    @places = []
+    @activities.each do |activity|
+      @places << activity.place
+    end
+
+    # if params[:query].present?
+    #   @activities = []
+    #   @pg_search_docs = PgSearch.multisearch(params[:query])
+    #   @places = @pg_search_docs.map(&:searchable).map do |element|
+    #     if defined?(element.category)
+    #       @activities << element
+    #       Place.find(element.place_id)
+    #     else
+    #       element.activities.each do |a|
+    #         @activities << a
+    #       end
+    #       element
+    #     end
+    #   end
+    # else
+      # @activities = Activity.all
+    #  @places = Place.geocoded
+    # end
+    # @activities = @activities.uniq
+    # @places = @places.uniq { |place| place.id }
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place }),
+        category: place.activities.first.category.downcase.gsub("é", "e").gsub("â", "a")
+      }
+    end
+    # raise
   end
 
   def index
