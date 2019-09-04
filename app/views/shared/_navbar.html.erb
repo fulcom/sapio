@@ -1,33 +1,32 @@
 <div id="navbar" class="navbar d-flex justify-content-around">
   <%= link_to root_path do %>
-    <i class="fas fa-home"></i>
+    <i class="fas fa-home navbar-tab <%= "purple-tab" if params[:action] == "home" %>"></i>
   <% end %>
-
   <%= link_to activities_path do %>
-    <i class="fas fa-search"></i>
+    <i class="fas fa-search navbar-tab <%= "purple-tab" if params[:controller] == "activities" %>"></i>
   <% end %>
   <% if current_user.nil? %>
     <%= link_to new_user_session_path do %>
-    <i class="fas fa-qrcode"></i>
+    <i class="fas fa-qrcode navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
     <% end %>
   <% else %>
     <%= link_to act_bookings_path do %>
-      <i class="fas fa-qrcode"></i>
+      <i class="fas fa-qrcode navbar-tab <%= "purple-tab" if params[:controller] == "act_bookings"%>"></i>
     <% end %>
   <% end %>
   <% if current_user.nil? %>
    <%= link_to  new_user_session_path do %>
-     <i class="fas fa-heart"></i>
+     <i class="fas fa-heart navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
     <% end %>
     <%= link_to  new_user_session_path do %>
-      <i class="fas fa-user"></i>
+      <i class="fas fa-user navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
    <% end %>
   <% else %>
    <%= link_to favorites_path do %>
-      <i class="fas fa-heart"></i>
+      <i class="fas fa-heart navbar-tab <%= "purple-tab" if params[:controller] == "favorites" %>"></i>
    <% end %>
    <%= link_to users_profile_path do %>
-      <i class="fas fa-user"></i>
+      <i class="fas fa-user navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
     <% end %>
   <% end %>
 </div>
