@@ -1,17 +1,11 @@
-<h2><%= place.name %></h2>
-<p><%= place.address %></p>
-
-
-<!--
-<% @activities = Activity.all.map do |activity| %>
-<%= Place.find(activity.place_id).address %>
-<% end %> -->
-
-
-
-
-<% Activity.where(place_id: place.id).each do |activity| %>
-    <p><%= activity.category %></p>
-<% end  %>
+<div>
+  <h2><%= place.name %></h2>
+  <p><%= place.address %></p>
+  <% Activity.where(place_id: place.id).each do |activity| %>
+    <%= link_to activity_path(activity) do %>
+      <p><%= activity.name %></p>
+    <% end  %>
+  <% end %>
+</div>
 
 
