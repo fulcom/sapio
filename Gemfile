@@ -22,6 +22,7 @@ gem 'flatpickr'
 gem 'pg_search', '~> 2.3.0'
 gem 'geocoder'
 gem 'rqrcode'
+gem 'rails-i18n'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

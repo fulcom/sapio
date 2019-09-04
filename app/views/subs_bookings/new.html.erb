@@ -5,7 +5,7 @@
 
 <div class="container">
   <div style="padding:16px">
-    <h3>Valable du <%= Date.today.strftime("%d/%m/%Y") %> au <%= (Date.today + 1.month).strftime("%d/%m/%Y")%></h3>
+    <h3>Valable du <%= l(Date.today, format: :with_day, locale: "fr") %> au <%= l((Date.today + 1.month), format: :with_day, locale: "fr") %></h3>
   </div>
 
   <% @subscriptions.each do |subscription| %>
