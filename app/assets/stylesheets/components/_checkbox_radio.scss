@@ -1,0 +1,107 @@
+.category-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.categoryCheckbox {
+  display: none;
+}
+
+.categoryLabel, .filterChoice, select#distanceDropdownList {
+  background-color: rgb(76, 176, 161);
+  color: white;
+  margin: 4px auto;
+  width:100%!important;
+  padding: 10px;
+  opacity: 0.4;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+    &:hover {
+      opacity: 0.75;
+    }
+    &.active {
+      opacity: 1;
+    }
+}
+
+input.categoryCheckbox, input[type="radio"]{
+  display: none!important;
+}
+
+input.categoryCheckbox:checked + label {
+// sélectionne le label juste après la balise input de classe categoryCheckbox qui est checked
+  opacity: 1;
+}
+
+input[type="radio"]:checked + label {
+  // display: none !important;
+  opacity: 1;
+}
+
+.filtering {
+  font-size:18px;
+  text-transform:uppercase;
+  font-weight:400;
+  padding-left: 0px;
+  padding-bottom: 8px;
+  margin-top: 16px;
+  color: gray;
+}
+
+#ModalSubmitFilter {
+    padding: 10px 40px;
+    background-color: #4cb0a1;
+    box-shadow: none!important;
+    border: none;
+    color: white;
+    font-style: bold;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top:18px;
+}
+
+input#ModalSubmitFilter{
+  margin:0 auto!important;
+  text-align:center;
+}
+
+// select.dropDownList {
+//     border: 1px solid #4cb0a1;
+//     background: white;
+//     width: 100%;
+//     padding: 6px;
+// }
+
+
+.filterChoice {
+  width: 30%;
+}
+
+.musee {
+  background-color: rgb(241, 136, 90);
+}
+
+.cinema {
+  background-color: rgb(83, 197, 212);
+}
+
+.theatre{
+  background-color: rgb(245, 231, 97);
+}
+
+.opera {
+  background-color: rgb(118, 52, 170);
+}
+
+.concert {
+  background-color: rgb(212, 80, 88);
+}
+
+#distanceDropdownList {
+  border: none;
+  text-align: center !important;
+}
