@@ -153,6 +153,62 @@ zenith = Place.create!(
   zip_code: "75019",
   access: "Métro: Ligne 5, station Porte de Pantin (600 mètres du Zénith), Ligne 7, station Porte de la Villette (900 mètres du Zénith) Bus: Ligne 75, station Porte de Pantin, Ligne PC, station Porte de Pantin ou Porte de la Villette, Noctilien N45, N140, N41, N13 Porte de Pantin ou N42 Porte de la Villette Tram: Ligne 3b, station Porte de Pantin - Parc de la Villette (800 mètres du Zénith)")
 
+alhambra = Place.create!(
+  name: "Alhambra",
+  address: "21 rue Yves Toudic",
+  city: "Paris",
+  country: "France",
+  zip_code: "75010",
+  access: "Métro: Lignes 3/5/8/9/11 - République, Bus: Lignes 26, 56, 65, 75")
+
+caveau_de_la_huchette = Place.create!(
+  name: "Caveau de la Huchette",
+  address: "5 rue de la Huchette",
+  city: "Paris",
+  country: "France",
+  zip_code: "75005",
+  access: "Métro: Lignes 4 et 10, Saint Michel")
+
+cigale = Place.create!(
+  name: "La Cigale",
+  address: "120 boulevard de Rochechouart",
+  city: "Paris",
+  country: "France",
+  zip_code: "75018",
+  access: "Métro: Lignes 2 ou 12, Pigalle ou Anvers Bus: 30, 54, 67")
+
+olympia = Place.create!(
+  name: "L'Olympia",
+  address: "28 boulevard des Capucines",
+  city: "Paris",
+  country: "France",
+  zip_code: "75009",
+  access: "Métro: Lignes 7, 8 RER: A, B Bus: 43, 380")
+
+pleyel = Place.create!(
+  name: "Salle Pleyel",
+  address: "252 rue du faubourg Saint-Honoré",
+  city: "Paris",
+  country: "France",
+  zip_code: "75008",
+  access: "Métro: Lignes 1, 2, 6 RER: A Bus: 30, 31, 43, 93 Autolib’: 31 Av Hoche, 69 rue de Courcelles Paris 75008")
+
+salle_gaveau = Place.create!(
+  name: "Salle Gaveau",
+  address: "45 rue La Boétie ",
+  city: "Paris",
+  country: "France",
+  zip_code: "75008",
+  access: "Métro: Lignes 9 et 13 - Miromesnil Bus: 52, 83, 93 Parking: Vinci Park Haussmann Berri")
+
+trianon = Place.create!(
+  name: "Le Trianon",
+  address: "80 boulevard de Rochechouart",
+  city: "Paris",
+  country: "France",
+  zip_code: "7018",
+  access: "Métro: Ligne 2 - Anvers Bus: 30, 54 Parking: Anvers, Saemes")
+
 bastille = Place.create!(
   name: "L'Opéra Bastille",
   address: "Place de la Bastille",
@@ -265,7 +321,7 @@ plume_pinceau_crayon.remote_photo_three_url = "https://res.cloudinary.com/spark-
 plume_pinceau_crayon.save
 
 
- presentation_collections_modernes = Activity.create!(
+presentation_collections_modernes = Activity.create!(
   category:"Musée",
   name:"Collections modernes 1905 - 1965",
   description:"À partir du 27 mai 2015 jusqu'au 31 décembre 2019, le Centre Pompidou dévoile une nouvelle présentation de ses collections modernes, de 1905 à 1965. Ce parcours profondément renouvelé renoue avec une progression chronologique marquée par de grands jalons historiques. Il offre au visiteur de suivre le fil des figures, des œuvres et des mouvements qui ont écrit l’art moderne, en compagnie d’autres passeurs qui ont contribué à faire l’histoire de la modernité.",
@@ -567,6 +623,115 @@ obispo.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/ima
 obispo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437210/Sapio/Obispo_zenith_2.jpg"
 obispo.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437286/Sapio/Obispo_zenith_3.jpg"
 obispo.save
+
+
+brittany_howard = Activity.create!(
+  category: "Concert",
+  name: "Brittany Howard",
+  description: "Brittany Howard, comme toutes les chanteuses américaines talentueuses des cinquante dernières années, est régulièrement comparée aux deux figures féminines tutélaires de la musique US d’après-guerre : Aretha Franklin, la reine de la soul, et Janis Joplin, la song-writeuse par excellence. Des comparaisons qui, pour une fois, ne s’avèrent pas totalement infondées. Avec sa voix d’or et son talent de compositrice, Brittany Howard parvient à imposer son identité et, loin de se contenter des chansons à l’ancienne, chercher sans cesse à faire évoluer son style. ",
+  start_date: "2019-09-04".to_date,
+  end_date: "2019-09-04".to_date,
+  avg_rating: 3,
+  place: alhambra,
+  subscription: gold)
+
+brittany_howard.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567582737/Sapio/Brittany_Howard_concert_1.jpg"
+brittany_howard.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567582776/Sapio/Brittany_Howard_concert_2.jpg"
+brittany_howard.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567582807/Sapio/Brittany_Howard_concert_3.jpg"
+brittany_howard.save
+
+
+pablo_campos = Activity.create!(
+  category: "Concert",
+  name: "Pablo Campos",
+  description: "Les deux amis de longue date invitent alors Pablo à les rejoindre pour une série de concerts durant l'été : l'accueil chaleureux du public est immédiat, et le swing que dégage la petite formation convainc les trois musiciens de former un véritable trio. ",
+  start_date: "2019-09-20".to_date,
+  end_date: "2019-09-21".to_date,
+  avg_rating: 5,
+  place: caveau_de_la_huchette,
+  subscription: gold)
+
+pablo_campos.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583174/Sapio/Pablo_Campos_concert_1.jpg"
+pablo_campos.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583217/Sapio/Pablo_Campos_concert_2.jpg"
+pablo_campos.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583259/Sapio/Pablo_Campos_concert_3.jpg"
+pablo_campos.save
+
+
+maneskin = Activity.create!(
+  category: "Concert",
+  name: "Maneskin",
+  description: "Après avoir conquis l’Italie avec une tournée à guichets fermés et Paris avec un Café de la Danse plein à craquer en février dernier, le phénomène pop-rock italien Måneskin est de retour en France à La Cigale le 11 septembre 2019 !",
+  start_date: "2019-09-11".to_date,
+  end_date: "2019-09-11".to_date,
+  avg_rating: 5,
+  place: cigale,
+  subscription: gold)
+
+maneskin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583530/Sapio/Maneskin_concert_1.jpg"
+maneskin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583570/Sapio/Maneskin_concert_2.jpg"
+maneskin.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583608/Sapio/Maneskin_concert_3.jpg"
+maneskin.save
+
+zazie = Activity.create!(
+  category: "Concert",
+  name: "Zaziessenciel Tour",
+  description: "",
+  start_date: "2019-11-13".to_date,
+  end_date: "2019-11-16".to_date,
+  avg_rating: 5,
+  place: olympia,
+  subscription: gold)
+
+zazie.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583797/Sapio/Zazie_concert_1.jpg"
+zazie.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583843/Sapio/Zazie_concert_2.jpg"
+zazie.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583889/Sapio/Zazie_concert_3.jpg"
+zazie.save
+
+david_hallyday= Activity.create!(
+  category: "Concert",
+  name: "David Hallyday - Éternel Tour",
+  description: "Son treizième album, J'ai quelque chose à vous dire, est sorti le 7 décembre 2018. Les 11 titres de cet album bouleversant, véritable cri d’amour, racontent ce qu'il n'a jamais dit. Le succès a été immédiat auprès du public français (certifié platine) notamment avec le single Ma Dernière Lettre dont sa demi-sœur Laura a réalisé le clip. Dans cette chanson David se livre en toute intimité, avec force mais aussi pudeur, et offre l'un de ses plus beaux titres. Ne manquez pas David Hallyday en concert près de chez vous!",
+  start_date: "2019-10-04".to_date,
+  end_date: "2019-10-04".to_date,
+  avg_rating: 5,
+  place: pleyel,
+  subscription: gold)
+
+david_hallyday.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584119/Sapio/David_Hallyday_concert_1.jpg"
+david_hallyday.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584506/Sapio/David_Hallyday_concert_2.jpg"
+david_hallyday.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584552/Sapio/David_Hallyday_concert_3.jpg"
+david_hallyday.save
+
+giovanna_marini = Activity.create!(
+  category: "Concert",
+  name: "Giovanna Marini",
+  description: "Après plusieurs décennies d'une carrière incomparable, Giovanna Marini n'est plus une artiste mais une légende. Chanteuse, compositrice, conteuse, femme engagée, elle aura marqué notre temps par un engagement aussi bien musical que social, replaçant la musique au cœur de la cité, pointant ses travers parfois avec une ironie caustique, toujours avec une sincérité et une émotion admirables. Cette soirée se veut un hommage vibrant rendu à une femme d'exception entrée dans l'histoire, en compagnie bien sûr de ses complices du mythique Quatuor vocal Giovanna Marini, mais aussi beaucoup d’ invités qui ont à un moment de leur vie croisé sa route.",
+  start_date: "2019-10-11".to_date,
+  end_date: "2019-10-11".to_date,
+  avg_rating: 5,
+  place: salle_gaveau,
+  subscription: gold)
+
+giovanna_marini.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584822/Sapio/Giovanna_Marini_concert_1.jpg"
+giovanna_marini.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584893/Sapio/Giovanna_Marini_concert_2.jpg"
+giovanna_marini.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584949/Sapio/Giovanna_Marini_concert_3.jpg"
+giovanna_marini.save
+
+tairo = Activity.create!(
+  category: "Concert",
+  name: "Taïro & The Family Band",
+  description: "Après une année d’absence, Taïro est de retour en Europe accompagné de ses musiciens du Family Band ! Il sera sur la scène du Trianon le 15 Novembre 2019, pour une unique date parisienne. Plusieurs morceaux inédits seront dévoilés d’ici là sur un album Best-Of (sortie Février 2019) qui retracera les dix dernières années de carrière de ce fer-de-lance du reggae français.",
+  start_date: "2019-11-15".to_date,
+  end_date: "2019-11-15".to_date,
+  avg_rating: 5,
+  place: trianon,
+  subscription: gold)
+
+tairo.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567585264/Sapio/Tairo_concert_1.jpg"
+tairo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567585317/Sapio/Tairo_concert_2.jpg"
+tairo.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567585381/Sapio/Tairo_concert_3.jpg"
+tairo.save
+
 
 casse_noisette = Activity.create!(
   category: "Opéra",
