@@ -1,21 +1,18 @@
-<div class="banner">
-  <div class="text-in-banner">
-    <h1>Vos critères</h1>
-  </div>
-</div>
-
-<div class="container">
+<div class="container pt-3">
   <form id="filterSortForm" action="/activities/filter_sort", method="get">
-    <h2>Sélectionnez une catégorie</h2>
-      <label for="selectAllCategories" id="selectAllCategoriesLabel">Tout sélectionner</label>
-      <input type="checkbox" id="selectAllCategories" class="categoryCheckbox" name="selectAll">
-      <% @categories.each do |category| %>
-        <div>
-          <input type="checkbox" class="categoryCheckbox" value="<%= "#{category}" %>" name="category_<%= "#{category}" %>">
-          <!-- value="<%#= @categories.index("#{category}")" %> => index de @categories -->
-          <%= category %>
-        </div>
-      <% end %>
+    <h2 class="filtering">Filtrer par</h2>
+    <div class="category_choices">
+      <div style="display:flex">
+        <input type="checkbox" id="selectAllCategories" class="categoryCheckbox" name="selectAll">
+        <label style="flex-grow: 1" for="selectAllCategories" id="selectAllCategoriesLabel" class="categoryLabel">Tout sélectionner</label>
+      </div>
+      <div style="display:flex; flex-wrap:wrap">
+        <% @categories.each do |category| %>
+          <input type="checkbox" class="categoryCheckbox" id="<%= "#{category}" %>" value="<%= "#{category}" %>" name="category_<%= "#{category}" %>">
+          <label for="<%= "#{category}" %>" class="categoryLabel <%= "#{category.gsub(/[âé]/, 'â' => 'a', 'é' => 'e').downcase}" %>"><%= category %></label>
+        <% end %>
+      </div>
+    </div>
 
       <!-- <h2>Sélectionnez un endroit</h2>
         <label for="selectAllPlaces" id="selectAllPlacesLabel">Tout sélectionner</label>
@@ -27,33 +24,39 @@
           </div>
        <%# end %> -->
 
-    <h2>Trier par</h2>
+    <h2 class="filtering">Trier par</h2>
       <div>
-        <input type="radio" id="sortEndDate" name="sort" value="end_date">Date de fin
-        <input type="radio" id="sortRating" name="sort" value="avg_rating">Note
-        <input type="radio" id="sortName" name="sort" value="name">Nom
+        <input type="radio" id="sortEndDate" name="sort" value="end_date">
+        <label class="filterChoice" for="sortEndDate">Date de fin</label>
+        <input type="radio" id="sortRating" name="sort" value="avg_rating">
+        <label class="filterChoice" for="sortRating">Note</label>
+        <input type="radio" id="sortName" name="sort" value="name">
+        <label class="filterChoice" for="sortName">Nom</label>
 
-        <div>
-          <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">Distance :
-          <!-- à moins de <input type="text" id="sortAround" name="sort" value="20" placeholder="20">km de moi -->
-          <select onclick="getLocation()" class="dropDownList" name="distanceFromMe">
-            <option value="10000">Pas de restrictions</option>
-            <option value="3">>A moins de 3 km de moi</option>
-            <option value="5">>A moins de 5 km de moi</option>
-            <option value="10">>A moins de 10 km de moi</option>
-            <option value="15">>A moins de 15 km de moi</option>
-          </select>
-        </div>
+        <!-- DISTANCE -->
+        <!-- à moins de <input type="text" id="sortAround" name="sort" value="20" placeholder="20">km de moi -->
+        <select onclick="getLocation()" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList" style="text-align-last: center">
+          <option value="100000"><strong>Distance</strong></option>
+          <option value="3">>A moins de 3 km de moi</option>
+          <option value="5">>A moins de 5 km de moi</option>
+          <option value="10">>A moins de 10 km de moi</option>
+          <option value="15">>A moins de 15 km de moi</option>
+        </select>
 
-        <input style="visibility:hidden" type="radio" id="longitudeUser" name="longitude" value="" checked>
-        <input style="visibility:hidden" type="radio" id="latitudeUser" name="latitude" value="" checked>
+        <input type="radio" id="longitudeUser" name="longitude" value="" checked>
+        <input type="radio" id="latitudeUser" name="latitude" value="" checked>
+
+        <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">
+        <label style="visibility: hidden" class="filterChoice" for="sortDistance"></label>
 
         <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
         <!-- name = clé qu'on récupère dans les params -->
         <!-- value = valeur de la clé qu'on récupère dans les params -->
       </div>
 
-    <input type="submit" value="Send Request" id="ModalSubmit">
+      <div style="display: flex; align-items: center">
+        <input type="submit" value="GO !" id="ModalSubmitFilter">
+      </div>
   </form>
 </div>
 
