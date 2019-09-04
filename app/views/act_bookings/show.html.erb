@@ -69,7 +69,7 @@
         <div class="d-flex mini-btn-flat-red justify-content-center" >
           <% activity_map = Activity.find(@act_booking.activity_id) %>
           <i class="fas fa-map-marker-alt"></i>
-            <%= link_to "Comment s'y rendre", "https://www.google.com/maps/search/#{Place.find(activity_map.place_id).latitude}+#{Place.find(activity_map.place_id).longitude}", target: "_blank"%>
+            <%= link_to "Comment s'y rendre", "https://www.google.com/maps/search/#{Place.find(activity_map.place_id).name}", target: "_blank"%>
         </div>
     </div>
     <% end %>
