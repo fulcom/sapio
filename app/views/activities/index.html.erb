@@ -1,9 +1,8 @@
-<div class="banner">
-    <i id="burger" class="fas fa-bars"></i>
+<div class="banner justify-content-center">
     <%= image_tag "logo.png", alt: "Sapio" %>
 </div>
-<h1>Que voulez-vous faire ?</h1>
-<div class="searchbar">
+<h1 class="text-center mb-3">Que voulez-vous faire ?</h1>
+<div class="searchbar mb-3">
   <%= form_tag activities_path, method: :get do %>
   <%= text_field_tag :query,
   params[:query],
@@ -18,23 +17,27 @@
 </div>
 <div class="container toggle-map">
   <% @activities.each do |activity| %>
-    <div class="card-text">
-      <%= cl_image_tag activity.photo_one %>
-      <div class="card-text-infos">
-        <h2><%= link_to activity.name, activity_path(activity) %></h2>
-        <p><%= activity.category %></p>
-          <div class="d-flex">
+    <%= link_to activity_path(activity) do %>
+      <div class="card-text-pass"  style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 345, height: 200 %>')">
+        <div class="card-text-infos-pass">
+          <h2><%= activity.name %></h2>
+          <div class="d-flex  justify-content-between">
             <div>
-              <%= activity.avg_rating %>
+              <p><%= activity.category %></p>
             </div>
-            <div>
-              <i class="fas fa-star"></i>
+            <div class="rating d-flex align-items-center">
+              <p><%= activity.avg_rating %></p>
+              <div>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
           </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   <%end%>
 </div>
+
   <div class="toggle-map" id="map-container">
 
   <div

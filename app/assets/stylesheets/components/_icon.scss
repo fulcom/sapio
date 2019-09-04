@@ -1,9 +1,9 @@
-.fa-times-retour {
+.fa-chevron-left-retour {
   color: white;
   position: absolute;
   z-index: 1;
-  top: 80px;
-  right: 24px;
+  top: 24px;
+  left: 20px;
 }
 
 .delete-croix .fa-times-delete {
@@ -16,7 +16,7 @@
   right: 20px;
 }
 
-#carouselExampleIndicators {
+#carouselExampleSlidesOnly {
   position: relative;
 }
 
@@ -26,6 +26,7 @@
 
 .fa-star {
   color: #24AFA0;
+  line-height: 1.5!important;
 }
 
 #fa-star-half-green {

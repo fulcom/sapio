@@ -1,24 +1,32 @@
-<div id="navbar-max" class="navbar-max navbar-hidden">
-  <div class="navbar-burger">
-    <%= link_to "Home", root_path %>
-  </div>
-  <div class="navbar-burger">
-    <% if current_user.nil? %>
-      <%= link_to "Mes pass", new_user_session_path  %>
-    <% else %>
-      <%= link_to "Mes pass", act_bookings_path %>
+<div id="navbar" class="navbar d-flex justify-content-around">
+  <%= link_to root_path do %>
+    <i class="fas fa-home navbar-tab <%= "purple-tab" if params[:action] == "home" %>"></i>
+  <% end %>
+  <%= link_to activities_path do %>
+    <i class="fas fa-search navbar-tab <%= "purple-tab" if params[:controller] == "activities" %>"></i>
+  <% end %>
+  <% if current_user.nil? %>
+    <%= link_to new_user_session_path do %>
+    <i class="fas fa-qrcode navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
     <% end %>
-  </div>
-
-  <div class="navbar-burger">
-    <% if current_user.nil? %>
-     <%= link_to  "Mes Favoris", new_user_session_path %>
-    <% else %>
-     <%= link_to "Mes favoris", favorites_path %>
+  <% else %>
+    <%= link_to act_bookings_path do %>
+      <i class="fas fa-qrcode navbar-tab <%= "purple-tab" if params[:controller] == "act_bookings"%>"></i>
     <% end %>
-  </div>
-
-  <div class="navbar-burger">
-   <%= link_to "Mon profil", edit_user_registration_path %>
-  </div>
+  <% end %>
+  <% if current_user.nil? %>
+   <%= link_to  new_user_session_path do %>
+     <i class="fas fa-heart navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
+    <% end %>
+    <%= link_to  new_user_session_path do %>
+      <i class="fas fa-user navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
+   <% end %>
+  <% else %>
+   <%= link_to favorites_path do %>
+      <i class="fas fa-heart navbar-tab <%= "purple-tab" if params[:controller] == "favorites" %>"></i>
+   <% end %>
+   <%= link_to users_profile_path do %>
+      <i class="fas fa-user navbar-tab <%= "purple-tab" if params[:controller] == "user" %>"></i>
+    <% end %>
+  <% end %>
 </div>

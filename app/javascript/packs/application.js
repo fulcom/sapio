@@ -34,12 +34,12 @@ window.getLocation = getLocation;
 // filter();
 
 
-
 import { burgerMenu } from '../components/navbar_menu';
 burgerMenu();
 
 import { toggleActive } from '../components/checkboxes_radio_active';
 toggleActive();
+
 
 
 

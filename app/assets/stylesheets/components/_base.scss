@@ -11,9 +11,10 @@ h1 {
 }
 
 h2 {
-  padding-left: 15px;
+  padding-left: 10px;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
+  font-weight: bold;
 }
 
 h3 {
@@ -41,7 +42,7 @@ p {
 .activity-h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
-  padding-top: 24px;
+  padding-top: 7px;
 }
 
 // p
@@ -49,14 +50,14 @@ p {
 .activity-p {
   font-family: ‘Open Sans’, sans-serif;
   font-size: 14px;
-  padding-top: 24px;
+  padding-top: 7px;
   width: 300px;
   text-align: justify;
   margin: 7px;
 }
 
 .activity-rating-category {
-  padding-top: 14px;
+  padding-top: 7px;
 }
 
 
@@ -68,6 +69,29 @@ p {
   line-height: 25px;
   text-indent: 15px;
   color: #000000;
+}
+
+.pass-h1 {
+  text-align: center;
+  padding-top: 14px;
+}
+
+.act-booking-show-h1 {
+  text-align: center;
+  padding-top: 14px;
+  margin-bottom: 34px;
+}
+
+.act-booking-show-h2 {
+ font-size: 20px;
+ padding-left: 0px;
+}
+
+
+.act-booking-show-p {
+ font-size: 14px;
+ font-weight: bolder;
+ color: #b2b0b0;
 }
 
 .horizontal-scroll {
@@ -87,4 +111,39 @@ p {
 
 .padding-bottom-page {
   padding-bottom: 85px;
+}
+
+.activity-title {
+  margin-top: 25px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span {
+    height: 3px;
+    flex: 1;
+    margin: 0 8px;
+  }
+}
+
+.activity-title-opera span {
+  background-color: #7634AA;
+}
+
+.activity-title-museum span {
+  background-color: #ff8a5c;
+}
+
+.activity-title-concert span {
+  background-color: #D45058;
+}
+
+.activity-title-cinema span {
+  background-color: #50C5D4;
+}
+
+.activity-title-theatre span {
+  background-color: #F5E761;
 }
