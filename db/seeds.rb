@@ -131,7 +131,7 @@ madeleine = Place.create!(
 
 marigny = Place.create!(
   name: "Théâtre Marigny",
-  address: "Carré Marigny",
+  address: "1 avenue de Marigny",
   city: "Paris",
   country: "France",
   zip_code: "75008",
@@ -499,7 +499,7 @@ wedding_nigthmare.save
 docteur_miracle = Activity.create!(
   category: "Théâtre",
   name: "Le Docteur Miracle",
-  description: "Opéra-comique en un acte, sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857. Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : rappeler le passé glorieux de l’opéra-comique français et permettre aux genres légers de garder une place de choix à Paris.",
+  description: "Sur un livret de Léon Battu et Ludovic Halévy et une musique de Charles Lecoca, créé aux Bouffes-Parisiens le 8 avril 1857... Quelques mois après l’ouverture des Bouffes-Parisiens, Jacques Offenbach organise en juillet 1856 un concours de composition qui fait grand bruit. Coup de publicité pour son établissement, la démarche reflète également les aspirations esthétiques du compositeur : permettre aux genres légers de garder une place de choix à Paris.",
   start_date: "2019-08-20".to_date,
   end_date: "2019-08-21".to_date,
   avg_rating: 4,
@@ -577,7 +577,7 @@ a_love_supreme.save
 jl_aubert = Activity.create!(
   category: "Concert",
   name: "Jean-Louis Aubert",
-  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène, au Théâtre de l’Œuvre à Paris « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
+  description: "Ivre de rêve, Jean-Louis Aubert enfile les siens sur le fil de la réalité. Après la tournée phénomène des INSUS, il est revenu, sans prévenir et seul sur scène « juste pour habiter ce petit joyau ». Ce printemps il revient avec une scénographie unique, un autre rêve qui l’habite depuis quinze ans. Cet été il sera en plein air dans des théâtres antiques. C’est la tournée PRÉMIXCES. C’est dans ce cadre qu’il annonce son désir de revenir au Bataclan pour une série de concerts exceptionnels à l’automne prochain.",
   start_date: "2019-08-20".to_date,
   end_date: "2019-08-21".to_date,
   avg_rating: 3,

@@ -22,9 +22,9 @@ const buildMap = () => {
 const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
-
     const element = document.createElement('i');
-    element.className = `fas fa-map-pin ${marker.category}`;
+    element.className = `fas fa-map-pin ${marker.category}-map-pin`;
+    // ${marker.category}
 
     new mapboxgl.Marker(element)
       .setLngLat([ marker.lng, marker.lat ])
