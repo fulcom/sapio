@@ -10,7 +10,7 @@
 <!-- MODELE DU PASS SNCF -->
     <div>
       <h2 class="act-booking-show-h2 text-center"> Date de l'activité </h2>
-      <p class="act-booking-show-p text-center"><%= @act_booking.date %></p>
+      <p class="act-booking-show-p text-center"><%= l(@act_booking.date, format: :with_day, locale: "fr") %></p>
     </div>
     <div class="d-flex justify-content-between">
       <div>
