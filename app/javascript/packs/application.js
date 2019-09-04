@@ -38,9 +38,6 @@ import { burgerMenu } from '../components/navbar_menu';
 
 burgerMenu();
 
-import { navbarClass } from '../components/navbar_class';
-
-navbarClass();
 
 
 
