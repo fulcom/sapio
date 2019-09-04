@@ -81,24 +81,35 @@ input#ModalSubmitFilter{
   width: 30%;
 }
 
-.musee {
-  background-color: rgb(241, 136, 90);
-}
 
-.cinema {
-  background-color: rgb(83, 197, 212);
-}
 
-.theatre{
-  background-color: rgb(245, 231, 97);
-}
+label.categoryLabel {
+  border-radius: inherit;
+  position: relative;
+  height: inherit;
+  font-size: inherit;
+  top: 0;
 
-.opera {
-  background-color: rgb(118, 52, 170);
-}
+  .concert {
+    background-color: rgb(212, 80, 88);
+  }
 
-.concert {
-  background-color: rgb(212, 80, 88);
+  .musee {
+    background-color: rgb(241, 136, 90);
+  }
+
+  .cinema {
+    background-color: rgb(83, 197, 212);
+  }
+
+  .theatre{
+    background-color: rgb(245, 231, 97);
+  }
+
+  .opera {
+    background-color: rgb(118, 52, 170);
+  }
+
 }
 
 #distanceDropdownList {
