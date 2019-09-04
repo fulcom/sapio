@@ -89,6 +89,14 @@ musee_orsay = Place.create!(
   zip_code: "75007",
   access: "Métro: Ligne 12, Train: L; Bus: 48, 68, 69, 72, 73; RER: C, Parking: Carrousel du Louvre, Bac Montalembert")
 
+ musee_marmottan = Place.create!(
+  name: "Musée Marmottan Monet",
+  address: "2 rue Louis-Boilly ",
+  city: "Paris",
+  country: "France",
+  zip_code: "75016",
+  access: "Métro: Ligne 9 - La Muette ou Ranelagh  RER: C - Boulainvilliers  Bus: Ligne 22, 32, 52, 63  Parking: Vinci Park Passy 78, rue de Passy, 75016 Paris")
+
 beaugrenelle = Place.create!(
   name: "Pathé Beaugrenelle",
   address: "7 Rue Linois",
@@ -395,6 +403,23 @@ exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/sp
 exposition_musee_du_fumeur.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426319/Sapio/Expo_musee_du_fumeur_2.jpg"
 exposition_musee_du_fumeur.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426361/Sapio/Expo_musee_du_fumeur_3.jpg"
 exposition_musee_du_fumeur.save
+
+expo_monet_fromanger = Activity.create!(
+  category:"Musée",
+  name:"MONET / FROMANGER: Impression, soleil levant 2019",
+  description:"Au détour d’une invitation lancée par le musée Marmottan Monet à Gérard Fromanger, le peintre s’arrête devant un tableau de Gustave Caillebotte, Rue de Paris, temps de pluie. L’impressionniste représente en 1877 deux passants déambulant dans le Paris haussmannien à l’intersection des rues de Turin et de Moscou... ",
+  start_date: "2019-03-28".to_date,
+  end_date: "2019-09-29".to_date,
+  avg_rating: 5,
+  place: musee_marmottan,
+  subscription: silver)
+
+expo_monet_fromanger.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586395/Sapio/Monet_Fromanger_musee_marmottan_1.jpg"
+expo_monet_fromanger.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586634/Sapio/Monet_Fromanger_musee_marmottan_2.jpg"
+expo_monet_fromanger.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586704/Sapio/Monet_Fromanger_musee_marmottan_3.jpg"
+expo_monet_fromanger.save
+
+
 
 once_upon_a_time = Activity.create!(
   category:"Cinéma",
