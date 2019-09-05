@@ -142,7 +142,7 @@
   </div>
   <div class="container" id="contenant">
     <h2 class="text-center activity-h2">Infos Pratiques</h2>
-    <p class="activity-p"> Date : du <%=@activity.start_date %> au <%= @activity.end_date %> </p>
+   <!--  <p class="activity-p"> Date : du <%=@activity.start_date %> au <%= @activity.end_date %> </p> -->
     <p class="activity-p"> Lieu : <%= Place.find(@activity.place_id).name %></p>
     <p class="activity-p"> Adresse : <%= Place.find(@activity.place_id).address %></p>
     <p class="activity-p"><%= Place.find(@activity.place_id).access %></p>
