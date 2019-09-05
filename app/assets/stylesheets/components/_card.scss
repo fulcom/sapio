@@ -176,7 +176,10 @@
 }
 
 .subscription {
-  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   margin: 8px 0;
   overflow: hidden;
   background: white;
@@ -186,5 +189,10 @@
 
 .subscription > p {
   margin: 0px;
+}
+
+.subscription h3 {
+  font-size: 18px;
+  font-weight: 900!important;
 }
 
