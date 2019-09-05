@@ -346,7 +346,7 @@ presentation_collections_modernes.save
 
 exposition_beaubourg = Activity.create!(
   category:"Musée",
-  name:"Préhistoire. Une énigme moderne",
+  name:"Préhistoire: une énigme moderne",
   description:"À travers cette exposition inédite, le Centre Pompidou propose de revisiter la relation féconde qui unit la préhistoire à l’art moderne et contemporain. Dans ce grand moment de crise qu’incarne la modernité, des artistes incontournables comme Picasso, Miró mais aussi Cézanne, Klee, Giacometti, Ernst, Beuys, Klein, Dubuffet, Smithson, Penone… ont été hantés par la question de la préhistoire et ses origines fantasmées.",
   start_date: "2019-05-08".to_date,
   end_date: "2019-09-16".to_date,

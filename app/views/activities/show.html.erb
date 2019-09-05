@@ -23,23 +23,23 @@
 
 <div class="pictogramme">
   <% if @activity.category == "Musée" %>
-    <div class="museum">
+    <div class="category-tag museum">
       Musée
     </div>
   <% elsif @activity.category == "Cinéma" %>
-    <div class="cinema">
+    <div class="category-tag cinema">
       Cinéma
     </div>
   <% elsif @activity.category == "Concert" %>
-    <div class="concert">
+    <div class="category-tag concert">
       Concert
     </div>
   <% elsif @activity.category == "Opéra"%>
-    <div class="opera">
+    <div class="category-tag opera">
       Opéra
     </div>
   <% else %>
-    <div class="theatre">
+    <div class="category-tag theatre">
       Théâtre
     </div>
   <% end %>
