@@ -52,7 +52,7 @@
       <%= link_to activity_path(activity) do %>
         <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
           <div class="card-text-infos">
-            <h2><%= activity.name %></h2>
+            <h2><%= truncate(activity.name, length:16) %></h2>
             <div class="d-flex justify-content-between">
               <div>
                 <p><%= activity.category %></p>
@@ -72,7 +72,7 @@
       <%= link_to activity_path(activity) do %>
         <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
           <div class="card-text-infos">
-            <h2><%= activity.name %></h2>
+            <h2><%= truncate(activity.name, length:16) %></h2>
             <div class="d-flex justify-content-between">
               <div>
                 <p><%= activity.category %></p>
@@ -92,7 +92,7 @@
       <%= link_to activity_path(activity) do %>
         <div class="card-text-home card-text"  style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
           <div class="card-text-infos">
-            <h2><%= activity.name %></h2>
+            <h2><%= truncate(activity.name, length:16) %></h2>
             <div class="d-flex justify-content-between">
               <div>
                 <p><%= activity.category %></p>
@@ -119,7 +119,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -145,7 +145,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -172,7 +172,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -200,7 +200,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -227,7 +227,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%=  activity.name %></h2>
+          <h2><%=  truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -254,7 +254,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
@@ -279,7 +279,7 @@
     <%= link_to activity_path(activity) do %>
       <div class="card-text-home card-text" style="background-image: linear-gradient(-180deg, transparent, black), url('<%= cl_image_path activity.photo_one, crop: :fill, width: 150, height: 140 %>')">
         <div class="card-text-infos">
-          <h2><%= activity.name %></h2>
+          <h2><%= truncate(activity.name, length:16) %></h2>
           <div class="d-flex justify-content-between">
             <div>
               <p><%= activity.category %></p>
