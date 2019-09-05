@@ -1,0 +1,5 @@
+meta_product_name: "Sapio"
+meta_title: "Sapio - Le pass mensuel de vos activités culturelles"
+meta_description: "Le pass mensuel de vos activités culturelles"
+meta_image: "Sapio og .png" # should exist in `app/assets/images/`
+twitter_account: "@mfulconis"   # required for Twitter Cards
