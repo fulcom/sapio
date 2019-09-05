@@ -9,23 +9,36 @@
   display: none;
 }
 
-.categoryLabel, .filterChoice, select#distanceDropdownList {
+.categoryLabel, .filterChoice, #distanceDropdownList {
   background-color: rgb(76, 176, 161);
   color: white;
   margin: 4px auto;
   width:100%!important;
   padding: 10px;
-  opacity: 0.4;
+  opacity: 0.65;
   cursor: pointer;
   text-align: center;
   text-transform: uppercase;
   font-weight: 900;
-    &:hover {
-      opacity: 0.75;
-    }
+    // &:hover {
+    //   opacity: 0.75;
+    // }
     &.active {
       opacity: 1;
     }
+}
+
+#distanceDropdownList {
+  -webkit-appearance: none;
+  // appearance: none;
+  // -webkit-text-align: center;
+  // -webkit-text-align-last: center!important;
+  // text-align-last: -webkit-center!important;
+  // text-align: -webkit-center!important;
+  text-align-last: center;
+  border: none;
+  border-radius: 0;
+
 }
 
 input.categoryCheckbox, input[type="radio"]{
@@ -37,10 +50,10 @@ input.categoryCheckbox:checked + label {
   opacity: 1;
 }
 
-input[type="radio"]:checked + label {
-  // display: none !important;
-  opacity: 1;
-}
+// input[type="radio"]:checked + label {
+//   display: none !important;
+//   opacity: 1;
+// }
 
 .filtering {
   font-size:18px;
@@ -69,19 +82,10 @@ input#ModalSubmitFilter{
   text-align:center;
 }
 
-// select.dropDownList {
-//     border: 1px solid #4cb0a1;
-//     background: white;
-//     width: 100%;
-//     padding: 6px;
-// }
-
 
 .filterChoice {
   width: 30%;
 }
-
-
 
 label.categoryLabel {
   border-radius: inherit;
@@ -90,29 +94,25 @@ label.categoryLabel {
   font-size: inherit;
   top: 0;
 
-  .concert {
-    background-color: rgb(212, 80, 88);
-  }
-
-  .musee {
+  &.musee {
     background-color: rgb(241, 136, 90);
   }
 
-  .cinema {
+  &.concert {
+    background-color: rgb(212, 80, 88);
+  }
+
+  &.cinema {
     background-color: rgb(83, 197, 212);
   }
 
-  .theatre{
-    background-color: rgb(245, 231, 97);
+  &.theatre{
+    background-color: #f9cb4c;
   }
 
-  .opera {
+  &.opera {
     background-color: rgb(118, 52, 170);
   }
-
 }
 
-#distanceDropdownList {
-  border: none;
-  text-align: center !important;
-}
+

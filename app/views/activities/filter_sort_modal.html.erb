@@ -46,29 +46,48 @@
         <input type="radio" id="sortName" name="sort" value="name">
         <label class="filterChoice" for="sortName">Nom</label>
 
+
         <!-- DISTANCE -->
         <!-- à moins de <input type="text" id="sortAround" name="sort" value="20" placeholder="20">km de moi -->
-        <select onclick="getLocation()" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList" style="text-align-last: center">
-          <option value="100000"><strong>Distance</strong></option>
-          <option value="3">>A moins de 3 km de moi</option>
-          <option value="5">>A moins de 5 km de moi</option>
-          <option value="10">>A moins de 10 km de moi</option>
-          <option value="15">>A moins de 15 km de moi</option>
-        </select>
+        <!-- <div class="selectDistance"> -->
 
-        <input type="radio" id="longitudeUser" name="longitude" value="" checked>
-        <input type="radio" id="latitudeUser" name="latitude" value="" checked>
 
-        <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">
-        <label style="visibility: hidden" class="filterChoice" for="sortDistance"></label>
+<!--           <select style="display:none" onclick="getLocation()" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList">
+            <option value="100000"><strong>Distance</strong></option>
+            <option id="optionDistanceTroisKm" value="3">A moins de 3 km de moi</option>
+            <option id="optionDistanceCinqKm" value="5">A moins de 5 km de moi</option>
+            <option id="optionDistanceDixKm" value="10">A moins de 10 km de moi</option>
+            <option id="optionDistanceQuinzeKm" value="15">A moins de 15 km de moi</option>
+          </select> -->
 
-        <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
-        <!-- name = clé qu'on récupère dans les params -->
-        <!-- value = valeur de la clé qu'on récupère dans les params -->
+        <!-- </div> -->
+        <!-- <div>
+          <span class="filterChoice">Distance</span>
+        </div> -->
+
+<!--         <div onclick="getLocation()" class="selectDistanceFromMe" style="display: flex">
+          <ul id="distanceEnKm" style="flex-grow: 1; padding-inline-start: 0;">
+            <li id="distanceTroisKm" class="filterChoice">A moins de 3 km de moi</li>
+            <li id="distanceCinqKm" class="filterChoice">A moins de 5 km de moi</li>
+            <li id="distanceDixKm" class="filterChoice">A moins de 10 km de moi</li>
+            <li id="distanQuinzeKm" class="filterChoice">A moins de 15 km de moi</li>
+          </ul>
+        </div> -->
+
+<!--           <input type="radio" id="longitudeUser" name="longitude" value="" checked>
+          <input type="radio" id="latitudeUser" name="latitude" value="" checked>
+
+          <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">
+          <label style="visibility: hidden" class="filterChoice" for="sortDistance"></label> -->
+
+          <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
+          <!-- name = clé qu'on récupère dans les params -->
+          <!-- value = valeur de la clé qu'on récupère dans les params -->
+
       </div>
 
       <div style="display: flex; align-items: center">
-        <input type="submit" value="GO !" id="ModalSubmitFilter">
+        <input style="margin-top: 30px!important" type="submit" value="GO !" id="ModalSubmitFilter">
       </div>
   </form>
 </div>

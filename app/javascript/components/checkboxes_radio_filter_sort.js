@@ -1,5 +1,7 @@
 const selectAllCheckbox = () => {
+
 const checkboxExist = document.querySelector(".categoryCheckbox");
+const categories = document.querySelectorAll(".categoryCheckbox:not(#selectAllCategories)");
 
 const checkboxesCategories = document.querySelectorAll(".categoryCheckbox");
 const checkboxSelectAllCategories = document.getElementById("selectAllCategories");
@@ -12,6 +14,18 @@ const textCheckboxSelectAllCategories = document.getElementById('selectAllCatego
 const distanceCheckbox = document.getElementById("sortDistance");
 const distanceDropDown = document.querySelector(".dropDownListSort");
 
+
+
+
+const optionTroiskm = document.getElementById("distanceTroisKm");
+const radioTroiskm = document.getElementById("optionDistanceTroisKm");
+const radioCinqkm = document.getElementById("optionDistanceCinqKm");
+const optionCinqkm = document.getElementById("distanceCinqKm");
+const radioDixkm = document.getElementById("optionDistanceDixKm");
+const optionDixkm = document.getElementById("distanceDixKm");
+const optionQuinzekm = document.getElementById("distanceQuinzeKm");
+const radioQuinzekm = document.getElementById("optionDistanceQuinzeKm");
+
   if (checkboxExist) {
   selectAllChexboxes(checkboxSelectAllCategories, checkboxesCategories, textCheckboxSelectAllCategories);
 
@@ -23,7 +37,13 @@ const distanceDropDown = document.querySelector(".dropDownListSort");
     })
   }
 
-const categories = document.querySelectorAll(".categoryCheckbox:not(#selectAllCategories)");
+  if (optionTroiskm) {
+    optionTroiskm.addEventListener('click', (event) => {
+      radioTroiskm.selected = true;
+      distanceCheckbox.checked = true;
+    })
+}
+
 
   categories.forEach((category) => {
     category.addEventListener("click", (event) => {
@@ -33,7 +53,23 @@ const categories = document.querySelectorAll(".categoryCheckbox:not(#selectAllCa
       }
     })
   })
+
+  checkButton(optionTroiskm, radioTroiskm);
+  checkButton(optionCinqkm, radioCinqkm);
+  checkButton(optionDixkm, radioDixkm);
+  checkButton(optionQuinzekm, radioQuinzekm);
 }
+
+const checkButton =(option, radio) => {
+  if (option) {
+    const distanceCheckbox = document.getElementById("sortDistance");
+    option.addEventListener('click', (event) => {
+      radio.selected = true;
+      distanceCheckbox.checked = true;
+    })
+  }
+}
+
 
 const selectAllChexboxes = (checkbox, checkboxes, textCheckboxSelectAll) => {
   checkbox.addEventListener("click", (event) => {
