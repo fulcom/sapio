@@ -22,6 +22,10 @@ import { mapAppear } from '../components/map';
 
 mapAppear();
 
+import { openModal } from '../components/modal_opener';
+
+openModal();
+
 
 
 import { selectAllCheckbox } from '../components/checkboxes_radio_filter_sort';

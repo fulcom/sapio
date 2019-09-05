@@ -7,10 +7,18 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
-Place.destroy_all
-Subscription.destroy_all
-Activity.destroy_all
 ActBooking.destroy_all
+puts "actbooking done"
+Activity.destroy_all
+puts "activity done"
+Place.destroy_all
+puts "place done"
+SubsBooking.destroy_all
+puts "subsbooking done"
+Subscription.destroy_all
+puts "subscription done"
+
+
 
 
 puts "Creating records..."
@@ -241,11 +249,14 @@ opera_comique = Place.create!(
   zip_code: "75002",
   access: "Métro: Richelieu-Drouot (lignes 8 et 9) ou Quatre-Septembre (ligne 3), RER: RER A, Bus: 20, 27, 39, 48, 67, 74, 85, 95 Parking: Chauchat Drouot et Bourse")
 
-# table Subscriptions
-silver = Subscription.create!(name:"silver", price:50, description:"abonnement mensuel incluant cinémas, musées")
-gold = Subscription.create!(name:"gold", price:150, description:"abonnement mensuel incluant cinémas, musées, théâtres, concerts")
-platinum = Subscription.create!(name:"platinum", price:300, description:"abonnement mensuel incluant: cinémas, musées, théâtres, concerts et opéras")
+puts "Creating places..."
 
+# table Subscriptions
+one = Subscription.create!(name:"Basique", price:50, description:"Abonnement mensuel incluant cinémas, musées", subscription_number: 1)
+two = Subscription.create!(name:"Advancé", price:70, description:"Abonnement mensuel incluant cinémas, musées, théâtres, concerts", subscription_number: 2)
+three = Subscription.create!(name:"Premium", price:100, description:"Abonnement mensuel incluant: cinémas, musées, théâtres, concerts & opéras", subscription_number: 3)
+
+puts "Creating subscriptions..."
 
 # table Activities
 
@@ -257,7 +268,8 @@ hans_hartung = Activity.create!(
   end_date: "2020-03-01".to_date,
   avg_rating: 4,
   place: musee_art_moderne,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 hans_hartung.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567526806/Sapio/Hans_Hartung_musee_art_moderne_1.jpg"
 hans_hartung.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567526917/Sapio/Hans_Hartung_musee_art_moderne_2.jpg"
@@ -273,7 +285,8 @@ gilbert_bellan = Activity.create!(
   end_date: "2020-02-01".to_date,
   avg_rating: 4,
   place: musee_clemenceau,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 gilbert_bellan.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527527/Sapio/Gilbert_Bellan_musee_clemenceau_1.jpg"
 gilbert_bellan.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567527556/Sapio/Gilbert_Bellan_musee_clemenceau_2.jpg"
@@ -289,7 +302,8 @@ marie_curie = Activity.create!(
   end_date: "2018-03-04".to_date,
   avg_rating: 3,
   place: musee_curie,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 marie_curie.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528230/Sapio/Marie_Curie_musee_curie_2.jpg"
 marie_curie.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528259/Sapio/Marie_Curie_musee_curie_1.jpg"
@@ -305,7 +319,8 @@ bouddha = Activity.create!(
   end_date: "2019-11-04".to_date,
   avg_rating: 5,
   place: musee_guimee,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 bouddha.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528559/Sapio/Bouddha_musee_guillemet_1.jpg"
 bouddha.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528589/Sapio/Bouddha_musee_guillemet_2.jpg"
@@ -321,7 +336,8 @@ plume_pinceau_crayon = Activity.create!(
   end_date: "2019-09-15".to_date,
   avg_rating: 3,
   place: institut_du_monde_arabe,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 plume_pinceau_crayon.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528927/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_1.png"
 plume_pinceau_crayon.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528948/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_2.jpg"
@@ -337,7 +353,8 @@ presentation_collections_modernes = Activity.create!(
   end_date: "2019-12-31".to_date,
   avg_rating: 5,
   place: beaubourg,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 presentation_collections_modernes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437482/Sapio/Presentation_Collections_Modernes_beaubourg_1.jpg"
 presentation_collections_modernes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566851740/Sapio/Presentation_Collections_Modernes_beaubourg_2.jpg"
@@ -352,7 +369,8 @@ exposition_beaubourg = Activity.create!(
   end_date: "2019-09-16".to_date,
   avg_rating: 4,
   place: beaubourg,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 exposition_beaubourg.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437732/Sapio/Prehistoire_Une_Enigme_Moderne_beaubourg_1.jpg"
 exposition_beaubourg.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852231/Sapio/Prehistoire_Une_Enigme_Moderne_beaubourg_2.jpg"
@@ -367,7 +385,8 @@ exposition_musee_orsay = Activity.create!(
   end_date: "2019-09-22".to_date,
   avg_rating: 4,
   place: musee_orsay,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 exposition_musee_orsay.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567420297/Sapio/Berthe_Morisot_musee_orsay_1.jpg"
 exposition_musee_orsay.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567420796/Sapio/Berthe_Morisot_musee_orsay_2.jpg"
@@ -382,7 +401,8 @@ exposition_musee_grevin = Activity.create!(
   end_date: "2019-12-31".to_date,
   avg_rating: 3,
   place: musee_grevin,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 exposition_musee_grevin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422631/Sapio/Expo_musee_grevin_1.jpg"
 exposition_musee_grevin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567422708/Sapio/Expo_musee_grevin_2.jpg"
@@ -397,7 +417,8 @@ exposition_musee_du_fumeur = Activity.create!(
   end_date: "2019-12-31".to_date,
   avg_rating: 5,
   place: musee_du_fumeur,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 exposition_musee_du_fumeur.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567494322/Sapio/Expo_Musee_du_fumeur_1.jpg"
 exposition_musee_du_fumeur.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567426319/Sapio/Expo_musee_du_fumeur_2.jpg"
@@ -412,7 +433,8 @@ expo_monet_fromanger = Activity.create!(
   end_date: "2019-09-29".to_date,
   avg_rating: 5,
   place: musee_marmottan,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 expo_monet_fromanger.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586395/Sapio/Monet_Fromanger_musee_marmottan_1.jpg"
 expo_monet_fromanger.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567586634/Sapio/Monet_Fromanger_musee_marmottan_2.jpg"
@@ -428,7 +450,8 @@ once_upon_a_time = Activity.create!(
   end_date: "2019-08-29".to_date,
   avg_rating: 5,
   place: beaugrenelle,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 once_upon_a_time.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437947/Sapio/Once_Upon_A_Time_Cine_1.jpg"
 once_upon_a_time.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852702/Sapio/Once-upon_a_time_Cine_2.jpg"
@@ -443,7 +466,8 @@ fast_and_furious = Activity.create!(
   end_date: "2019-08-27".to_date,
   avg_rating: 5,
   place: beaugrenelle,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 fast_and_furious.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438247/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle_1.jpg"
 fast_and_furious.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566852965/Sapio/Fast_and_furious_Hobbs_and_Show_Beaugrenelle_2.jpg"
@@ -458,7 +482,8 @@ la_vie_scolaire = Activity.create!(
   end_date: "2019-09-03".to_date,
   avg_rating: 5,
   place: ugc_les_halles,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 la_vie_scolaire.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567428469/Sapio/La_vie_scolaire_UGC_chatelet_les_halles_1.png"
 la_vie_scolaire.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567428591/Sapio/La_vie_scolaire_UGC_chatelet_les_halles_2.jpg"
@@ -473,7 +498,8 @@ une_fille_facile = Activity.create!(
   end_date: "2019-09-03".to_date,
   avg_rating: 4,
   place: ugc_les_halles,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 une_fille_facile.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567429200/Sapio/Une_fille_facile_ugc_chatelet_les_halles_1.jpg"
 une_fille_facile.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567429291/Sapio/Une_fille_facile_ugc_chatelet_les_halles_2.jpg"
@@ -488,7 +514,8 @@ wedding_nigthmare = Activity.create!(
   end_date: "2019-09-03".to_date,
   avg_rating: 5,
   place: mk2_odeon,
-  subscription: silver)
+  subscription: one,
+  subscription_number: 1)
 
 wedding_nigthmare.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430554/Sapio/Wedding_nightmare_mk2_odeon_1.jpg"
 wedding_nigthmare.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567430621/Sapio/Wedding_nightmare_mk2_odeon_2.jpg"
@@ -503,7 +530,8 @@ docteur_miracle = Activity.create!(
   end_date: "2019-08-21".to_date,
   avg_rating: 4,
   place: marigny,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 docteur_miracle.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438485/Sapio/Dr_Miracle_theatre_1.jpg"
 docteur_miracle.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854329/Sapio/Dr_miracle_theatre_2.jpg"
@@ -518,7 +546,8 @@ funny_girl = Activity.create!(
   end_date: "2019-09-30".to_date,
   avg_rating: 2,
   place: marigny,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 funny_girl.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567438768/Sapio/Funny_Girl_theatre_1.jpg"
 funny_girl.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566854520/Sapio/Funny_Girl_theatre_2.jpg"
@@ -533,7 +562,8 @@ menopause = Activity.create!(
   end_date: "2019-09-22".to_date,
   avg_rating: 5,
   place: madeleine,
-  subscription: silver)
+  subscription: two,
+  subscription_number: 2)
 
 menopause.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434064/Sapio/Menopause_theatre_madeleine_1.jpg"
 menopause.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434139/Sapio/Menopause_theatre_madeleine_2.jpg"
@@ -549,7 +579,8 @@ invitation = Activity.create!(
   end_date: "2020-01-02".to_date,
   avg_rating: 4,
   place: madeleine,
-  subscription: silver)
+  subscription: two,
+  subscription_number: 2)
 
 invitation.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434542/Sapio/Invitation_theatre_madeleine_1.jpg"
 invitation.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567434611/Sapio/Invitation_theatre_madeleine_2.jpg"
@@ -565,7 +596,8 @@ a_love_supreme = Activity.create!(
   end_date: "2019-03-27".to_date,
   avg_rating: 4,
   place: marigny,
-  subscription: silver)
+  subscription: two,
+  subscription_number: 2)
 
 a_love_supreme.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435086/Sapio/A_Love_Supreme_theatre_marigny_1.jpg"
 a_love_supreme.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435160/Sapio/A_Love_Supreme_theatre_marigny_2.jpg"
@@ -581,7 +613,8 @@ jl_aubert = Activity.create!(
   end_date: "2019-08-21".to_date,
   avg_rating: 3,
   place: bataclan,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 jl_aubert.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439076/Sapio/Jean_Louis_Aubert_bataclan_1.jpg"
 jl_aubert.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853696/Sapio/Jean_Louis_Aubert_bataclan_2.jpg"
@@ -596,7 +629,8 @@ oh_sees = Activity.create!(
   end_date: "2019-09-02".to_date,
   avg_rating: 5,
   place: bataclan,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 oh_sees.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853913/Sapio/Oh_Sees_concert_1.jpg"
 oh_sees.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567599699/Sapio/Oh_Sees_concert_2.png"
@@ -611,7 +645,8 @@ kingdom_of_hearts_orchestra = Activity.create!(
   end_date: "2019-09-28".to_date,
   avg_rating: 5,
   place: palais_congres,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 kingdom_of_hearts_orchestra.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435887/Sapio/Kingdom_Of_Hearts_palais_congres_1.jpg"
 kingdom_of_hearts_orchestra.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567435978/Sapio/Kingdom_Of_Hearts_palais_congres_2.jpg"
@@ -626,7 +661,8 @@ bolero = Activity.create!(
   end_date: "2019-11-16".to_date,
   avg_rating: 5,
   place: palais_congres,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 bolero.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436455/Sapio/Bolero_palais_congres_1.jpg"
 bolero.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567436543/Sapio/Bolero_palais_congres_2.jpg"
@@ -641,7 +677,8 @@ obispo = Activity.create!(
   end_date: "2019-11-23".to_date,
   avg_rating: 4,
   place: zenith,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 obispo.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437092/Sapio/Obispo_zenith_1.jpg"
 obispo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567437210/Sapio/Obispo_zenith_2.jpg"
@@ -657,7 +694,8 @@ brittany_howard = Activity.create!(
   end_date: "2019-09-04".to_date,
   avg_rating: 3,
   place: alhambra,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 brittany_howard.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567582737/Sapio/Brittany_Howard_concert_1.jpg"
 brittany_howard.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567582776/Sapio/Brittany_Howard_concert_2.jpg"
@@ -673,7 +711,8 @@ pablo_campos = Activity.create!(
   end_date: "2019-09-21".to_date,
   avg_rating: 5,
   place: caveau_de_la_huchette,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 pablo_campos.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583174/Sapio/Pablo_Campos_concert_1.jpg"
 pablo_campos.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583217/Sapio/Pablo_Campos_concert_2.jpg"
@@ -689,7 +728,8 @@ maneskin = Activity.create!(
   end_date: "2019-09-11".to_date,
   avg_rating: 5,
   place: cigale,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 maneskin.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583530/Sapio/Maneskin_concert_1.jpg"
 maneskin.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583570/Sapio/Maneskin_concert_2.jpg"
@@ -704,7 +744,8 @@ zazie = Activity.create!(
   end_date: "2019-11-16".to_date,
   avg_rating: 5,
   place: olympia,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 zazie.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583797/Sapio/Zazie_concert_1.jpg"
 zazie.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567583843/Sapio/Zazie_concert_2.jpg"
@@ -719,7 +760,8 @@ david_hallyday= Activity.create!(
   end_date: "2019-10-04".to_date,
   avg_rating: 5,
   place: pleyel,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 david_hallyday.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584119/Sapio/David_Hallyday_concert_1.jpg"
 david_hallyday.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584506/Sapio/David_Hallyday_concert_2.jpg"
@@ -734,7 +776,8 @@ giovanna_marini = Activity.create!(
   end_date: "2019-10-11".to_date,
   avg_rating: 5,
   place: salle_gaveau,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 giovanna_marini.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584822/Sapio/Giovanna_Marini_concert_1.jpg"
 giovanna_marini.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567584893/Sapio/Giovanna_Marini_concert_2.jpg"
@@ -749,7 +792,8 @@ tairo = Activity.create!(
   end_date: "2019-11-15".to_date,
   avg_rating: 5,
   place: trianon,
-  subscription: gold)
+  subscription: two,
+  subscription_number: 2)
 
 tairo.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567585264/Sapio/Tairo_concert_1.jpg"
 tairo.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567585317/Sapio/Tairo_concert_2.jpg"
@@ -765,7 +809,8 @@ casse_noisette = Activity.create!(
   end_date: "2019-12-30".to_date,
   avg_rating: 2,
   place: garnier,
-  subscription: platinum)
+  subscription: three,
+  subscription_number: 3)
 
 casse_noisette.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439446/Sapio/Casse_Noisette_opera_1.jpg"
 casse_noisette.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853198/Sapio/Casse_Noisette_opera_2.jpg"
@@ -780,7 +825,8 @@ traviata = Activity.create!(
   end_date: "2019-09-15".to_date,
   avg_rating: 5,
   place: garnier,
-  subscription: platinum)
+  subscription: three,
+  subscription_number: 3)
 
 traviata.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567439732/Traviata_opera_1.jpg"
 traviata.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1566853486/Sapio/Traviata_opera_2.jpg"
@@ -795,7 +841,8 @@ madame_butterfly = Activity.create!(
   end_date: "2019-11-13".to_date,
   avg_rating: 3,
   place: bastille,
-  subscription: platinum)
+  subscription: three,
+  subscription_number: 3)
 
 madame_butterfly.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567431616/Sapio/Madame_Butterfly_opera_bastille_1.jpg"
 madame_butterfly.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567431687/Sapio/Madame_Butterfly_opera_bastille_2.jpg"
@@ -810,7 +857,8 @@ les_indes_galantes = Activity.create!(
   end_date: "2019-10-15".to_date,
   avg_rating: 5,
   place: bastille,
-  subscription: platinum)
+  subscription: three,
+  subscription_number: 3)
 
 les_indes_galantes.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432205/Sapio/Les_indes_galantes_opera_bastille_1.jpg"
 les_indes_galantes.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432295/Sapio/Les_indes_galantes_opera_bastille_2.jpg"
@@ -825,13 +873,16 @@ inondation = Activity.create!(
   end_date: "2019-10-03".to_date,
   avg_rating: 4,
   place: opera_comique,
-  subscription: platinum)
+  subscription: three,
+  subscription_number: 3)
 
 inondation.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432847/Sapio/Inondation_opera_comique_1.png"
 inondation.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432917/Sapio/Inondation_opera_comique_2.jpg"
 inondation.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567432983/Sapio/Inondation_opera_comique_3.png"
 inondation.save
 
+
+puts "Creating activities..."
 
 # Users
 alice = User.create!(
@@ -869,7 +920,34 @@ isabelle = User.create!(
   password: "123456",
   photo: "https://avatars2.githubusercontent.com/u/49897862?v=4")
 
+puts "Creating users..."
+
+# Subs_bookings
+
+abonnement_maxime = SubsBooking.create!(
+  start_date: "2019-08-20".to_date,
+  end_date: "2019-09-20".to_date,
+  subscription: two,
+  user: maxime,
+  subscription_number: 2)
+
+abonnement_charles = SubsBooking.create!(
+  start_date: "2019-09-02".to_date,
+  end_date: "2019-10-02".to_date,
+  subscription: one,
+  user: charles,
+  subscription_number: 1)
+
+abonnement_isabelle = SubsBooking.create!(
+  start_date: "2019-09-03".to_date,
+  end_date: "2019-10-03".to_date,
+  subscription: three,
+  user: isabelle,
+  subscription_number: 3)
 #Act_bookings
+
+
+puts "Creating subsbookings..."
 
 # Alice: 6 bookings
 
@@ -1000,8 +1078,10 @@ act_booking24 = ActBooking.create!(
   user: isabelle,
   activity: docteur_miracle)
 
+puts "Created actbookings..."
 
-puts "...creating reviews!"
+
+
 
 # Prends tout tes ActBooking et tu itères dessus
 # Pour chaque actbooking, tu créées un nombre aléatoire de reviews qui une note aléatoire
@@ -1041,6 +1121,8 @@ review_24 = Review.create!(rating: 5, act_booking: act_booking24)
     Review.create!(rating: rand(1..5), act_booking: act_booking)
   end
 end
+
+puts "created reviews!"
 
 
 puts "...records created!"
