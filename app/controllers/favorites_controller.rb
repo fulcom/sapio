@@ -10,8 +10,9 @@ class FavoritesController < ApplicationController
     # favorite = favorite.new(favorite_params)
     # favorite.user = current_user
     # favorite.activity = activity
-
     if favorite.save
+    # raise
+      flash[:notice] = "#{activity.name} a été ajouté à vos favoris!"
       redirect_to activity_path(activity)
     else
       redirect_to activity_path(activity)
