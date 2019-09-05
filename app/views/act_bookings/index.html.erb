@@ -9,7 +9,7 @@
       <div class="card-index-pass delete-croix">
         <%= image_tag "qrcode.png" %>
         <div class="card-index-pass-infos">
-          <h2><%= booking.activity.name %></h2>
+          <h2><%= truncate(booking.activity.name, length:30) %></h2>
           <p><%= booking.activity.category %></p>
           <p>Date: <%= l(booking.date, format: :with_day, locale: "fr") %></p>
         </div>

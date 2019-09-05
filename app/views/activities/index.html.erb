@@ -26,9 +26,11 @@
               <p><%= activity.category %></p>
             </div>
             <div class="rating d-flex align-items-center">
-              <p><%= activity.avg_rating %></p>
-              <div>
+              <% if activity.average > 0 %>
+                <p><%= activity.average %></p>
                 <i class="fas fa-star"></i>
+                <% end %>
+              <div>
               </div>
             </div>
           </div>
