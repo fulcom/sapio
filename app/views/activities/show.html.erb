@@ -64,61 +64,61 @@
     <h1 class="text-center activity-h1"><%= @activity.name %></h1>
   <div class="d-flex activity-rating-category justify-content-center">
     <div>
-      <% if @activity.average <= 0.5 %>
+      <% if @activity.average < 0.5 %>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 1.0 %>
+      <% elsif @activity.average < 1.0 %>
         <i class="fas fa-star-half" id="fa-star-half-green"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 1.5 %>
+      <% elsif @activity.average < 1.5 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 2.0 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star-half" id="fa-star-half-green"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 2.5 %>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-        <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 3.0 %>
-        <i class="fas fa-star"></i>
+      <% elsif @activity.average < 2.0 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half" id="fa-star-half-green"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 3.5 %>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @activity.average < 2.5 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @activity.average < 3.0 %>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half" id="fa-star-half-green"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+        <i class="fas fa-star" id="grey-fa-star"></i>
+      <% elsif @activity.average < 3.5 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 4.0 %>
+      <% elsif @activity.average < 4.0 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star-half" id="fa-star-half-green"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 4.5 %>
+      <% elsif @activity.average < 4.5 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star" id="grey-fa-star"></i>
-      <% elsif @activity.average <= 5 %>
+      <% elsif @activity.average < 5 %>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
         <i class="fas fa-star"></i>
