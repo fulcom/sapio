@@ -37,14 +37,15 @@
           </div>
        <%# end %> -->
 
-    <h2 class="filtering">Trier par</h2>
+    <!-- <h2 class="filtering">Trier par</h2> -->
+    <h2 class="filtering">Distance</h2>
       <div>
-        <input type="radio" id="sortEndDate" name="sort" value="end_date">
+        <!-- <input type="radio" id="sortEndDate" name="sort" value="end_date">
         <label class="filterChoice" for="sortEndDate">Date de fin</label>
         <input type="radio" id="sortRating" name="sort" value="avg_rating">
         <label class="filterChoice" for="sortRating">Note</label>
         <input type="radio" id="sortName" name="sort" value="name">
-        <label class="filterChoice" for="sortName">Nom</label>
+        <label class="filterChoice" for="sortName">Nom</label> -->
 
 
         <!-- DISTANCE -->
@@ -52,33 +53,38 @@
         <!-- <div class="selectDistance"> -->
 
 
-<!--           <select style="display:none" onclick="getLocation()" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList">
+         <!--  <select style="display:none" onclick="getLocation()" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList"> -->
+          <select style="display:none" class="dropDownListSort" name="distanceFromMe" id="distanceDropdownList">
             <option value="100000"><strong>Distance</strong></option>
             <option id="optionDistanceTroisKm" value="3">A moins de 3 km de moi</option>
             <option id="optionDistanceCinqKm" value="5">A moins de 5 km de moi</option>
             <option id="optionDistanceDixKm" value="10">A moins de 10 km de moi</option>
             <option id="optionDistanceQuinzeKm" value="15">A moins de 15 km de moi</option>
-          </select> -->
+          </select>
 
         <!-- </div> -->
         <!-- <div>
           <span class="filterChoice">Distance</span>
         </div> -->
 
-<!--         <div onclick="getLocation()" class="selectDistanceFromMe" style="display: flex">
+        <!-- <div onclick="getLocation()" class="selectDistanceFromMe" style="display: flex"> -->
+        <div class="selectDistanceFromMe" style="display: flex">
           <ul id="distanceEnKm" style="flex-grow: 1; padding-inline-start: 0;">
-            <li id="distanceTroisKm" class="filterChoice">A moins de 3 km de moi</li>
-            <li id="distanceCinqKm" class="filterChoice">A moins de 5 km de moi</li>
-            <li id="distanceDixKm" class="filterChoice">A moins de 10 km de moi</li>
-            <li id="distanQuinzeKm" class="filterChoice">A moins de 15 km de moi</li>
+            <li style="margin:8px 0"; id="distanceTroisKm" class="filterChoice">A moins de 3 km de moi</li>
+            <li style="margin:8px 0"id="distanceCinqKm" class="filterChoice">A moins de 5 km de moi</li>
+            <li style="margin:8px 0"id="distanceDixKm" class="filterChoice">A moins de 10 km de moi</li>
+            <li style="margin:8px 0"id="distanQuinzeKm" class="filterChoice">A moins de 15 km de moi</li>
           </ul>
-        </div> -->
+        </div>
 
 <!--           <input type="radio" id="longitudeUser" name="longitude" value="" checked>
-          <input type="radio" id="latitudeUser" name="latitude" value="" checked>
+          <input type="radio" id="latitudeUser" name="latitude" value="" checked> -->
+          <input type="radio" id="longitudeUser" name="longitude" value="2.3798505999999997" checked>
+          <input type="radio" id="latitudeUser" name="latitude" value="48.8648755" checked>
 
-          <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance">
-          <label style="visibility: hidden" class="filterChoice" for="sortDistance"></label> -->
+          <!-- <input onclick="getLocation()" type="radio" id="sortDistance" name="sort" value="distance"> -->
+          <input type="radio" id="sortDistance" name="sort" value="distance">
+          <label style="display:none" class="filterChoice" for="sortDistance"></label>
 
           <!-- id unique pour qu'on ne puisse sélectionner qu'une seule radio -->
           <!-- name = clé qu'on récupère dans les params -->
@@ -87,7 +93,7 @@
       </div>
 
       <div style="display: flex; align-items: center">
-        <input style="margin-top: 30px!important" type="submit" value="GO !" id="ModalSubmitFilter">
+        <input style="margin-top: 10px!important" type="submit" value="GO !" id="ModalSubmitFilter">
       </div>
   </form>
 </div>
