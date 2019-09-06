@@ -3,31 +3,34 @@
 </div>
 <h1 class="text-center mt-3">Votre profil</h1>
 
-<div class="card-text profile d-flex align-items-center">
+<div class="profile d-flex align-items-center">
   <img src="https://www.searchpng.com/wp-content/uploads/2019/02/Profile-PNG-Icon-715x715.png">
-  <h2 class="profile"><%= link_to 'Mon profil', edit_user_registration_path %></h2>
+  <h2><%= link_to 'Mon profil', edit_user_registration_path, style:"font-size: 18px"  %></h2>
 </div>
 
-<div class="card-text profile d-flex align-items-center">
+<div class="profile d-flex align-items-center">
   <img src="https://www.freeiconspng.com/uploads/euro-icon-2.png">
-  <h2 class="profile"><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path %></h2>
+  <h2><%= link_to 'Prendre un nouvel abonnement', new_subs_booking_path, style:"font-size: 18px"  %></h2>
 </div>
 
 <% if @subscription_exists == true %>
-  <div class="card-text profile d-flex align-items-center">
+  <div class="profile d-flex align-items-center">
     <img src="https://www.freeiconspng.com/uploads/euro-icon-2.png">
-    <h2 class="profile"><%= link_to 'Mes abonnements', subs_bookings_path %></h2>
+    <h2><%= link_to 'Mes abonnements', subs_bookings_path, style:"font-size: 18px" %></h2>
   </div>
 <% end %>
 
-<div class="card-text profile d-flex align-items-center">
+
+<!-- subscription d-flex align-items-center justify-content-between -->
+
+<div class="profile d-flex align-items-center">
   <img src="https://image.flaticon.com/icons/png/512/107/107005.png">
-  <h2 class="profile"><%= link_to 'Changer mon mot de passe', edit_user_registration_path %></h2>
+  <h2><%= link_to 'Changer mon mot de passe', edit_user_registration_path, style:"font-size: 18px"  %></h2>
 </div>
 
-<div class="card-text profile d-flex align-items-center">
+<div class="profile d-flex align-items-center">
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv3GLeKYBhkB1k3NCHCT-kbV5qyIoo2WOnGkPvF6KBuQad1rU4">
-  <h2 class="profile"><%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: "Etes-vous sûr de vouloir vous delogger?"} %></h2>
+  <h2><%= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: "Etes-vous sûr de vouloir vous delogger?"}, style:"font-size: 18px"  %></h2>
 </div>
 
 

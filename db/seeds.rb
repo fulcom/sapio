@@ -254,7 +254,7 @@ puts "Creating places..."
 
 # table Subscriptions
 one = Subscription.create!(name:"Basique", price:50, description:"Abonnement mensuel incluant cinémas, musées", subscription_number: 1)
-two = Subscription.create!(name:"Advancé", price:70, description:"Abonnement mensuel incluant cinémas, musées, théâtres, concerts", subscription_number: 2)
+two = Subscription.create!(name:"Avancé", price:70, description:"Abonnement mensuel incluant cinémas, musées, théâtres, concerts", subscription_number: 2)
 three = Subscription.create!(name:"Premium", price:100, description:"Abonnement mensuel incluant: cinémas, musées, théâtres, concerts & opéras", subscription_number: 3)
 
 puts "Creating subscriptions..."
@@ -340,9 +340,10 @@ plume_pinceau_crayon = Activity.create!(
   subscription: one,
   subscription_number: 1)
 
-plume_pinceau_crayon.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528927/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_1.png"
+plume_pinceau_crayon.remote_photo_one_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567529003/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_3.jpg"
 plume_pinceau_crayon.remote_photo_two_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528948/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_2.jpg"
-plume_pinceau_crayon.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567529003/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_3.jpg"
+plume_pinceau_crayon.remote_photo_three_url = "https://res.cloudinary.com/spark-and-rise-ltd/image/upload/v1567528927/Sapio/Plume_Pinceau_Crayon_institut_monde_arabe_1.png"
+
 plume_pinceau_crayon.save
 
 

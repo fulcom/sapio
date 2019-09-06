@@ -11,7 +11,7 @@
   <% @subscriptions.each do |subscription| %>
     <div class="subscription d-flex align-items-center justify-content-between">
         <div>
-          <h3>Abonnement <%= subscription.name%> : <%= subscription.price %>€</h3>
+          <h3 style="font-size: 16px">Abonnement <%= subscription.name%> : <%= subscription.price %>€</h3>
           <p><%= subscription.description%></p>
         </div>
           <%= simple_form_for @subs_booking do |f| %>
