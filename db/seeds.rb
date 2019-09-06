@@ -9,7 +9,7 @@
 User.destroy_all
 ActBooking.destroy_all
 puts "actbooking done"
-Favorite.detroy_all
+Favorite.destroy_all
 Activity.destroy_all
 puts "activity done"
 Place.destroy_all
